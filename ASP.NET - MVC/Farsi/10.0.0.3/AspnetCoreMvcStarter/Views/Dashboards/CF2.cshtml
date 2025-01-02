@@ -1,0 +1,295 @@
+@{
+  ViewData["Title"] = "داشبورد - حمل و نقل";
+}
+
+@section VendorStyles{
+  <link rel="stylesheet" href="~/vendor/libs/apex-charts/apex-charts.css" />
+  <link rel="stylesheet" href="~/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+  <link rel="stylesheet" href="~/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+}
+
+@section VendorScripts{
+  <script src="~/vendor/libs/apex-charts/apexcharts.js"></script>
+  <script src="~/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+<script src="~/vendor/libs/datatables-bs5/i18n/fa.js"></script>
+}
+
+@section PageStyles{
+  <link rel="stylesheet" href="~/vendor/css/pages/app-logistics-dashboard.css" />
+}
+
+@section PageScripts{
+  <script src="~/js/app-logistics-dashboard.js"></script>
+}
+
+<!-- Card Border Shadow -->
+<div class="row">
+  <div class="col-sm-6 col-lg-3 mb-4">
+    <div class="card card-border-shadow-primary">
+      <div class="card-body">
+        <div class="d-flex align-items-center mb-2 pb-1">
+          <div class="avatar me-2">
+            <span class="avatar-initial rounded bg-label-primary">
+              <i class="ti ti-truck ti-md"></i>
+            </span>
+          </div>
+          <h4 class="ms-1 mb-0">18</h4>
+        </div>
+				<p class="mb-1">آغاز جمع آوری وجوه</p>
+        <p class="mb-0">
+          <span class="fw-medium me-1">
+            <bdi>+18.2</bdi>
+            درصد
+          </span>
+          <small class="text-muted">نسبت به ماه گذشته</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4">
+    <div class="card card-border-shadow-warning">
+      <div class="card-body">
+        <div class="d-flex align-items-center mb-2 pb-1">
+          <div class="avatar me-2">
+            <span class="avatar-initial rounded bg-label-warning">
+              <i class="ti ti-alert-triangle ti-md"></i>
+            </span>
+          </div>
+          <h4 class="ms-1 mb-0">14</h4>
+        </div>
+				<p class="mb-1">پایان دوره جمع آوری وجوه</p>
+        <p class="mb-0">
+          <span class="fw-medium me-1">
+            <bdi>-8.7</bdi>
+            درصد
+          </span>
+          <small class="text-muted">نسبت به ماه گذشته</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4">
+    <div class="card card-border-shadow-danger">
+      <div class="card-body">
+        <div class="d-flex align-items-center mb-2 pb-1">
+          <div class="avatar me-2">
+            <span class="avatar-initial rounded bg-label-danger">
+              <i class="ti ti-git-fork ti-md"></i>
+            </span>
+          </div>
+          <h4 class="ms-1 mb-0">10</h4>
+        </div>
+				<p class="mb-1">تایید موفقیت جمع آوری توسط نهاد مالی</p>
+        <p class="mb-0">
+          <span class="fw-medium me-1">
+            <bdi>+4.3</bdi>
+            درصد
+          </span>
+          <small class="text-muted">نسبت به ماه گذشته</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4">
+    <div class="card card-border-shadow-info">
+      <div class="card-body">
+        <div class="d-flex align-items-center mb-2 pb-1">
+          <div class="avatar me-2">
+            <span class="avatar-initial rounded bg-label-info">
+              <i class="ti ti-clock ti-md"></i>
+            </span>
+          </div>
+          <h4 class="ms-1 mb-0">6</h4>
+        </div>
+				<p class="mb-1">تایید نهایی موفقیت جمع آوری وجوه</p>
+        <p class="mb-0">
+          <span class="fw-medium me-1">
+            <bdi>-2.5</bdi>
+            درصد
+          </span>
+          <small class="text-muted">نسبت به ماه گذشته</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ Card Border Shadow -->
+<div class="row">
+  <!-- Vehicles overview -->
+  <div class="col-xxl-6 mb-4 order-5 order-xxl-0">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title mb-0">
+          <h5 class="m-0">عملکرد طرحها</h5>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="d-none d-lg-flex vehicles-progress-labels mb-2">
+					<div class="vehicles-progress-label on-the-way-text" style="width: 39.7%">آغاز جمع آوری وجوه</div>
+					<div class="vehicles-progress-label unloading-text" style="width: 28.3%">پایان دوره جمع آوری </div>
+					<div class="vehicles-progress-label loading-text" style="width: 17.4%">تایید موفقیت جمع آوری </div>
+					<div class="vehicles-progress-label waiting-text text-nowrap" style="width: 14.6%">تایید نهایی  </div>
+        </div>
+        <div class="vehicles-overview-progress progress rounded-2 mb-4" style="height: 46px">
+          <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="39.7" class="progress-bar fw-medium text-start bg-body text-dark px-3 rounded-0" role="progressbar" style="width: 39.7%"> 39.7%</div>
+          <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="28.3" class="progress-bar fw-medium text-start bg-primary px-3" role="progressbar" style="width: 28.3%"> 28.3%</div>
+          <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="17.4" class="progress-bar fw-medium text-start text-bg-info px-3" role="progressbar" style="width: 17.4%"> 17.4%</div>
+          <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="14.6" class="progress-bar fw-medium text-start bg-gray-900 px-2 rounded-0 px-lg-2 px-xxl-3" role="progressbar" style="width: 14.6%"> 14.6%</div>
+        </div>
+        <div class="table-responsive">
+          <table class="table card-table">
+            <tbody class="table-border-bottom-0">
+            <tr>
+              <td class="w-50 ps-0">
+                <div class="d-flex justify-content-start align-items-center">
+                  <div class="me-2">
+                    <i class="ti ti-truck mt-n1"></i>
+                  </div>
+										<h6 class="mb-0 fw-normal">آغاز جمع آوری وجوه</h6>
+                </div>
+              </td>
+              <td class="text-end pe-0 text-nowrap">
+                <h6 class="mb-0">18 طرح</h6>
+              </td>
+              <td class="text-end pe-0">
+                <span class="fw-medium">39.7%</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="w-50 ps-0">
+                <div class="d-flex justify-content-start align-items-center">
+                  <div class="me-2">
+                    <i class="ti ti-circle-arrow-down mt-n1"></i>
+                  </div>
+										<h6 class="mb-0 fw-normal">پایان دوره جمع آوری وجوه</h6>
+                </div>
+              </td>
+              <td class="text-end pe-0 text-nowrap">
+                <h6 class="mb-0">14 طرح</h6>
+              </td>
+              <td class="text-end pe-0">
+                <span class="fw-medium">28.3%</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="w-50 ps-0">
+                <div class="d-flex justify-content-start align-items-center">
+                  <div class="me-2">
+                    <i class="ti ti-circle-arrow-up mt-n1"></i>
+                  </div>
+										<h6 class="mb-0 fw-normal">تایید موفقیت جمع آوری وجوه توسط نهاد مالی</h6>
+                </div>
+              </td>
+              <td class="text-end pe-0 text-nowrap">
+                <h6 class="mb-0">10 طرح</h6>
+              </td>
+              <td class="text-end pe-0">
+                <span class="fw-medium">17.4%</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="w-50 ps-0">
+                <div class="d-flex justify-content-start align-items-center">
+                  <div class="me-2">
+                    <i class="ti ti-clock mt-n1"></i>
+                  </div>
+										<h6 class="mb-0 fw-normal">تایید نهایی موفقیت جمع آوری وجوه</h6>
+                </div>
+              </td>
+              <td class="text-end pe-0 text-nowrap">
+                <h6 class="mb-0">6 طرح</h6>
+              </td>
+              <td class="text-end pe-0">
+                <span class="fw-medium">14.6%</span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Vehicles overview -->
+  <!-- Shipment statistics-->
+  <div class="col-lg-6 col-xxl-6 mb-4 order-3 order-xxl-1">
+    <div class="card">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="card-title mb-0">
+          <h5 class="m-0 me-2">آمار طرحهای تامین مالی</h5>
+          <small class="text-muted">تعداد کل تامین مالی شده 23.8 </small>
+        </div>
+        <div class="dropdown">
+          <button aria-expanded="false" class="btn btn-label-primary dropdown-toggle" data-bs-toggle="dropdown" type="button"> سال 1403</button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">سال 1395</a>
+            </li>
+            <li>
+			  <a class="dropdown-item" href="javascript:void(0);">سال 1396</a>
+            </li>
+            <li>
+			  <a class="dropdown-item" href="javascript:void(0);">سال 1397</a>
+            </li>
+            <li>
+			  <a class="dropdown-item" href="javascript:void(0);">سال 1398</a>
+            </li>
+            <li>
+			  <a class="dropdown-item" href="javascript:void(0);">سال 1399</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">سال 1400</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">سال 1401</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">سال 1402</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">سال 1403</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="my-1" id="shipmentStatisticsChart"></div>
+      </div>
+    </div>
+  </div>
+  <!-- On route vehicles Table -->
+  <div class="col-12 order-5">
+    <div class="card">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="card-title mb-0">
+					<h5 class="m-0 me-2">آغاز جمع آوری وجوه</h5>
+        </div>
+        <div class="dropdown">
+          <button aria-expanded="false" aria-haspopup="true" class="btn p-0" data-bs-toggle="dropdown" id="routeVehicles" type="button">
+            <i class="ti ti-dots-vertical"></i>
+          </button>
+          <div aria-labelledby="routeVehicles" class="dropdown-menu dropdown-menu-end">
+            <a class="dropdown-item" href="javascript:void(0);">همه</a>
+            <a class="dropdown-item" href="javascript:void(0);">تازه سازی</a>
+            <a class="dropdown-item" href="javascript:void(0);">اشتراک گذاری</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-datatable table-responsive">
+        <table class="dt-route-vehicles table">
+          <thead class="border-top">
+          <tr>
+            <th></th>
+            <th></th>
+            <th>نام طرح</th>
+            <th>نام شرکت</th>
+            <th>نهاد مالی ناظر</th>
+            <th>هشدارها</th>
+            <th class="w-20">درصد پیشروی</th>
+          </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--/ On route vehicles Table -->
+</div>
