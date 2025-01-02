@@ -1,0 +1,74 @@
+@model AspnetCoreMvcFull.Models.Transactions
+
+@{
+  ViewData["Title"] = "عمل افزودن اطلاعات";
+}
+@section VendorStyles {
+  <link rel="stylesheet" href="~/vendor/libs/select2/select2.css">
+  <link rel="stylesheet" href="~/vendor/libs/&#64;form-validation/umd/styles/index.min.css" />
+  <link rel="stylesheet" href="~/vendor/libs/flatpickr/flatpickr.css" />
+  <link rel="stylesheet" href="~/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+  <link rel="stylesheet" href="~/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
+}
+
+@section VendorScripts {
+  <script src="~/vendor/libs/moment/moment.js"></script>
+  <script src="~/vendor/libs/select2/select2.js"></script>
+<script src="~/vendor/libs/select2/i18n/fa.js"></script>
+  <script src="~/vendor/libs/&#64;form-validation/umd/bundle/popular.min.js"></script>
+  <script src="~/vendor/libs/&#64;form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+  <script src="~/vendor/libs/&#64;form-validation/umd/plugin-auto-focus/index.min.js"></script>
+  <script src="~/vendor/libs/jdate/jdate.min.js"></script>
+<script src="~/vendor/libs/flatpickr/flatpickr-jdate.js"></script>
+<script src="~/vendor/libs/flatpickr/l10n/fa.js"></script>
+}
+
+@section PageScripts {
+  <script src="~/js/transactions-add-update.js"></script>
+}
+
+<h4 class="py-3 mb-4">
+    <span class="text-muted fw-light">عملیات‌های CRUD /</span> افزودن
+</h4>
+
+<div class="card">
+  <div class="card-body pb-2">
+    <form asp-action="Add" id="addTransactionForm" method="post">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <div class="mb-3">
+                <label asp-for="Customer" class="form-label">مشتری</label>
+        <input asp-for="Customer" class="form-control" placeholder="نام کامل"/>
+        <span asp-validation-for="Customer" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+                <label asp-for="TransactionDate" class="form-label">تاریخ تراکنش</label>
+        <input asp-for="TransactionDate" class="form-control transaction-date" placeholder="کلیک کنید"/>
+        <span asp-validation-for="TransactionDate" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+                <label asp-for="DueDate" class="form-label">تاریخ سررسید</label>
+        <input asp-for="DueDate" class="form-control due-date" placeholder="کلیک کنید"/>
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+                <label asp-for="Total" class="form-label">مبلغ کل</label>
+        <input asp-for="Total" class="form-control" placeholder="تومان"/>
+        <span asp-validation-for="Total" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <label asp-for="Status" class="form-label">وضعیت</label>
+        <select asp-for="Status" class="form-select select2">
+          <option value="">انتخاب وضعیت</option>
+          <option value="Paid">پرداخت شده</option>
+          <option value="Due">رد شده</option>
+          <option value="Canceled">لغو شده</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <button type="submit" value="Create" class="btn btn-primary me-sm-3 me-1">ثبت اطلاعات</button>
+        <a href="Index" value="Back" class="btn btn-secondary">بازگشت</a>
+      </div>
+    </form>
+  </div>
+</div>
