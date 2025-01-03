@@ -1,0 +1,80 @@
+@{
+  Layout = "_BlankLayout";
+  ViewData["Title"] = "صفحات - ورود";
+}
+
+@section VendorStyles {
+<link rel="stylesheet" href="~/vendor/libs/&#64;form-validation/umd/styles/index.min.css" />
+}
+
+@section VendorScripts {
+<script src="~/vendor/libs/&#64;form-validation/umd/bundle/popular.min.js"></script>
+<script src="~/vendor/libs/&#64;form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+<script src="~/vendor/libs/&#64;form-validation/umd/plugin-auto-focus/index.min.js"></script>
+}
+
+@section PageStyles {
+<link rel="stylesheet" href="~/vendor/css/pages/page-auth.css">
+}
+
+@section PageScripts {
+<script src="~/js/pages-auth.js"></script>
+}
+@* ************** Content ************** *@
+
+<div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner py-4">
+      <!-- Login -->
+      <div class="card">
+        <div class="card-body">
+          <!-- Logo -->
+          <div class="app-brand justify-content-center mb-4 mt-2">
+            <a href="/" class="app-brand-link gap-2">
+              <span class="app-brand-logo demo">@await Html.PartialAsync("../_Partials/_Macros")</span>
+              <span class="app-brand-text demo text-body fw-bold ms-1">@TempData.Peek("appName")</span>
+            </a>
+          </div>
+          <!-- /Logo -->
+          <h4 class="mb-1 pt-2">خوش آمدید به @TempData.Peek("appName")! 👋</h4>
+          <p class="mb-4">لطفا به حساب کاربری خود وارد شوید تا از امکانات سامانه استفاده کنید.</p>
+					@if (ViewBag.ErrorMessage != null)
+					{
+						<div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+					}
+          <form id="formAuthentication" class="mb-3" action="~/" method="Post">
+            <div class="mb-3">
+              <label class="form-label" for="email">ایمیل یا نام کاربری</label>
+              <input autofocus class="form-control" id="email" name="emailusername" placeholder="ایمیل یا نام کاربری خود را وارد کنید" type="text"/>
+            </div>
+            <div class="mb-3 form-password-toggle">
+              <div class="d-flex justify-content-between">
+                <label class="form-label" for="password">رمز عبور</label>
+                <a href="/Auth/ForgotPasswordBasic">
+@*                   <small>فراموش کرده‌اید؟</small>
+ *@                </a>
+              </div>
+              <div class="input-group input-group-merge">
+                <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="remember-me">
+                <label class="form-check-label" for="remember-me"> مرا به خاطر بسپار</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <button class="btn btn-primary d-grid w-100" type="submit">ورود به سیستم</button>
+            </div>
+
+          </form>
+
+         </div>
+      </div>
+      <!-- /Register -->
+    </div>
+  </div>
+</div>
+
