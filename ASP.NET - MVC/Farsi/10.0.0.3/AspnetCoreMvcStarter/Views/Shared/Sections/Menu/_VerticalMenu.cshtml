@@ -26,6 +26,7 @@
 
   @* ! Starter Kit menu-items *@
   <ul class="menu-inner py-1">
+
 		<li class='menu-item@(currentPage.EndsWith("/") || currentPage.StartsWith("/Dashboards")? " active open" : "")'>
 			<a href="javascript:void(0);" class="menu-link menu-toggle">
 				<i class="menu-icon tf-icons ti ti-smart-home"></i>
@@ -80,14 +81,25 @@
         </li> *@
 			</ul>
 		</li>
-
-
 		<li class='menu-item@(currentPage == "/Pages/ProfileProjects" ? " active" : "")'>
 			<a asp-controller="Pages" asp-action="ProfileProjects" class="menu-link">
 				<i class="menu-icon tf-icons ti ti-database"></i>
 
 				<div data-i18n="Projects">پروژه‌ها</div>
 			</a>
+		</li>
+		<li class='menu-item@(currentPage.StartsWith("/FrontPages") ? " active open" : "")'>
+			<a href="javascript:void(0);" class="menu-link menu-toggle">
+				<i class='menu-icon tf-icons ti ti-files'></i>
+				<div data-i18n="ai Pages">هوش مصنوعی</div>
+			</a>
+			<ul class="menu-sub">
+				<li class='menu-item@(currentPage == "/FrontPages/HelpCenterLanding" ? " active" : "")'>
+					<a asp-controller="FrontPages" asp-action="HelpCenterLanding" class="menu-link" target="_blank">
+						<div data-i18n="ai Center">چت بات پشتیبانی</div>
+					</a>
+				</li>
+			</ul>
 		</li>
 
   </ul>
