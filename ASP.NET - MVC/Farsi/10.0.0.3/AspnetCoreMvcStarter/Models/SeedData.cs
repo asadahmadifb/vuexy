@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
-using AspnetCoreMvcFull.Data;
+using AspnetCoreMvcStarter.Data;
 
-namespace AspnetCoreMvcFull.Models
+namespace AspnetCoreMvcStarter.Models
 {
     public static class SeedData
     {
@@ -15,7 +15,7 @@ namespace AspnetCoreMvcFull.Models
             {
                 if (context == null || context.Transactions == null)
                 {
-                    throw new ArgumentNullException("Null AspnetCoreMvcFullContext");
+                    throw new ArgumentNullException("Null AspnetCoreMvcStarterContext");
                 }
 
                 // Look for any transactions.

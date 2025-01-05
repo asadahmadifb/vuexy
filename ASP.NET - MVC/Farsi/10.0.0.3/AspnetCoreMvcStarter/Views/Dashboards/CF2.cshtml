@@ -18,9 +18,7 @@
   <link rel="stylesheet" href="~/vendor/css/pages/app-logistics-dashboard.css" />
 }
 
-@section PageScripts{
-  <script src="~/js/app-logistics-dashboard.js"></script>
-}
+
 
 <!-- Card Border Shadow -->
 <div class="row">
@@ -33,13 +31,13 @@
               <i class="ti ti-truck ti-md"></i>
             </span>
           </div>
-          <h4 class="ms-1 mb-0">18</h4>
+					<h4 class="ms-1 mb-0" id="OtherStartedValue">0</h4>
         </div>
 				<p class="mb-1">آغاز جمع آوری وجوه</p>
         <p class="mb-0">
           <span class="fw-medium me-1">
-            <bdi>+18.2</bdi>
-            درصد
+						<bdi id="StartedValue"></bdi>
+				درصد
           </span>
           <small class="text-muted">نسبت به ماه گذشته</small>
         </p>
@@ -55,12 +53,12 @@
               <i class="ti ti-alert-triangle ti-md"></i>
             </span>
           </div>
-          <h4 class="ms-1 mb-0">14</h4>
-        </div>
+					<h4 class="ms-1 mb-0" id="OtherFundingFinishedValue">0</h4>
+				</div>
 				<p class="mb-1">پایان دوره جمع آوری وجوه</p>
         <p class="mb-0">
           <span class="fw-medium me-1">
-            <bdi>-8.7</bdi>
+			<bdi id="FundingFinishedValue"></bdi>
             درصد
           </span>
           <small class="text-muted">نسبت به ماه گذشته</small>
@@ -77,13 +75,13 @@
               <i class="ti ti-git-fork ti-md"></i>
             </span>
           </div>
-          <h4 class="ms-1 mb-0">10</h4>
-        </div>
+					<h4 class="ms-1 mb-0" id="OtherApprovedByBrokerValue">0</h4>
+				</div>
 				<p class="mb-1">تایید موفقیت جمع آوری توسط نهاد مالی</p>
         <p class="mb-0">
           <span class="fw-medium me-1">
-            <bdi>+4.3</bdi>
-            درصد
+						<bdi id="ApprovedByBrokerValue"></bdi>
+						درصد
           </span>
           <small class="text-muted">نسبت به ماه گذشته</small>
         </p>
@@ -99,13 +97,13 @@
               <i class="ti ti-clock ti-md"></i>
             </span>
           </div>
-          <h4 class="ms-1 mb-0">6</h4>
-        </div>
+					<h4 class="ms-1 mb-0" id="OtherFundingApprovedByFarabourseValue">0</h4>
+				</div>
 				<p class="mb-1">تایید نهایی موفقیت جمع آوری وجوه</p>
         <p class="mb-0">
           <span class="fw-medium me-1">
-            <bdi>-2.5</bdi>
-            درصد
+						<bdi id="FundingApprovedByFarabourseValue"></bdi>
+						درصد
           </span>
           <small class="text-muted">نسبت به ماه گذشته</small>
         </p>
@@ -131,10 +129,10 @@
 					<div class="vehicles-progress-label waiting-text text-nowrap" style="width: 14.6%">تایید نهایی  </div>
         </div>
         <div class="vehicles-overview-progress progress rounded-2 mb-4" style="height: 46px">
-          <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="39.7" class="progress-bar fw-medium text-start bg-body text-dark px-3 rounded-0" role="progressbar" style="width: 39.7%"> 39.7%</div>
-          <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="28.3" class="progress-bar fw-medium text-start bg-primary px-3" role="progressbar" style="width: 28.3%"> 28.3%</div>
-          <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="17.4" class="progress-bar fw-medium text-start text-bg-info px-3" role="progressbar" style="width: 17.4%"> 17.4%</div>
-          <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="14.6" class="progress-bar fw-medium text-start bg-gray-900 px-2 rounded-0 px-lg-2 px-xxl-3" role="progressbar" style="width: 14.6%"> 14.6%</div>
+		<div id="StartedProgress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="39.7" class="progress-bar fw-medium text-start bg-body text-dark px-3 rounded-0" role="progressbar" style="width: 39.7%"> 39.7%</div>
+		<div id="OtherStartedProgress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="28.3" class="progress-bar fw-medium text-start bg-primary px-3" role="progressbar" style="width: 28.3%"> 28.3%</div>
+		<div id="FundingFinishedProgress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="17.4" class="progress-bar fw-medium text-start text-bg-info px-3" role="progressbar" style="width: 17.4%"> 17.4%</div>
+		<div id="OtherFundingFinishedProgress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="14.6" class="progress-bar fw-medium text-start bg-gray-900 px-2 rounded-0 px-lg-2 px-xxl-3" role="progressbar" style="width: 14.6%"> 14.6%</div>
         </div>
         <div class="table-responsive">
           <table class="table card-table">
@@ -149,10 +147,11 @@
                 </div>
               </td>
               <td class="text-end pe-0 text-nowrap">
-                <h6 class="mb-0">18 طرح</h6>
+				<h6 class="mb-0" id="OtherStartedValue1"></h6>
+
               </td>
               <td class="text-end pe-0">
-                <span class="fw-medium">39.7%</span>
+									<span class="fw-medium" id="StartedValue1"></span>
               </td>
             </tr>
             <tr>
@@ -161,14 +160,14 @@
                   <div class="me-2">
                     <i class="ti ti-circle-arrow-down mt-n1"></i>
                   </div>
-										<h6 class="mb-0 fw-normal">پایان دوره جمع آوری وجوه</h6>
+					<h6 class="mb-0 fw-normal">پایان دوره جمع آوری وجوه</h6>
                 </div>
               </td>
               <td class="text-end pe-0 text-nowrap">
-                <h6 class="mb-0">14 طرح</h6>
+									<h6 class="mb-0" id="OtherFundingFinishedValue1">0</h6>
               </td>
               <td class="text-end pe-0">
-                <span class="fw-medium">28.3%</span>
+									<span class="fw-medium" id="FundingFinishedValue1">0</span>
               </td>
             </tr>
             <tr>
@@ -181,10 +180,10 @@
                 </div>
               </td>
               <td class="text-end pe-0 text-nowrap">
-                <h6 class="mb-0">10 طرح</h6>
+									<h6 class="mb-0" id="OtherApprovedByBrokerValue1">0</h6>
               </td>
               <td class="text-end pe-0">
-                <span class="fw-medium">17.4%</span>
+									<span class="fw-medium" id="ApprovedByBrokerValue1">0</span>
               </td>
             </tr>
             <tr>
@@ -197,10 +196,10 @@
                 </div>
               </td>
               <td class="text-end pe-0 text-nowrap">
-                <h6 class="mb-0">6 طرح</h6>
+									<h6 class="mb-0" id="OtherFundingApprovedByFarabourseValue1">0</h6>
               </td>
               <td class="text-end pe-0">
-                <span class="fw-medium">14.6%</span>
+									<span class="fw-medium" id="FundingApprovedByFarabourseValue1">0</span>
               </td>
             </tr>
             </tbody>
@@ -219,7 +218,7 @@
           <small class="text-muted">تعداد کل تامین مالی شده 23.8 </small>
         </div>
         <div class="dropdown">
-          <button aria-expanded="false" class="btn btn-label-primary dropdown-toggle" data-bs-toggle="dropdown" type="button"> سال 1403</button>
+					<button aria-expanded="false" class="btn btn-label-primary dropdown-toggle disabled" data-bs-toggle="dropdown" type="button" disabled> سال 1403</button>
           <ul class="dropdown-menu">
             <li>
               <a class="dropdown-item" href="javascript:void(0);">سال 1395</a>
@@ -293,3 +292,12 @@
   </div>
   <!--/ On route vehicles Table -->
 </div>
+<script>
+	// تبدیل مدل به JSON و ارسال به JavaScript
+	var shipmentData = @Html.Raw(Json.Serialize(Model));
+
+</script>
+@section PageScripts {
+	<script src="~/js/app-logistics-dashboard.js"></script>
+
+}

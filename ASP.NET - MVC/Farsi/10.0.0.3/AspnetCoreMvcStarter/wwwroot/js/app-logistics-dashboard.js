@@ -4,7 +4,63 @@
 
 'use strict';
 
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
+
+  fetch('/Dashboards/GetAllData') // آدرس اکشن کنترلر به صورت دستی
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // تبدیل پاسخ به JSON
+    })
+    .then(data => {
+      // نمایش مقادیر در عناصر مربوطه
+      document.getElementById('StartedValue').textContent = data.started; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherStartedValue').textContent = data.otherStarted; // نمایش عدد در عنصر bdi
+      document.getElementById('FundingFinishedValue').textContent = '+' + data.fundingFinished; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherFundingFinishedValue').textContent = data.otherFundingFinished; // نمایش عدد در عنصر bdi
+      document.getElementById('ApprovedByBrokerValue').textContent = '+' + data.approvedByBroker; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherApprovedByBrokerValue').textContent = data.otherApprovedByBroker; // نمایش عدد در عنصر bdi
+      document.getElementById('FundingApprovedByFarabourseValue').textContent = '+' + data.fundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherFundingApprovedByFarabourseValue').textContent = data.otherFundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
+
+
+      document.getElementById('StartedValue1').textContent = data.Started; // نمایش عدد در عنصر bdi
+      document.getElementById('FundingFinishedValue1').textContent = data.FundingFinished; // نمایش عدد در عنصر bdi
+      document.getElementById('ApprovedByBrokerValue1').textContent = data.ApprovedByBroker; // نمایش عدد در عنصر bdi
+      document.getElementById('FundingApprovedByFarabourseValue1').textContent = data.FundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
+
+
+      document.getElementById('OtherStartedValue1').textContent = data.otherStarted; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherFundingFinishedValue1').textContent = data.otherFundingFinished; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherApprovedByBrokerValue1').textContent = data.otherApprovedByBroker; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherFundingApprovedByFarabourseValue1').textContent = data.otherFundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
+
+
+
+      var maxvalue = data.otherStarted + data.otherFundingFinished + data.otherApprovedByBroker + data.otherFundingApprovedByFarabourse;
+      updateProgressBar('StartedProgress', data.otherStarted, maxvalue);
+      updateProgressBar('OtherStartedProgress', data.otherFundingFinished, maxvalue);
+      updateProgressBar('FundingFinishedProgress', data.otherApprovedByBroker, maxvalue);
+      updateProgressBar('OtherFundingFinishedProgress', data.otherFundingApprovedByFarabourse, maxvalue);
+
+
+    })
+    .catch(error => {
+      console.error("Error fetching data:", error);
+    });
+  // تابع به‌روزرسانی نوار پیشرفت
+  function updateProgressBar(elementId, value, maxvalue) {
+    const percentValue = 100 *value/maxvalue; // چون مجموع برابر با 100 است، مقدار را به عنوان درصد استفاده می‌کنیم
+
+    const progressBar = document.getElementById(elementId);
+    if (progressBar) {
+      progressBar.style.width = percentValue + '%'; // تنظیم عرض نوار پیشرفت
+      progressBar.setAttribute('aria-valuenow', percentValue); // تنظیم مقدار aria
+      progressBar.textContent = percentValue.toFixed(1) + '%'; // نمایش مقدار به صورت درصد با یک رقم اعشار
+
+    }
+  }
   let labelColor, headingColor;
 
   if (isDarkStyle) {
@@ -30,6 +86,8 @@
     }
   };
 
+  var shipmentData = window.shipmentData; // فرض بر این است که shipmentData در نمای تعریف شده است
+  console.log(shipmentData); // برای بررسی داده‌ها
   // Shipment statistics Chart
   // --------------------------------------------------------------------
   const shipmentEl = document.querySelector('#shipmentStatisticsChart'),
@@ -38,12 +96,12 @@
         {
           name: 'سرمایه مورد نیاز',
           type: 'column',
-          data: [38, 45, 33, 38, 32, 50, 48, 40, 42, 37]
+          data: shipmentData.requiredCapital
         },
         {
           name: 'میزان سرمایه گذاری شده',
           type: 'line',
-          data: [23, 28, 23, 32, 28, 44, 32, 38, 26, 34]
+          data: shipmentData.investedCapital
         }
       ],
       chart: {
@@ -322,11 +380,13 @@
     const deliveryExceptionsChart = new ApexCharts(deliveryExceptionsChartE1, deliveryExceptionsChartConfig);
     deliveryExceptionsChart.render();
   }
-})();
+});
 
 // DataTable (jquery)
 // --------------------------------------------------------------------
 $(function () {
+
+
   // Variable declaration for table
   var dt_dashboard_table = $('.dt-route-vehicles');
 
@@ -504,4 +564,8 @@ $(function () {
     });
     $('.dataTables_info').addClass('pt-0');
   }
+  
+
+
+
 });

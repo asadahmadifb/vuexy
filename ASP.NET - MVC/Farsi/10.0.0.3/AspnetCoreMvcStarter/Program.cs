@@ -1,5 +1,5 @@
-using AspnetCoreMvcFull.Data;
-using AspnetCoreMvcFull.Models;
+using AspnetCoreMvcStarter.Data;
+using AspnetCoreMvcStarter.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Connect to the database
 builder.Services.AddDbContext<AspnetCoreMvcStarterContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("AspnetCoreMvcStarterContext") ?? throw new InvalidOperationException("Connection string 'AspnetCoreMvcFullContext' not found.")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("AspnetCoreMvcStarterContext") ?? throw new InvalidOperationException("Connection string 'AspnetCoreMvcStarterContext' not found.")));
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -15,7 +15,7 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-// Create a service scope to get an AspnetCoreMvcFullContext instance using DI and seed the database.
+// Create a service scope to get an AspnetCoreMvcStarterContext instance using DI and seed the database.
 using (var scope = app.Services.CreateScope())
 {
   var services = scope.ServiceProvider;

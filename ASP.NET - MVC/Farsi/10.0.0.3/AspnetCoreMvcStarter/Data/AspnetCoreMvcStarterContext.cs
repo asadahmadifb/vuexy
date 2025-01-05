@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using AspnetCoreMvcFull.Models;
+using AspnetCoreMvcStarter.Models;
 
-namespace AspnetCoreMvcFull.Data
+namespace AspnetCoreMvcStarter.Data
 {
     public class AspnetCoreMvcStarterContext : DbContext
     {
@@ -13,6 +13,6 @@ namespace AspnetCoreMvcFull.Data
             : base(options)
         {
         }
-        public DbSet<AspnetCoreMvcFull.Models.Transactions> Transactions { get; set; } = default!;
+        public DbSet<AspnetCoreMvcStarter.Models.Transactions> Transactions { get; set; } = default!;
     }
 }

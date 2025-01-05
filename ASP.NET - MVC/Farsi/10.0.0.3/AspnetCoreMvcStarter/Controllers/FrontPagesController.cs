@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AspnetCoreMvcFull.Controllers;
+namespace AspnetCoreMvcStarter.Controllers;
 
 public class FrontPagesController : Controller
 {
