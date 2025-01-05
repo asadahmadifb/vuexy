@@ -162,9 +162,9 @@ document.addEventListener('DOMContentLoaded', function () {
         userMessageElement.className = 'chat-message chat-message-right';
         userMessageElement.innerHTML = `
                 <div class="d-flex overflow-hidden">
-                    <div class="chat-message-wrapper flex-grow-1">
-                        <div class="chat-message-text mt-2">
-                            <p class="mb-0 text-break">${userMessage}</p>
+                    <div class="flex-grow-1">
+                        <div class="chat-message-text">
+                            <pre class="mb-0 text-break">${userMessage}</pre>
                         </div>
                     </div>
                 </div>
@@ -187,27 +187,33 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // ارسال پیام به API
-        const response = await fetch('https://app.station-ai.ir/api/v1/prediction/d251ac2b-59bc-4376-aceb-1c2bc50fc740', {
+        const response = await fetch('https://api.avalai.ir/v1/chat/completions', {
           method: 'POST',
           headers: {
+            'Authorization': `aa-tjWuLOuFw8cXivusXZdbzFnMTYS2b13RvygLsQLkz8yaOCdY`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ question: userMessage }),
+          body: JSON.stringify({
+            model: "gpt-4o-mini", // یا هر مدل دیگری که استفاده می‌کنید
+            messages: [{
+              role: "user",
+              content: userMessage
+            }],
+          }),
         });
         $('#card-block').unblock();
 
         if (response.ok) {
           const data = await response.json();
+          const aiMessage = data.choices[0].message.content; // فرض می‌کنیم که پاسخ در اینجا است
+          console.log(data);
+          console.log(data.choices[0].message);
           // نمایش پاسخ هوش مصنوعی
           let aiMessageElement = document.createElement('li');
           aiMessageElement.className = 'chat-message';
           aiMessageElement.innerHTML = `
                     <div class="d-flex overflow-hidden">
-                        <div class="chat-message-wrapper flex-grow-1">
-                            <div class="chat-message-text">
-                                <p class="mb-0">${data.text}</p>
-                            </div>
-                        </div>
+                      <pre class="formatted-response">${aiMessage}</pre> <!-- استفاده از <pre> برای فرمت‌بندی -->
                     </div>
                 `;
           chatHistory.appendChild(aiMessageElement);
