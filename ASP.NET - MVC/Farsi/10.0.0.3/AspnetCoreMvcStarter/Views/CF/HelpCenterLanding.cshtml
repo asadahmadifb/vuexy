@@ -27,6 +27,35 @@
 
 <div class="app-chat card overflow-hidden" id="card-block">
 	<div class="row g-0">
+		<!-- Chat & Contacts -->
+		<div class="col app-chat-contacts app-sidebar flex-grow-0 overflow-hidden border-end" id="app-chat-contacts">
+			<div class="sidebar-header">
+				<div class="d-flex align-items-center me-3 me-lg-0">
+					<div class="flex-grow-1 input-group input-group-merge rounded-pill">
+						<span class="input-group-text" id="basic-addon-search31">
+							<i class="ti ti-search h-mirror"></i>
+						</span>
+						<input aria-describedby="basic-addon-search31" aria-label="جستجو..." class="form-control chat-search-input"
+							   placeholder="جستجو..." type="text" />
+					</div>
+				</div>
+				<i class="ti ti-x cursor-pointer d-lg-none d-block position-absolute mt-2 me-1 top-0 end-0"
+				   data-bs-toggle="sidebar" data-overlay data-target="#app-chat-contacts"></i>
+			</div>
+			<hr class="container-m-nx m-0" />
+			<div class="sidebar-body">
+				<div class="chat-contact-list-item-title">
+					<h5 class="text-primary mb-0 px-4 pt-3 pb-2">سوابق</h5>
+				</div>
+				<!-- Chats -->
+				<ul class="list-unstyled chat-contact-list" id="chat-list">
+					<li class="chat-contact-list-item chat-list-item-0 d-none">
+						<h6 class="text-muted mb-0">هیچ گپی پیدا نشد</h6>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /Chat contacts -->
 		<!-- Chat History -->
 		<div class="col app-chat-history bg-body">
 			<div class="chat-history-wrapper">
@@ -57,7 +86,7 @@
 				<div class="chat-history-footer shadow-sm">
 					<form class="form-send-message d-flex justify-content-between align-items-center">
 						<input class="form-control message-input border-0 me-3 shadow-none"
-							   placeholder="پیام خود را اینجا تایپ کنید" />
+							   placeholder="پیام خود را اینجا تایپ کنید" id="message-input" />
 						<div class="message-actions d-flex align-items-center">
 @* 							<i class="speech-to-text ti ti-microphone ti-sm cursor-pointer"></i>
 							<label class="form-label mb-0" for="attach-doc">

@@ -6,6 +6,16 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   (function () {
+    // مثال‌هایی برای استفاده از تابع
+    const examples = [
+      "نام 5 طرح برتر",
+      "جمع کل مبلغ سرمایه گذاری",
+      "مجموع حقیقی و حقوقی کل طرحها"
+    ];
+
+    // ایجاد لیست و اضافه کردن به <ul> موجود
+    createChatContactList(examples);
+
     const chatContactsBody = document.querySelector('.app-chat-contacts .sidebar-body'),
       chatContactListItems = [].slice.call(
         document.querySelectorAll('.chat-contact-list-item:not(.chat-contact-list-item-title)')
@@ -124,8 +134,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Search in chats
         searchChatContacts(searchChatListItems, searchChatListItemsCount, searchValue, chatListItem0);
-        // Search in contacts
-        searchChatContacts(searchContactListItems, searchContactListItemsCount, searchValue, contactListItem0);
       });
     }
 
@@ -153,6 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         listItem0.classList.add('d-none');
       }
+  
+
     }
     // Send Message
     async function sendMessage(userMessage) {
@@ -241,12 +251,64 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
+    function createChatContactList(items) {
+      // پیدا کردن عنصر <ul> با شناسه مشخص شده
+      const ul = document.getElementById('chat-list');
+      const messageInput = document.getElementById('message-input');
+
+      // بررسی وجود عنصر <ul>
+      if (!ul) {
+        console.error('Element with id "chat-list" not found.');
+        return;
+      }
+
+      // برای هر آیتم در آرایه items، یک عنصر <li> ایجاد کنید
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'chat-contact-list-item';
+
+        const a = document.createElement('a');
+        a.className = 'd-flex align-items-center';
+
+        const div = document.createElement('div');
+        div.className = 'chat-contact-info flex-grow-1 ms-2';
+
+        const h6 = document.createElement('h6');
+        h6.className = 'chat-contact-name text-muted  text-truncate m-0';
+        h6.textContent = item; // متن آیتم را به h6 اضافه کنید
+
+        // اضافه کردن رویداد کلیک برای نوشتن در input
+        a.addEventListener('click', () => {
+          messageInput.value = item; // نوشتن محتوای آیتم در input
+        });
+        // اضافه کردن عناصر به هم
+        div.appendChild(h6);
+        a.appendChild(div);
+        li.appendChild(a);
+        ul.appendChild(li); // اضافه کردن <li> به <ul>
+      });
+    }
+
+
+
+    // مثال‌هایی برای استفاده از تابع
+
+
+ 
+
     // Send Message
     formSendMessage.addEventListener('submit', e => {
       e.preventDefault();
 
       if (messageInput.value) {
         const userMessage = messageInput.value.trim();
+        const ul = document.getElementById('chat-list');
+
+        const existingItems = Array.from(ul.getElementsByTagName('h6')).map(h => h.textContent);
+        if (!existingItems.includes(userMessage)) {
+          const examples = [userMessage];
+          createChatContactList(examples);
+        }
         sendMessage(userMessage);
       }
     });
