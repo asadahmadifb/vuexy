@@ -307,7 +307,7 @@
         parentHeightOffset: 0,
         type: 'donut'
       },
-      labels: ['فناوری اطلاعات', 'ورزشی', 'پزشکی', 'مهندسی'],
+      labels: ['برقی', 'ورزشی', 'دکوراسیون', 'استایل'],
       series: [45, 58, 30, 50],
       colors: [
         chartColors.donut.series1,
@@ -926,13 +926,12 @@
       language: {
         sLengthMenu: '_MENU_',
         search: '',
-        searchPlaceholder: 'جستجو سرمایه گذاری'
+        searchPlaceholder: 'جستجو فاکتور'
       },
       // Buttons
       buttons: [
         {
-          //text: '<i class="ti ti-plus me-md-2"></i><span class="d-md-inline-block d-none">جزییات سرمایه گذاری</span>',
-          text: '<span class="d-md-inline-block d-none">جزییات سرمایه گذاری</span>',
+          text: '<i class="ti ti-plus me-md-2"></i><span class="d-md-inline-block d-none">ثبت فاکتور</span>',
           className: 'btn btn-primary waves-effect waves-light',
           action: function (e, dt, button, config) {
             window.location = '/Invoice/Add';
@@ -987,15 +986,12 @@
                 column.search(val ? '^' + val : '', true, false).draw();
               });
 
-              //select.append('<option value="Downloaded" class="text-capitalize">دانلود شده</option>');
-              //select.append('<option value="Draft" class="text-capitalize">پیش نویس</option>');
-              //select.append('<option value="Paid" class="text-capitalize">پرداخت شده</option>');
-              //select.append('<option value="Partial Payment" class="text-capitalize">پرداخت قسطی</option>');
-              //select.append('<option value="Past Due" class="text-capitalize">موکول شده</option>');
-            //select.append('<option value="Sent" class="text-capitalize">ارسال شده</option>');
-            select.append('<option value="Downloaded" class="text-capitalize">تایید شده</option>');
-            select.append('<option value="Draft" class="text-capitalize">تایید نشده</option>');
-            select.append('<option value="Paid" class="text-capitalize">حذف شده</option>');
+              select.append('<option value="Downloaded" class="text-capitalize">دانلود شده</option>');
+              select.append('<option value="Draft" class="text-capitalize">پیش نویس</option>');
+              select.append('<option value="Paid" class="text-capitalize">پرداخت شده</option>');
+              select.append('<option value="Partial Payment" class="text-capitalize">پرداخت قسطی</option>');
+              select.append('<option value="Past Due" class="text-capitalize">موکول شده</option>');
+              select.append('<option value="Sent" class="text-capitalize">ارسال شده</option>');
 
             /*column
               .data()

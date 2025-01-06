@@ -1,5 +1,6 @@
 using AspnetCoreMvcStarter.Data;
 using AspnetCoreMvcStarter.Models;
+using AspnetCoreMvcStarter.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,8 @@ builder.Services.AddDbContext<AspnetCoreMvcStarterContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("AspnetCoreMvcStarterContext") ?? throw new InvalidOperationException("Connection string 'AspnetCoreMvcStarterContext' not found.")));
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+builder.Services.AddScoped<ICrowdFundingService, CrowdFundingService>();
+builder.Services.AddScoped<OpenAiService>(); // ثبت OpenAiService
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

@@ -1,0 +1,231 @@
+﻿/* اضافه کردن فونت IranSans */
+@font-face {
+    font-family: 'IranSans';
+    src: url('../fonts/IranSans__Regular.woff2') format('woff2'), url('../fonts/IranSans__Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* تنظیم فونت پیش‌فرض برای تمام عناصر صفحه */
+* {
+    font-family: 'IranSans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IranSans', Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    direction: rtl;
+}
+
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #872434; /* تغییر رنگ دکمه چت */
+    color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+    .chat-button:hover {
+        background-color: #6b1c2b; /* تغییر رنگ دکمه چت هنگام hover */
+    }
+
+.chat-box {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 90%; /* تغییر عرض به 90% */
+    max-width: 500px; /* حداکثر عرض */
+    max-height: 80vh; /* حداکثر ارتفاع */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1000;
+    direction: rtl;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.chat-messages {
+    padding: 10px;
+    height: calc(70vh - 180px); /* ارتفاع متناسب با ارتفاع چت باکس */
+    overflow-y: auto;
+    background-color: #f0f0f0;
+}
+
+.chat-box.active {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}
+
+.chat-header {
+    background-color: #872434; /* تغییر رنگ سر تیتر */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 5px;
+    background-color: #f1f1f1;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+    .chat-input input {
+        flex-grow: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-left: 10px;
+    }
+
+    .chat-input button {
+        background-color: #872434; /* تغییر رنگ دکمه ارسال */
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
+
+        .chat-input button:hover {
+            background-color: #6b1c2b; /* تغییر رنگ دکمه ارسال هنگام hover */
+        }
+
+.message {
+    background-color: white; /* تنظیم پس‌زمینه به سفید */
+    padding: 5px; /* کاهش padding برای کاهش فاصله بین متن‌ها */
+    border-radius: 10px;
+    margin-bottom: 5px; /* کاهش فاصله بین پیام‌ها */
+    border: solid 1px #d9d9d9;
+    word-wrap: break-word;
+}
+
+.response-message {
+    background-color: #e6f7ff; /* رنگ پس‌زمینه */
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px; /* فاصله بین پیام‌ها */
+    border: 1px solid #91d5ff; /* حاشیه */
+}
+
+/* لایه پوششی و اسپینر */
+.overlay {
+    position: fixed; /* موقعیت ثابت */
+    top: 0;
+    left: 0;
+    width: 100%; /* عرض کامل */
+    height: 100%; /* ارتفاع کامل */
+    background-color: rgba(0, 0, 0, 0.5); /* پس‌زمینه نیمه شفاف */
+    display: flex; /* استفاده از فلیکس باکس */
+    justify-content: center; /* مرکز کردن افقی */
+    align-items: center; /* مرکز کردن عمودی */
+    z-index: 999; /* قرار دادن روی تمام عناصر */
+}
+
+.spinner {
+    border: 8px solid #f3f3f3; /* رنگ پس‌زمینه */
+    border-top: 8px solid #3498db; /* رنگ لبه بالایی */
+    border-radius: 50%; /* گرد کردن لبه‌ها */
+    width: 50px; /* عرض اسپینر */
+    height: 50px; /* ارتفاع اسپینر */
+    animation: spin 1s linear infinite; /* انیمیشن چرخش */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.chat-dropdown {
+    display: flex; /* استفاده از Flexbox برای تراز کردن در یک سطر */
+    align-items: center; /* تراز کردن عمودی عناصر */
+    margin: 5px 0; /* فاصله عمودی */
+}
+
+    .chat-dropdown label {
+        margin: 10px; /* فاصله بین لیبل و دراپ داون */
+        font-size: 14px; /* تنظیم اندازه فونت لیبل */
+        white-space: nowrap; /* جلوگیری از شکست خط */
+    }
+
+    .chat-dropdown select {
+        padding: 5px; /* کاهش padding برای کاهش ارتفاع Dropdown */
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        background-color: #f0f0f0; /* تنظیم پس‌زمینه به خاکستری */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+        outline: none;
+        font-size: 14px; /* تنظیم اندازه فونت Dropdown */
+        flex-grow: 1; /* اجازه دادن به دراپ داون برای پر کردن فضای باقی‌مانده */
+        margin-left: 10px; /* فاصله بین لیبل و دراپ داون */
+    }
+
+        .chat-dropdown select:focus {
+            border-color: #872434; /* تغییر رنگ حاشیه Dropdown هنگام فوکوس */
+        }
+
+/* مدیا کوئری برای ارتفاع کمتر از 400px */
+@media (max-height: 500px) {
+    .chat-box {
+        width: 100%; /* عرض چت باکس را به 100% تغییر دهید */
+        height: 100%; /* ارتفاع چت باکس را به 100% تغییر دهید */
+        bottom: 0; /* موقعیت چت باکس را به پایین تغییر دهید */
+        right: 0; /* موقعیت چت باکس را به راست تغییر دهید */
+        border-radius: 0; /* حذف گردی گوشه‌ها */
+        max-height: none; /* حذف محدودیت ارتفاع */
+        display: block; /* نمایش چت باکس */
+    }
+
+    .chat-button {
+        display: none; /* مخفی کردن دکمه چت */
+    }
+
+    .chat-header {
+        display: none; /* مخفی کردن عنوان چت باکس */
+    }
+
+    .chat-input {
+        display: none; /* مخفی کردن ورودی چت */
+    }
+
+    .chat-messages {
+        height: calc(100% - 50px); /* تنظیم ارتفاع پیام‌ها */
+    }
+}

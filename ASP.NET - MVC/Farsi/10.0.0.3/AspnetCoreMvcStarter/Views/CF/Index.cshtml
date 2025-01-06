@@ -1,0 +1,290 @@
+@model AspnetCoreMvcStarter.Models.CrowdFunding.ProjectAi
+@{
+    ViewData["Title"] = "لیست پروژه‌ها";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - My Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/css/chatbox.css"> <!-- لینک به CSS -->
+</head>
+<body style="direction: rtl">
+<style>
+    .custom-card {
+        border-radius: 15px; /* حاشیه خمیده */
+        overflow: hidden; /* برای جلوگیری از overflow */
+        max-height: 80vh; /* حداکثر ارتفاع 80% از ارتفاع صفحه */
+    }
+
+    .card-body {
+        max-height: 60vh; /* حداکثر ارتفاع محتوا */
+        overflow-y: auto; /* فعال‌سازی اسکرول عمودی */
+    }
+
+        .text-right {
+            text-align: right; /* تنظیم متن به سمت راست */
+        }
+
+        .response-message1 {
+            white-space: pre-wrap;
+            direction: ltr;
+            text-align: justify;
+            background-color: #e6f7ff; /* رنگ پس‌زمینه */
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 5px; /* فاصله بین پیام‌ها */
+            border: 1px solid #91d5ff; /* حاشیه */
+        }
+</style>
+
+    <div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-4"> <!-- عرض Card سمت چپ 80% -->
+                <button class="chat-button" onclick="toggleChat()">💬</button>
+                <div class="chat-box" id="chatBox">
+                    <div class="chat-header">
+                        <span>گزارشات هوشمند</span>
+                        <button onclick="toggleChat()">✖</button>
+                    </div>
+
+@*                     <div class="chat-dropdown">
+                        <label for="messageDropdown">موضوع انتخابی:</label>
+                        <select id="messageDropdown" onchange="sendDropdownMessage()">
+                            @foreach (var item in ViewBag.DropdownItems)
+                            {
+                                <option value="@item.Id">@item.Value</option>
+                            }
+                        </select>
+                    </div> *@
+
+                    <div class="chat-messages text-right" id="chatMessages">
+                        @foreach (var message in Model.messages)
+                        {
+                            <div class="message @(message.IsResponse ? "response-message1" : "")" >
+                                <p class="answer-box" >@message.Content</p>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="overlay" id="overlay" style="display: none;">
+                        <div class="spinner" id="spinner"></div>
+                    </div>
+
+                    <div class="chat-input">
+                        <input type="text" id="chatInput" placeholder="سوالتان را بپرسید...">
+                        <button id="sendButton">ارسال</button>
+                    </div>
+                </div>
+
+        </div>
+        
+        <div class="col-md-8"> <!-- Card سمت راست خالی -->
+                <div class="card shadow left-card mb-4" style="height: 90vh;">
+                    <div class="card-header text-right">
+                        <h5 class="card-title">لیست پروژه‌ها</h5>
+                        <button id="generateButton" class="btn btn-primary" onclick="generateProjects()">ایجاد داده تصادفی</button>
+
+                    </div>
+                    <div class="card-body text-right" style="max-height: 80vh;">
+                        <table id="projectsTable" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>شناسه </th>
+                                    <th>تاریخ درخواست</th>
+                                    <th>نماد طرح</th>
+                                    <th>نام سکو</th>
+                                    <th>متقاضی</th>
+                                    <th>شناسه ملی </th>
+                                    <th>عنوان طرح</th>
+                                    <th>تاریخ تایید درخواست</th>
+                                    <th>مبلغ کل مورد نیاز تامین مالی</th>
+                                    <th>کل مبلغ جمع آوری شده</th>
+                                    <th>مبلغ جمع آوری شده حقیقی</th>
+                                    <th>مبلغ جمع آوری شده حقوقی</th>
+                                    <th>تعداد مشارکت کننده حقیقی</th>
+                                    <th>تعداد مشارکت کننده حقوقی</th>
+                                    <th>تاریخ جمع آوری</th>
+                                    <th>تاریخ شروع اجرا</th>
+                                    <th>تاریخ اتمام </th>
+                                    <th>وضعیت</th>
+                                    <th>نوع وثیقه</th>
+                                    <th>سود علی الحساب</th>
+                                    <th>تواتر پرداخت</th>
+                                    <th>شناسه نهاد مالی</th>
+                                    <th>نام نهاد مالی</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var project in Model.projects)
+                                {
+                                    <tr>
+                                        <td>@project.ProjectID</td>
+                                        <td>@project.RequestDate</td>
+                                        <td>@project.Symbol</td>
+                                        <td>@project.PlatformName</td>
+                                        <td>@project.Applicant</td>
+                                        <td>@project.NationalID</td>
+                                        <td>@project.ProjectTitle</td>
+                                        <td>@project.ApprovalDate</td>
+                                        <td>@project.TotalFundingRequired.ToString("N0") </td>
+                                        <td>@project.TotalRaisedAmount.ToString("N0") </td>
+                                        <td>@project.ActualRaisedAmount.ToString("N0") </td>
+                                        <td>@project.LegalRaisedAmount.ToString("N0") </td>
+                                        <td>@project.IndividualContributorsCount </td>
+                                        <td>@project.LegalContributorsCount </td>
+                                        <td>@project.FundCollectionDate </td>
+                                        <td>@project.ProjectStartDate </td>
+                                        <td>@project.ProjectEndDate </td>
+                                        <td>@project.Status </td>
+                                        <td>@project.CollateralType</td>
+                                        <td>@project.InterestRate</td>
+                                        <td>@project.PaymentFrequency</td>
+                                        <td>@project.FinancialInstitutionID</td>
+                                        <td>@project.FinancialInstitutionName</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- بارگذاری jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- بارگذاری Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- بارگذاری DataTables -->
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    <!-- اسکریپت DataTable -->
+    <script>
+
+        // استفاده از jQuery در حالت بدونConflict
+        jQuery.noConflict();
+        jQuery(document).ready(function ($) {
+            $('#projectsTable').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Persian.json" // برای استفاده از زبان فارسی
+                }, 
+                "pageLength": 5, // تعداد رکوردهای پیش‌فرض که نمایش داده می‌شود
+                "lengthMenu": [
+                    [5,10, 20, 50, 100, -1], // گزینه‌های تعداد رکوردها
+                    [5,10, 20, 50, 100, "همه"] // متن گزینه‌ها
+                ]
+            });
+        });
+    </script>
+
+    <script>
+        function generateProjects() {
+				  fetch('@Url.Action("GenerateProjects", "cf")', {
+					method: 'POST', // نوع درخواست
+					headers: {
+						'Content-Type': 'application/json' // نوع محتوای ارسالی
+					},
+					body: JSON.stringify({ /* داده‌های مورد نیاز را اینجا قرار دهید */ })
+				})
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					return response.json(); // یا response.text() اگر انتظار دارید که متن دریافت کنید
+				})
+				.then(data => {
+					// پس از ایجاد داده‌ها، می‌توانید صفحه را دوباره بارگذاری کنید
+					location.reload(); // بارگذاری مجدد صفحه برای نمایش داده‌های جدید
+				})
+				.catch(error => {
+					alert('خطا در ایجاد داده‌ها. لطفا دوباره تلاش کنید.');
+					console.error('There was a problem with the fetch operation:', error);
+				});
+		}
+
+        function toggleChat() {
+            const chatBox = document.getElementById('chatBox');
+            chatBox.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('sendButton').addEventListener('click', function () {
+                const input = document.getElementById('chatInput');
+                const message = input.value.trim();
+                const dropdown = document.getElementById('messageDropdown');
+                const selectedMessageId = "CF"// dropdown.value; // دریافت ID انتخاب شده
+                if (message) {
+                    displayMessage(message, false); // false به این معنی است که پیام کاربر است
+
+                    sendMessage(message, selectedMessageId);
+                    input.value = ''; // پاک کردن ورودی
+                }
+            });
+
+            document.getElementById('chatInput').addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    document.getElementById('sendButton').click();
+                }
+            });
+        });
+
+        function sendMessage(messageContent, selectedMessageId) {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'flex'; // نمایش لایه پوششی و اسپینر
+				   // ایجاد یک شی برای داده‌های ارسالی
+			const data = {	
+				messageContent: messageContent,
+				selectedMessageId: selectedMessageId
+			};
+			// ارسال درخواست با استفاده از fetch
+			fetch('@Url.Action("SendMessage", "CF")', {
+				method: 'POST', // نوع درخواست
+				headers: {
+					'Content-Type': 'application/json' // نوع محتوای ارسالی
+				},
+				body: JSON.stringify(data) // تبدیل داده‌ها به فرمت JSON
+			})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json(); // تبدیل پاسخ به فرمت JSON
+			})
+			.then(data => {
+				// نمایش پاسخ سرور
+				displayMessage(data, true); // true به این معنی است که پیام پاسخ سرور است
+				overlay.style.display = 'none'; // پنهان کردن لایه پوششی
+			})
+			.catch(error => {
+				alert('خطا در ارسال پیام. لطفا دوباره تلاش کنید.');
+				overlay.style.display = 'none'; // پنهان کردن لایه پوششی در صورت خطا
+				console.error('There was a problem with the fetch operation:', error);
+			});
+        }
+
+        function displayMessage(message, isResponse) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = isResponse ? 'response-message1' : 'message'; // اضافه کردن کلاس مناسب
+            messageDiv.textContent = message; // تنظیم متن پیام
+            chatMessages.appendChild(messageDiv); // اضافه کردن پیام به بخش پیام‌ها
+            chatMessages.scrollTop = chatMessages.scrollHeight; // اسکرول به پایین
+        }
+
+        function sendDropdownMessage() {
+            // const dropdown = document.getElementById('messageDropdown');
+            // const selectedMessageId = dropdown.value; // دریافت ID انتخاب شده
+
+            // if (selectedMessageId) {
+            //     sendMessage("", selectedMessageId); // ارسال پیام انتخاب شده
+            // }
+        }
+    </script>
+</body>
+</html>
+
