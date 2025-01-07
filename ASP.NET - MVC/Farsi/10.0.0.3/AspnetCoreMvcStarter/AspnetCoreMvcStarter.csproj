@@ -19,6 +19,10 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+    <Content Update="Views\CF\DashboardAi.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
      <None Update="AspnetCoreMvcStarterContext.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

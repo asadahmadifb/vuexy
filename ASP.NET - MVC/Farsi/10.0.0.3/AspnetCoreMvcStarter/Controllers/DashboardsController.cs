@@ -25,7 +25,6 @@ public class DashboardsController : Controller
   } 
   public IActionResult Project() => View();
   public IActionResult FinanceProvider() => View();
-
   public JsonResult GetAllData()
   {
     var data = new DashboardData
@@ -42,7 +41,7 @@ public class DashboardsController : Controller
 
     return Json(data);
   }
-    public JsonResult GetShipmentStatistics()
+  public JsonResult GetShipmentStatistics()
   {
     // داده‌های نمونه
     var data = new
