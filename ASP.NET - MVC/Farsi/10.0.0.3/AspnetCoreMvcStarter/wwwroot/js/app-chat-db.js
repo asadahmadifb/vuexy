@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
       .then(data => {
         // نمایش پاسخ هوش مصنوعی
-        createChatContactList(examples);
+        createChatContactList(data);
 
 
       })
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
       formSendMessage = document.querySelector('.form-send-message'),
       messageInput = document.querySelector('.message-input'),
       searchInput = document.querySelector('.chat-search-input'),
+
       speechToText = $('.speech-to-text'), // ! jQuery dependency for speech to text
       userStatusObj = {
         active: 'avatar-online',
@@ -48,6 +49,29 @@ document.addEventListener('DOMContentLoaded', function () {
         away: 'avatar-away',
         busy: 'avatar-busy'
       };
+
+    document.getElementById('delete-button').addEventListener('click', function () {
+      fetch('/cf/deletehistory', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json(); // تبدیل پاسخ به JSON
+      })
+        .then(data => {
+          // نمایش پاسخ هوش مصنوعی
+          createChatContactList(data);
+
+        })
+        .catch(error => {
+          console.error("Error fetching data:", error);
+        });
+      alert('سلام');
+    });
 
     // Initialize PerfectScrollbar
     // ------------------------------
@@ -288,11 +312,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const h6 = document.createElement('h6');
         h6.className = 'chat-contact-name text-muted  text-truncate m-0';
-        h6.textContent = item; // متن آیتم را به h6 اضافه کنید
+        h6.textContent = item.question; // متن آیتم را به h6 اضافه کنید
 
         // اضافه کردن رویداد کلیک برای نوشتن در input
         a.addEventListener('click', () => {
-          messageInput.value = item; // نوشتن محتوای آیتم در input
+          messageInput.value = item.question; // نوشتن محتوای آیتم در input
         });
         // اضافه کردن عناصر به هم
         div.appendChild(h6);
