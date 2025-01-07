@@ -7,14 +7,27 @@
 document.addEventListener('DOMContentLoaded', function () {
   (function () {
     // مثال‌هایی برای استفاده از تابع
-    const examples = [
-      "نام 5 طرح برتر",
-      "جمع کل مبلغ سرمایه گذاری",
-      "مجموع حقیقی و حقوقی کل طرحها"
-    ];
+    fetch('/cf/GetExamples', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // تبدیل پاسخ به JSON
+    })
+      .then(data => {
+        // نمایش پاسخ هوش مصنوعی
+        createChatContactList(examples);
 
+
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
     // ایجاد لیست و اضافه کردن به <ul> موجود
-    createChatContactList(examples);
 
     const chatContactsBody = document.querySelector('.app-chat-contacts .sidebar-body'),
       chatContactListItems = [].slice.call(

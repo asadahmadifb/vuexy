@@ -42,6 +42,39 @@ namespace AspnetCoreMvcStarter.Controllers
         return View(projectAi);
     }
 
+
+    public async Task<JsonResult> GetExamples()
+    {
+      // داده‌ها را از منبع داده (مثلاً پایگاه داده) دریافت کنید
+      //var examples = new List<string>
+      //  {
+      //      "نام 5 طرح برتر",
+      //      "جمع کل مبلغ سرمایه گذاری",
+      //      "مجموع حقیقی و حقوقی کل طرحها"
+      //  };
+      var questionHistories = await _context.QuestionHistories.ToListAsync();
+
+      // ایجاد لیست برای ذخیره نتایج
+      var examples = new List<object>();
+
+      // برای هر سوال، داده‌های CrowdFunding را دریافت کنید
+      foreach (var item in questionHistories)
+      {
+        string jsonResult = "";
+        var response = await _CrowdFundingService.GetDataFromCF(item.response.Replace("\n", " ").Trim());
+        jsonResult = JsonConvert.SerializeObject(response, Formatting.Indented);
+        examples.Add(new
+        {
+          item.question,
+          item.response,
+          crowdfundingdata = jsonResult
+        });
+      }
+
+      // داده‌ها را به فرمت JSON برمی‌گرداند
+      return Json(examples);
+    }
+
     [HttpPost]
     public async Task<ActionResult> SendMessage([FromBody] Message messageContent)
     {
@@ -404,18 +437,5 @@ namespace AspnetCoreMvcStarter.Controllers
         _context.SaveChanges();
     }
 
-    public JsonResult GetExamples()
-    {
-      // داده‌ها را از منبع داده (مثلاً پایگاه داده) دریافت کنید
-      var examples = new List<string>
-        {
-            "نام 5 طرح برتر",
-            "جمع کل مبلغ سرمایه گذاری",
-            "مجموع حقیقی و حقوقی کل طرحها"
-        };
-
-      // داده‌ها را به فرمت JSON برمی‌گرداند
-      return Json(examples);
-    }
   }
 }

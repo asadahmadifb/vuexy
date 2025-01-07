@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AspnetCoreMvcStarter.Migrations
 {
     /// <inheritdoc />
-    public partial class aa : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -76,6 +76,23 @@ namespace AspnetCoreMvcStarter.Migrations
                 {
                     table.PrimaryKey("PK_TextSegments", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Transactions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Customer = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
+                    TransactionDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DueDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Total = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Status = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transactions", x => x.Id);
+                });
         }
 
         /// <inheritdoc />
@@ -89,6 +106,9 @@ namespace AspnetCoreMvcStarter.Migrations
 
             migrationBuilder.DropTable(
                 name: "TextSegments");
+
+            migrationBuilder.DropTable(
+                name: "Transactions");
         }
     }
 }
