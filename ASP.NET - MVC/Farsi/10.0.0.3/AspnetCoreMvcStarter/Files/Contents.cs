@@ -38,9 +38,9 @@ namespace AspnetCoreMvcStarter.Content
 						[FinancialInstitutionName] [nvarchar](1024) NULL
 					) ON [PRIMARY]";
 					break;
-				case "ProjectFinancingProvider":
+				case "Order":
 					tableStructure = @"
-						CREATE TABLE [dbo].[ProjectFinancingProvider](
+						CREATE TABLE [dbo].[Order](
 							[ID] [int] IDENTITY(1,1) NOT NULL,
 							[ProjectID] [int] NOT NULL,
 							[NationalID] [bigint] NOT NULL,
@@ -68,7 +68,7 @@ namespace AspnetCoreMvcStarter.Content
 							[VerifiedLastName] [nvarchar](max) NULL,
 							[VerifiedFatherName] [nvarchar](max) NULL,
 							[VerifiedBirthDate] [nvarchar](max) NULL,
-						 CONSTRAINT [PK_dbo.ProjectFinancingProvider] PRIMARY KEY CLUSTERED 
+						 CONSTRAINT [PK_dbo.Order] PRIMARY KEY CLUSTERED 
 						(
 							[ID] ASC
 						)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]

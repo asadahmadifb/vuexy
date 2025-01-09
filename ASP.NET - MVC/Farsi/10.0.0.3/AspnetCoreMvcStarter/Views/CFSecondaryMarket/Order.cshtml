@@ -1,0 +1,187 @@
+@{
+	ViewData["Title"] = "سفارشات ";
+}
+
+@section VendorStyles {
+	<link rel="stylesheet" href="~/vendor/libs/datatables-bs5/datatables.bootstrap5.css">
+	<link rel="stylesheet" href="~/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+	<link rel="stylesheet" href="~/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
+	<link rel="stylesheet" href="~/vendor/libs/select2/select2.css" />
+	<link rel="stylesheet" href="~/vendor/libs/&#64;form-validation/umd/styles/index.min.css" />
+	<link rel="stylesheet" href="~/vendor/libs/toastr/toastr.css" />
+	<link rel="stylesheet" href="~/vendor/libs/animate-css/animate.css">
+	<style>
+		div.dataTables_wrapper div.dataTables_length, div.dataTables_wrapper div.dataTables_filter {
+			margin-top: 0rem;
+			margin-bottom: 0rem;
+		}
+	</style>
+}
+@section VendorScripts {
+    <script src="~/vendor/libs/moment/moment.js"></script>
+	<script src="~/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+	<script src="~/vendor/libs/datatables-bs5/i18n/fa.js"></script>
+	<script src="~/vendor/libs/select2/select2.js"></script>
+	<script src="~/vendor/libs/select2/i18n/fa.js"></script>
+	<script src="~/vendor/libs/&#64;form-validation/umd/bundle/popular.min.js"></script>
+	<script src="~/vendor/libs/&#64;form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+	<script src="~/vendor/libs/&#64;form-validation/umd/plugin-auto-focus/index.min.js"></script>
+	<script src="~/vendor/libs/cleavejs/cleave.js"></script>
+	<script src="~/vendor/libs/cleavejs/cleave-phone.js"></script>
+	<script src="~/vendor/libs/toastr/toastr.js"></script>
+
+}
+@section PageScripts {
+	<script src="~/js/app-secondmarkerOrder.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js"></script>
+
+}
+
+@* ************** Content ************** *@
+<!-- Toast with Animation -->
+<div aria-atomic="true" aria-live="assertive" class="bs-toast toast toast-ex animate__animated my-2" data-bs-delay="2000" role="alert" id="ordertoast">
+	<div class="toast-header">
+		<i class="ti ti-bell ti-xs me-2"></i>
+		<div class="me-auto fw-medium">مرکز پیام</div>
+		<button aria-label="بستن" class="btn-close" data-bs-dismiss="toast" type="button"></button>
+	</div>
+	<div class="toast-body">به صفحه سفارشات خوش امدید.</div>
+</div>
+<!--/ Toast with Animation -->
+
+<div class="row g-2 mb-2">
+	<div class="col-sm-6 col-xl-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex align-items-start justify-content-between">
+					<div class="content-left">
+						<span>حجم سفارشات</span>
+						<div class="d-flex align-items-center my-2">
+							<h3 class="mb-0 me-2" id="total-amount">21,459</h3>
+							<p class="text-success mb-0">
+								<bdi id="total-pay">(+29%)</bdi>
+							</p>
+						</div>
+					</div>
+					<div class="avatar"> <span class="avatar-initial rounded bg-label-primary"> <i class="ti ti-user ti-sm"></i> </span> </div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6 col-xl-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex align-items-start justify-content-between">
+					<div class="content-left">
+						<span>ارزش معاملات</span>
+						<div class="d-flex align-items-center my-2">
+							<h3 class="mb-0 me-2" id="total-all">4,567</h3>
+							<p class="text-success mb-0">
+							</p>
+						</div>
+					</div>
+					<div class="avatar"> <span class="avatar-initial rounded bg-label-danger"> <i class="ti ti-user-plus ti-sm"></i> </span> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6 col-xl-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex align-items-start justify-content-between">
+					<div class="content-left">
+						<span>سفارشات خرید</span>
+						<div class="d-flex align-items-center my-2">
+							<h3 class="mb-0 me-2" id="total-amount-buy">19,860</h3>
+							<p class="text-danger mb-0">
+								<bdi id="total-pay-buy">(-14%)</bdi>
+							</p>
+						</div>
+					</div>
+					<div class="avatar"> <span class="avatar-initial rounded bg-label-success"> <i class="ti ti-user-check ti-sm"></i> </span> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6 col-xl-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex align-items-start justify-content-between">
+					<div class="content-left">
+						<span>سفارشات فروش</span>
+						<div class="d-flex align-items-center my-2">
+							<h3 class="mb-0 me-2" id="total-amount-sale">237</h3>
+							<p class="text-success mb-0">
+								<bdi id="total-pay-sale">(+42%)</bdi>
+							</p>
+						</div>
+					</div>
+					<div class="avatar"> <span class="avatar-initial rounded bg-label-warning"> <i class="ti ti-user-exclamation ti-sm"></i> </span> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row g-2 mb-2">
+	<div class="col-sm-12 col-xl-6">
+	  <div class="card">
+			<p class="text-success m-2">
+			  <bdi>سفارشات خرید</bdi>
+				<button id="delete-buy" class="btn btn-danger btn-sm me-2">
+					<i class="fas fa-trash"></i>
+				</button>
+		  </p>
+		  <div class="card-datatable text-nowrap">
+				<table class="dt-buy table" style="line-height: 10px !important;">
+				  <thead>
+					  <tr>
+						  <th>نام</th>
+						  <th>سود</th>
+						  <th>زمان سفارش</th>
+						  <th>مقدار</th>
+						  <th>مبلغ</th>
+					  </tr>
+				  </thead>
+			  </table>
+		  </div>
+	  </div>
+	 </div>
+	<div class="col-sm-12 col-xl-6">
+		<div class="card">
+			<p class="text-danger m-2">
+				<bdi>سفارشات فروش</bdi>
+				<button id="delete-sale" class="btn btn-danger btn-sm me-2">
+					<i class="fas fa-trash"></i>
+				</button>
+			</p>
+			<div class="card-datatable text-nowrap">
+				<table class="dt-sale table" style="line-height: 10px !important;">
+					<thead>
+						<tr>
+							<th>نام</th>
+							<th>سود</th>
+							<th>زمان سفارش</th>
+							<th>مقدار</th>
+							<th>مبلغ</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row g-2 mb-2">
+	<div class="col-sm-12 col-xl-6">
+		<div class="card">
+			<div class="card-body text-nowrap">
+				<button class="btn btn-primary d-flex send-msg-btn btn-section-block-multiple" id="automaticOrder">
+					<span class="align-middle d-md-inline-block d-none">سفارشات اتوماتیک</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+</div>

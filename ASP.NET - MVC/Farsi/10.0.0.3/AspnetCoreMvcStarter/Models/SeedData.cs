@@ -19,54 +19,67 @@ namespace AspnetCoreMvcStarter.Models
                 }
 
                 // Look for any transactions.
-                if (context.Transactions.Any())
+                if (!context.Transactions.Any())
                 {
-                    return;   // DB has been seeded
+                  context.Transactions.AddRange(
+                new Transactions
+                {
+                  Customer = "نوید محمدزاده",
+                  TransactionDate = DateTime.Parse("1402-01-01"),
+                  DueDate = DateTime.Parse("1402-01-10"),
+                  Total = 100.50m,
+                  Status = "paid"
+                },
+                new Transactions
+                {
+                  Customer = "سارا اعتمادی",
+                  TransactionDate = DateTime.Parse("1402-02-15"),
+                  DueDate = DateTime.Parse("1402-02-28"),
+                  Total = 75.20m,
+                  Status = "due"
+                },
+                new Transactions
+                {
+                  Customer = "ساعد سهیلی",
+                  TransactionDate = DateTime.Parse("1402-03-10"),
+                  DueDate = DateTime.Parse("1402-03-15"),
+                  Total = 50.75m,
+                  Status = "canceled"
+                },
+                new Transactions
+                {
+                  Customer = "پارسا پیروزفر",
+                  TransactionDate = DateTime.Parse("1402-03-11"),
+                  DueDate = DateTime.Parse("1402-03-25"),
+                  Total = 90.65m,
+                  Status = "due"
+                },
+                new Transactions
+                {
+                  Customer = "اتنا طهماسبی",
+                  TransactionDate = DateTime.Parse("1402-05-10"),
+                  DueDate = DateTime.Parse("1402-07-15"),
+                  Total = 60.25m,
+                  Status = "paid"
+                }
+            );
                 }
 
-                context.Transactions.AddRange(
-                    new Transactions
-                    {
-                        Customer = "نوید محمدزاده",
-                        TransactionDate = DateTime.Parse("1402-01-01"),
-                        DueDate = DateTime.Parse("1402-01-10"),
-                        Total = 100.50m,
-                        Status = "paid"
-                    },
-                    new Transactions
-                    {
-                        Customer = "سارا اعتمادی",
-                        TransactionDate = DateTime.Parse("1402-02-15"),
-                        DueDate = DateTime.Parse("1402-02-28"),
-                        Total = 75.20m,
-                        Status = "due"
-                    },
-                    new Transactions
-                    {
-                        Customer = "ساعد سهیلی",
-                        TransactionDate = DateTime.Parse("1402-03-10"),
-                        DueDate = DateTime.Parse("1402-03-15"),
-                        Total = 50.75m,
-                        Status = "canceled"
-                    },
-                    new Transactions
-                    {
-                        Customer = "پارسا پیروزفر",
-                        TransactionDate = DateTime.Parse("1402-03-11"),
-                        DueDate = DateTime.Parse("1402-03-25"),
-                        Total = 90.65m,
-                        Status = "due"
-                    },
-                    new Transactions
-                    {
-                        Customer = "اتنا طهماسبی",
-                        TransactionDate = DateTime.Parse("1402-05-10"),
-                        DueDate = DateTime.Parse("1402-07-15"),
-                        Total = 60.25m,
-                        Status = "paid"
-                    }
-                );
-                context.SaveChanges();
+              
+
+                if (!context.Orders.Any())
+                {
+                  context.Orders.AddRange(
+                    new Order { Id = 1, ProjectName = "وتامین", Benefit = "41%", StartTime = "10:23", Amount = "1000", Pay = "296" , Status=0 },
+                    new Order { Id = 2, ProjectName = "آب و انرژی", Benefit = "35%", StartTime = "11:15", Amount = "2000", Pay = "450", Status = 0 }
+
+                    );
+                }
+
+
+
+
+       context.SaveChanges();
             }
         }
     }

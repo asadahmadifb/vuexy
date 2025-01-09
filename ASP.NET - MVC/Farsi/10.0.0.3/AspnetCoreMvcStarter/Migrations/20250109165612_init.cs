@@ -12,6 +12,44 @@ namespace AspnetCoreMvcStarter.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "DashboardData",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Started = table.Column<double>(type: "REAL", nullable: false),
+                    OtherStarted = table.Column<double>(type: "REAL", nullable: false),
+                    FundingFinished = table.Column<double>(type: "REAL", nullable: false),
+                    OtherFundingFinished = table.Column<double>(type: "REAL", nullable: false),
+                    ApprovedByBroker = table.Column<double>(type: "REAL", nullable: false),
+                    OtherApprovedByBroker = table.Column<double>(type: "REAL", nullable: false),
+                    FundingApprovedByFarabourse = table.Column<double>(type: "REAL", nullable: false),
+                    OtherFundingApprovedByFarabourse = table.Column<double>(type: "REAL", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DashboardData", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ProjectName = table.Column<string>(type: "TEXT", nullable: false),
+                    Benefit = table.Column<string>(type: "TEXT", nullable: false),
+                    StartTime = table.Column<string>(type: "TEXT", nullable: false),
+                    Amount = table.Column<string>(type: "TEXT", nullable: false),
+                    Pay = table.Column<string>(type: "TEXT", nullable: false),
+                    Status = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Projects",
                 columns: table => new
                 {
@@ -98,6 +136,12 @@ namespace AspnetCoreMvcStarter.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "DashboardData");
+
+            migrationBuilder.DropTable(
+                name: "Orders");
+
             migrationBuilder.DropTable(
                 name: "Projects");
 

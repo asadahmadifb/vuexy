@@ -4,38 +4,36 @@
 
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
-  (function () {
-
-    fetch('/cf/GetExamples', {
+document.addEventListener('DOMContentLoaded', async function () {
+  try {
+    const response = await fetch('https://localhost:7230/api/CfApi', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json(); // تبدیل پاسخ به JSON
-    })
-      .then(data => {
-        // نمایش پاسخ هوش مصنوعی
-        createChatContactList(data);
+    });
 
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
 
-    function createChatContactList(items) {
+    const data = await response.json(); // تبدیل پاسخ به JSON
+    // نمایش پاسخ هوش مصنوعی
+    createChatContactList(data);
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+});
+function createChatContactList(items) {
+      console.log(items);
       // انتخاب عنصر <div class="row"> موجود
       const rowDiv = $('#exampleRow');
       // تابع برای تعیین کلاس‌های Bootstrap بر اساس تعداد سرستون‌ها
       function getColumnClass(numColumns) {
         if (numColumns >= 4) return 'col-12';
-        if (numColumns === 3) return 'col-6';
-        if (numColumns === 2) return 'col-4';
-        if (numColumns === 1) return 'col-3';
+        if (numColumns === 3) return 'col-6 col-md-12 col-x-12';
+        if (numColumns === 2) return 'col-4 col-md-6 col-x-12';
+        if (numColumns === 1) return 'col-3 col-md-6 col-x-12';
         return 'col-12'; // برای تعداد بیشتر از 4
       }
       // برای هر آیتم در آرایه items، یک کارت جدید ایجاد کنید
@@ -80,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <div class="d-flex overflow-hidden" >
                                       <div class="flex-grow-1" style="overflow-x:auto; white-space: nowrap;">
                                           <div class="table-responsive" >
-                                             <table class="table table-bordered" id="projects-table">
+                                             <table class="table table-bordered" id="projects-table" style="line-height: 15px !important;">
                                               <thead>
                                                   <tr>
                                                  ${tableHeaders}
@@ -105,6 +103,3 @@ document.addEventListener('DOMContentLoaded', function () {
         rowDiv.append(cardContainer);
       });
     }
-
-  })();
-});

@@ -22,7 +22,7 @@
   "Checkout": "ثبت سفارش",
   "Help Center": "مرکز پشتیبانی",
   "Help Learn": "صفحه آموزش",
-  "Apps & Pages": "برنامه‌ها و صفحات",
+  "Apps & Pages": "برنامه‌ها ",
   "Email": "ایمیل",
   "Chat": "پیامرسان",
   "Calendar": "تقویم",
@@ -181,5 +181,9 @@
   "ai Pages": "هوش مصنوعی",
   "ai Center": "چت بات پشتیبانی",
   "ai cf": "چت با پایگاه داده",
-  "dashboard ai": "داشبورد هوشمند"
+  "dashboard ai": "داشبورد هوشمند",
+  "Secondary market": "بازار ثانویه",
+  "Monitoring of crowd": "نظارت بر تامین مالی",
+  "SecondaryMarketSetting": "تنظیمات",
+  "SecondaryMarket" :  "سفارشات"
 }

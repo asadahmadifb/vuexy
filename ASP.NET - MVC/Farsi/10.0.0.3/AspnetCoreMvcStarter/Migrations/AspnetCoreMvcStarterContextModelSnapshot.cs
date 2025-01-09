@@ -17,7 +17,76 @@ namespace AspnetCoreMvcStarter.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
 
-            modelBuilder.Entity("AspnetCoreMvcStarter.Models.CrowdFunding.Project", b =>
+            modelBuilder.Entity("AspnetCoreMvcStarter.Models.CrowdFunding.DashboardData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("ApprovedByBroker")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("FundingApprovedByFarabourse")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("FundingFinished")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("OtherApprovedByBroker")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("OtherFundingApprovedByFarabourse")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("OtherFundingFinished")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("OtherStarted")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("Started")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DashboardData");
+                });
+
+            modelBuilder.Entity("AspnetCoreMvcStarter.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Amount")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Benefit")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Pay")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProjectName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StartTime")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("AspnetCoreMvcStarter.Models.Project", b =>
                 {
                     b.Property<int>("ProjectID")
                         .ValueGeneratedOnAdd()

@@ -2,6 +2,8 @@ namespace AspnetCoreMvcStarter.Models.CrowdFunding
 {
   public class DashboardData
   {
+    public int Id { get; set; } // کلید اصلی
+
     public double Started { get; set; }
     public double OtherStarted { get; set; }
     public double FundingFinished { get; set; }

@@ -18,8 +18,9 @@ namespace AspnetCoreMvcStarter.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<TextSegment> TextSegments { get; set; }
         public DbSet<QuestionHistory> QuestionHistories { get; set; }
-
-
+        public DbSet<DashboardData> DashboardData { get; set; }
+        public DbSet<Order> Orders { get; set; }
+    
 
   }
 }

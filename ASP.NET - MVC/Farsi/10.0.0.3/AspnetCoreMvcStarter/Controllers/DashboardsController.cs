@@ -25,32 +25,7 @@ public class DashboardsController : Controller
   } 
   public IActionResult Project() => View();
   public IActionResult FinanceProvider() => View();
-  public JsonResult GetAllData()
-  {
-    var data = new DashboardData
-    {
-      Started = 39.7,
-      OtherStarted = 12,
-      FundingFinished = 17.4,
-      OtherFundingFinished = 25,
-      ApprovedByBroker = 20.5,
-      OtherApprovedByBroker = 44,
-      FundingApprovedByFarabourse = 22.1,
-      OtherFundingApprovedByFarabourse = 120
-    };
+  public IActionResult ProfileProjects() => View();
 
-    return Json(data);
-  }
-  public JsonResult GetShipmentStatistics()
-  {
-    // داده‌های نمونه
-    var data = new
-    {
-      RequiredCapital = new[] { 38, 45, 33, 38, 32, 50, 48, 40, 42, 37 },
-      InvestedCapital = new[] { 23, 28, 23, 32, 28, 44, 32, 38, 26, 34 }
-    };
-
-    return Json(data); // برگرداندن داده‌ها به صورت JSON
-  }
 
 }
