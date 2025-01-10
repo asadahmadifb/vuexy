@@ -20,6 +20,7 @@ $(async function () {
 
   if (dt_sale.length) {
     try {
+      //const response = await fetch('https://cfai.ir/api/CfSecondaryMarketApi/GetSaleOrder', {
       const response = await fetch('https://localhost:7230/api/CfSecondaryMarketApi/GetSaleOrder', {
         method: 'GET',
         headers: {
@@ -58,6 +59,7 @@ $(async function () {
 
   if (dt_buy.length) {
     try {
+      //const response = await fetch('https://cfai.ir/api/CfSecondaryMarketApi/GetBuyOrder', {
       const response = await fetch('https://localhost:7230/api/CfSecondaryMarketApi/GetBuyOrder', {
         method: 'GET',
         headers: {
@@ -196,6 +198,7 @@ $(async function () {
 
   document.getElementById('delete-buy').addEventListener('click',async function () {
     try {
+      //const response = await fetch('https://cfai.ir/api/CfSecondaryMarketApi/DeleteBuy', {
       const response = await fetch('https://localhost:7230/api/CfSecondaryMarketApi/DeleteBuy', {
         method: 'GET',
         headers: {
@@ -217,6 +220,7 @@ $(async function () {
 
   document.getElementById('delete-sale').addEventListener('click', async function () {
     try {
+      //const response = await fetch('https://cfai.ir/api/CfSecondaryMarketApi/DeleteSale', {
       const response = await fetch('https://localhost:7230/api/CfSecondaryMarketApi/DeleteSale', {
         method: 'GET',
         headers: {

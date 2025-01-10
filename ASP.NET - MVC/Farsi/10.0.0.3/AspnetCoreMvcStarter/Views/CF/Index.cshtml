@@ -242,6 +242,7 @@
 				selectedMessageId: selectedMessageId
 			};
 			try {
+			  // const response = await fetch('https://cfai.ir/api/CfApi/SendMessage', {
 			  const response = await fetch('https://localhost:7230/api/CfApi/SendMessage', {
 				method: 'POST',
 				headers: {

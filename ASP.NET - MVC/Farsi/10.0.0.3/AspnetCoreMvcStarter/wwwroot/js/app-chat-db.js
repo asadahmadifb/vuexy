@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded',async  function () {
   try {
+    //const response = await fetch('https://cfai.ir/api/CfApi', {
     const response = await fetch('https://localhost:7230/api/CfApi', {
       method: 'GET',
       headers: {
@@ -236,7 +237,8 @@ document.addEventListener('DOMContentLoaded',async  function () {
           IsResponse: true      // تعیین اینکه این پیام پاسخ نیست
         };
         try {
-        const response = await fetch('https://localhost:7230/api/CfApi/SendMessage', {
+          //const response = await fetch('https://cfai.ir/api/CfApi/SendMessage', {
+          const response = await fetch('https://localhost:7230/api/CfApi/SendMessage', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

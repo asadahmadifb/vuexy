@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded',async function () {
   try {
+    //const response = await fetch('https://cfai.ir/api/CfApi/GetAllData', {
     const response = await fetch('https://localhost:7230/api/CfApi/GetAllData', {
       method: 'GET',
       headers: {
