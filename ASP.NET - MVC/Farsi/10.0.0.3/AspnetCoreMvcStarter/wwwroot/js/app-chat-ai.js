@@ -85,7 +85,7 @@ function createChatContactList(items) {
               </div>
            `;
         }
-        if (numColumns === 1 && projectValues.length >= 1) {
+        if (numColumns === 1 && projectValues.length > 1) {
           cardContainer = `
             <div class="${columnClass} mb-4">
                 <div class="card">
