@@ -85,6 +85,47 @@ function createChatContactList(items) {
               </div>
            `;
         }
+        if (numColumns === 1 && projectValues.length >= 1) {
+          cardContainer = `
+            <div class="${columnClass} mb-4">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="card-title mb-0">
+                            <h5 class="mb-0">${item.question}</h5>
+
+                        </div>
+                        <div class="dropdown">
+                            <button aria-expanded="false" aria-haspopup="true" class="btn p-0" data-bs-toggle="dropdown" id="earningReportsTabsId" type="button">
+                                <i class="ti ti-dots-vertical ti-sm text-muted"></i>
+                            </button>
+                            <div aria-labelledby="earningReportsTabsId" class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="javascript:void(0);">موارد بیشتر</a>
+                                <a class="dropdown-item" href="javascript:void(0);">حذف</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex overflow-hidden" >
+                          <div class="flex-grow-1" style="overflow-x:auto; white-space: nowrap;">
+                              <div class="table-responsive" >
+                                  <table class="table table-bordered" id="projects-table" style="line-height: 15px !important;">
+                                  <thead>
+                                      <tr>
+                                      ${tableHeaders}
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                  ${tableRows}
+                                  </tbody>
+                              </table>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          `;
+        }
         if (numColumns >= 2) {
           cardContainer = `
             <div class="${columnClass} mb-4">
