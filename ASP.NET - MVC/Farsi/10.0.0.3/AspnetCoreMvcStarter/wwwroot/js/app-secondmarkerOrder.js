@@ -19,82 +19,68 @@ $(async function () {
   var dt_buy = $('.dt-buy');
 
   if (dt_sale.length) {
-    try {
-      //const response = await fetch('https://cfai.ir/api/CfSecondaryMarketApi/GetSaleOrder', {
-      const response = await fetch('https://localhost:7230/api/CfSecondaryMarketApi/GetSaleOrder', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+    $.ajax({
+      url: '/api/CfSecondaryMarketApi/GetSaleOrder', // آدرس سرویس شما
+      method: 'GET',
+      contentType: 'application/json',
+      success: function (response) {
+        const data = response; // تبدیل پاسخ به JSON
+        console.log(data);
+        // ایجاد DataTable با داده‌های دریافتی
+        dt_sale = dt_sale.DataTable({
+          data: data, // فرض بر این است که داده‌ها در یک آرایه به نام 'data' قرار دارند
+          columns: [
+            { data: 'projectName' },
+            { data: 'benefit' },
+            { data: 'startTime' },
+            { data: 'amount' },
+            { data: 'pay' },
+          ],
+          // Scroll options
+          scrollY: '200px',
+          scrollX: true,
+          dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>'
+        });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+        calculateTotalAmountsale();
+      },
+      error: function (xhr, status, error) {
+        console.error('خطا در اضافه کردن سفارش:', error);
       }
-
-      const data = await response.json(); // تبدیل پاسخ به JSON
-      console.log(data);
-      // ایجاد DataTable با داده‌های دریافتی
-      dt_sale = dt_sale.DataTable({
-        data: data, // فرض بر این است که داده‌ها در یک آرایه به نام 'data' قرار دارند
-        columns: [
-          { data: 'projectName' },
-          { data: 'benefit' },
-          { data: 'startTime' },
-          { data: 'amount' },
-          { data: 'pay' },
-        ],
-        // Scroll options
-        scrollY: '200px',
-        scrollX: true,
-        dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>'
-      });
-
-      calculateTotalAmountsale();
-
-    } catch (error) {
-      console.log("Error fetching data:", error);
-    }
+    });
   }
-
   if (dt_buy.length) {
-    try {
-      //const response = await fetch('https://cfai.ir/api/CfSecondaryMarketApi/GetBuyOrder', {
-      const response = await fetch('https://localhost:7230/api/CfSecondaryMarketApi/GetBuyOrder', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+    $.ajax({
+      url: '/api/CfSecondaryMarketApi/GetBuyOrder', // آدرس سرویس شما
+      method: 'GET',
+      contentType: 'application/json',
+      success: function (response) {
+        const data = response; // تبدیل پاسخ به JSON
+        console.log(data);
+        // ایجاد DataTable با داده‌های دریافتی
+        dt_buy = dt_buy.DataTable({
+          data: data, // فرض بر این است که داده‌ها در یک آرایه به نام 'data' قرار دارند
+          columns: [
+            { data: 'projectName' },
+            { data: 'benefit' },
+            { data: 'startTime' },
+            { data: 'amount' },
+            { data: 'pay' },
+          ],
+          // Scroll options
+          scrollY: '200px',
+          scrollX: true,
+          dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>'
+        });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+        calculateTotalAmountbuy();
+      },
+      error: function (xhr, status, error) {
+        console.error('خطا در اضافه کردن سفارش:', error);
       }
-
-      const data = await response.json(); // تبدیل پاسخ به JSON
-      console.log(data);
-      // ایجاد DataTable با داده‌های دریافتی
-      dt_buy = dt_buy.DataTable({
-        data: data, // فرض بر این است که داده‌ها در یک آرایه به نام 'data' قرار دارند
-        columns: [
-          { data: 'projectName' },
-          { data: 'benefit' },
-          { data: 'startTime' },
-          { data: 'amount' },
-          { data: 'pay' },
-        ],
-        // Scroll options
-        scrollY: '200px',
-        scrollX: true,
-        dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>'
-      });
-
-      calculateTotalAmountbuy();
+    });
 
 
-    } catch (error) {
-      console.log("Error fetching data:", error);
-    }
   }
   function calculateTotalAmountbuy() {
     const total = dt_buy.column(3).data().reduce((a, b) => {
@@ -197,47 +183,36 @@ $(async function () {
 
 
   document.getElementById('delete-buy').addEventListener('click',async function () {
-    try {
-      //const response = await fetch('https://cfai.ir/api/CfSecondaryMarketApi/DeleteBuy', {
-      const response = await fetch('https://localhost:7230/api/CfSecondaryMarketApi/DeleteBuy', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+    $.ajax({
+      url: '/api/CfSecondaryMarketApi/DeleteBuy', // آدرس سرویس شما
+      method: 'GET',
+      contentType: 'application/json',
+      success: function (response) {
+        dt_buy.clear().draw(); // این خط تمام داده‌ها را حذف می‌کند و جدول را بروزرسانی می‌کند
+        calculateTotalAmountbuy();
+      },
+      error: function (xhr, status, error) {
+        console.log("Error fetching data:", error);
       }
-
-      dt_buy.clear().draw(); // این خط تمام داده‌ها را حذف می‌کند و جدول را بروزرسانی می‌کند
-      calculateTotalAmountbuy();
-
-    } catch (error) {
-      console.log("Error fetching data:", error);
-    }
+    });
   });
 
+
+
   document.getElementById('delete-sale').addEventListener('click', async function () {
-    try {
-      //const response = await fetch('https://cfai.ir/api/CfSecondaryMarketApi/DeleteSale', {
-      const response = await fetch('https://localhost:7230/api/CfSecondaryMarketApi/DeleteSale', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+    $.ajax({
+      url: '/api/CfSecondaryMarketApi/DeleteSale', // آدرس سرویس شما
+      method: 'GET',
+      contentType: 'application/json',
+      success: function (response) {
+        dt_sale.clear().draw(); // این خط تمام داده‌ها را حذف می‌کند و جدول را بروزرسانی می‌کند
+        calculateTotalAmountsale();
+      },
+      error: function (xhr, status, error) {
+        console.log("Error fetching data:", error);
       }
+    });
 
-      dt_sale.clear().draw(); // این خط تمام داده‌ها را حذف می‌کند و جدول را بروزرسانی می‌کند
-      calculateTotalAmountsale();
-
-    } catch (error) {
-      console.log("Error fetching data:", error);
-    }
   });
 
 

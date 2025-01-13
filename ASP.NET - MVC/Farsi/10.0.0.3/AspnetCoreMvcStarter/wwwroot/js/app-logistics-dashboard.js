@@ -4,51 +4,46 @@
 
 'use strict';
 
-document.addEventListener('DOMContentLoaded',async function () {
-  try {
-    //const response = await fetch('https://cfai.ir/api/CfApi/GetAllData', {
-    const response = await fetch('https://localhost:7230/api/CfApi/GetAllData', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+document.addEventListener('DOMContentLoaded', async function () {
+  $.ajax({
+    url: '/api/CfApi/GetAllData', // آدرس سرویس شما
+    method: 'GET',
+    contentType: 'application/json',
+    success:async function (response) {
+      console.log(response);
+      const data =response; // تبدیل پاسخ به JSON
+      // نمایش مقادیر در عناصر مربوطه
+      document.getElementById('StartedValue').textContent = data.started; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherStartedValue').textContent = data.otherStarted; // نمایش عدد در عنصر bdi
+      document.getElementById('FundingFinishedValue').textContent = '+' + data.fundingFinished; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherFundingFinishedValue').textContent = data.otherFundingFinished; // نمایش عدد در عنصر bdi
+      document.getElementById('ApprovedByBrokerValue').textContent = '+' + data.approvedByBroker; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherApprovedByBrokerValue').textContent = data.otherApprovedByBroker; // نمایش عدد در عنصر bdi
+      document.getElementById('FundingApprovedByFarabourseValue').textContent = '+' + data.fundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherFundingApprovedByFarabourseValue').textContent = data.otherFundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+
+      document.getElementById('StartedValue1').textContent = data.Started; // نمایش عدد در عنصر bdi
+      document.getElementById('FundingFinishedValue1').textContent = data.FundingFinished; // نمایش عدد در عنصر bdi
+      document.getElementById('ApprovedByBrokerValue1').textContent = data.ApprovedByBroker; // نمایش عدد در عنصر bdi
+      document.getElementById('FundingApprovedByFarabourseValue1').textContent = data.FundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
+
+
+      document.getElementById('OtherStartedValue1').textContent = data.otherStarted; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherFundingFinishedValue1').textContent = data.otherFundingFinished; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherApprovedByBrokerValue1').textContent = data.otherApprovedByBroker; // نمایش عدد در عنصر bdi
+      document.getElementById('OtherFundingApprovedByFarabourseValue1').textContent = data.otherFundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
+
+      var maxvalue = data.otherStarted + data.otherFundingFinished + data.otherApprovedByBroker + data.otherFundingApprovedByFarabourse;
+      updateProgressBar('StartedProgress', data.otherStarted, maxvalue);
+      updateProgressBar('OtherStartedProgress', data.otherFundingFinished, maxvalue);
+      updateProgressBar('FundingFinishedProgress', data.otherApprovedByBroker, maxvalue);
+      updateProgressBar('OtherFundingFinishedProgress', data.otherFundingApprovedByFarabourse, maxvalue);
+    },
+    error: function (xhr, status, error) {
+      console.log("Error fetching data:", error);
     }
-
-    const data = await response.json(); // تبدیل پاسخ به JSON
-    // نمایش مقادیر در عناصر مربوطه
-    document.getElementById('StartedValue').textContent = data.started; // نمایش عدد در عنصر bdi
-    document.getElementById('OtherStartedValue').textContent = data.otherStarted; // نمایش عدد در عنصر bdi
-    document.getElementById('FundingFinishedValue').textContent = '+' + data.fundingFinished; // نمایش عدد در عنصر bdi
-    document.getElementById('OtherFundingFinishedValue').textContent = data.otherFundingFinished; // نمایش عدد در عنصر bdi
-    document.getElementById('ApprovedByBrokerValue').textContent = '+' + data.approvedByBroker; // نمایش عدد در عنصر bdi
-    document.getElementById('OtherApprovedByBrokerValue').textContent = data.otherApprovedByBroker; // نمایش عدد در عنصر bdi
-    document.getElementById('FundingApprovedByFarabourseValue').textContent = '+' + data.fundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
-    document.getElementById('OtherFundingApprovedByFarabourseValue').textContent = data.otherFundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
-
-
-    document.getElementById('StartedValue1').textContent = data.Started; // نمایش عدد در عنصر bdi
-    document.getElementById('FundingFinishedValue1').textContent = data.FundingFinished; // نمایش عدد در عنصر bdi
-    document.getElementById('ApprovedByBrokerValue1').textContent = data.ApprovedByBroker; // نمایش عدد در عنصر bdi
-    document.getElementById('FundingApprovedByFarabourseValue1').textContent = data.FundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
-
-
-    document.getElementById('OtherStartedValue1').textContent = data.otherStarted; // نمایش عدد در عنصر bdi
-    document.getElementById('OtherFundingFinishedValue1').textContent = data.otherFundingFinished; // نمایش عدد در عنصر bdi
-    document.getElementById('OtherApprovedByBrokerValue1').textContent = data.otherApprovedByBroker; // نمایش عدد در عنصر bdi
-    document.getElementById('OtherFundingApprovedByFarabourseValue1').textContent = data.otherFundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
-
-    var maxvalue = data.otherStarted + data.otherFundingFinished + data.otherApprovedByBroker + data.otherFundingApprovedByFarabourse;
-    updateProgressBar('StartedProgress', data.otherStarted, maxvalue);
-    updateProgressBar('OtherStartedProgress', data.otherFundingFinished, maxvalue);
-    updateProgressBar('FundingFinishedProgress', data.otherApprovedByBroker, maxvalue);
-    updateProgressBar('OtherFundingFinishedProgress', data.otherFundingApprovedByFarabourse, maxvalue);
-  } catch (error) {
-    console.log("Error fetching data:", error);
-  }
+  });
   // تابع به‌روزرسانی نوار پیشرفت
   function updateProgressBar(elementId, value, maxvalue) {
     const percentValue = 100 *value/maxvalue; // چون مجموع برابر با 100 است، مقدار را به عنوان درصد استفاده می‌کنیم

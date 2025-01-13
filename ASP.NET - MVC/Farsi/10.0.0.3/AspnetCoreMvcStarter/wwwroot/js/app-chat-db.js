@@ -4,27 +4,22 @@
 
 'use strict';
 
-document.addEventListener('DOMContentLoaded',async  function () {
-  try {
-    //const response = await fetch('https://cfai.ir/api/CfApi', {
-    const response = await fetch('https://localhost:7230/api/CfApi', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+document.addEventListener('DOMContentLoaded', async function () {
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+  $.ajax({
+    url: '/api/CfApi', // آدرس سرویس شما
+    method: 'GET',
+    contentType: 'application/json',
+    success: function (response) {
+      console.log(response);
+      const data = response; // تبدیل پاسخ به JSON
+      // نمایش پاسخ هوش مصنوعی
+      createChatContactList(data);
+    },
+    error: function (xhr, status, error) {
+      console.error('خطا در ساخت داشبورد هوشمند:', error);
     }
-
-    const data = await response.json(); // تبدیل پاسخ به JSON
-    // نمایش پاسخ هوش مصنوعی
-    createChatContactList(data);
-  } catch (error) {
-    console.log("Error fetching data:", error);
-  }
-
+  });
 
    // ایجاد لیست و اضافه کردن به <ul> موجود
 
@@ -69,7 +64,9 @@ document.addEventListener('DOMContentLoaded',async  function () {
         .catch(error => {
           console.error("Error fetching data:", error);
         });
-      alert('سلام');
+
+
+
     });
 
     // Initialize PerfectScrollbar
@@ -236,37 +233,30 @@ document.addEventListener('DOMContentLoaded',async  function () {
           Content: userMessage,  // محتوای پیام
           IsResponse: true      // تعیین اینکه این پیام پاسخ نیست
         };
-        try {
-          //const response = await fetch('https://cfai.ir/api/CfApi/SendMessage', {
-          const response = await fetch('https://localhost:7230/api/CfApi/SendMessage', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(messageToSend) // تبدیل داده‌ها به فرمت JSON
 
-        });
-
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json(); // تبدیل پاسخ به JSON
-        // نمایش پاسخ سرور
-        let aiMessageElement = document.createElement('li');
-        aiMessageElement.className = 'chat-message';
-        aiMessageElement.innerHTML = `
+          $.ajax({
+            url: '/api/CfApi/SendMessage', // آدرس سرویس شما
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(messageToSend),
+            success: function (response) {
+              const data = JSON.parse(response); // تبدیل پاسخ به JSON
+              // نمایش پاسخ سرور
+              let aiMessageElement = document.createElement('li');
+              aiMessageElement.className = 'chat-message';
+              aiMessageElement.innerHTML = `
                     <div class="d-flex overflow-hidden">
                       <pre class="formatted-response">${JSON.stringify(data, null, 2)}</pre> <!-- استفاده از <pre> برای فرمت‌بندی -->
                     </div>
                 `;
-        chatHistory.appendChild(aiMessageElement);
-      } catch (error) {
-        alert('خطا در ارسال پیام. لطفا دوباره تلاش کنید.');
-        console.log("Error fetching data:", error);
-        let errorElement = document.createElement('li');
-        errorElement.className = 'chat-message';
-        errorElement.innerHTML = `
+              chatHistory.appendChild(aiMessageElement);
+            },
+            error: function (xhr, status, error) {
+              alert('خطا در ارسال پیام. لطفا دوباره تلاش کنید.');
+              console.log("Error fetching data:", error);
+              let errorElement = document.createElement('li');
+              errorElement.className = 'chat-message';
+              errorElement.innerHTML = `
                     <div class="d-flex overflow-hidden">
                         <div class="chat-message-wrapper flex-grow-1">
                             <div class="chat-message-text">
@@ -275,8 +265,8 @@ document.addEventListener('DOMContentLoaded',async  function () {
                         </div>
                     </div>
                 `;
-        chatHistory.appendChild(errorElement);
-      }
+              chatHistory.appendChild(errorElement);            }
+          });
 
        // پاک کردن تکس باکس
         messageInput.value = '';
