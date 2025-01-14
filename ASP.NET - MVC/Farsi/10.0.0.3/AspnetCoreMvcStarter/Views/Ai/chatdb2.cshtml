@@ -1,0 +1,76 @@
+@{
+	ViewData["Title"] = "لیست کاربران";
+}
+
+@section VendorStyles {
+	<link rel="stylesheet" href="~/vendor/libs/datatables-bs5/datatables.bootstrap5.css">
+	<link rel="stylesheet" href="~/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+	<link rel="stylesheet" href="~/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
+	<link rel="stylesheet" href="~/vendor/libs/select2/select2.css" />
+	<link rel="stylesheet" href="~/vendor/libs/&#64;form-validation/umd/styles/index.min.css" />
+}
+
+@section VendorScripts {
+	<script src="~/vendor/libs/moment/moment.js"></script>
+	<script src="~/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+	<script src="~/vendor/libs/datatables-bs5/i18n/fa.js"></script>
+	<script src="~/vendor/libs/select2/select2.js"></script>
+	<script src="~/vendor/libs/select2/i18n/fa.js"></script>
+	<script src="~/vendor/libs/&#64;form-validation/umd/bundle/popular.min.js"></script>
+	<script src="~/vendor/libs/&#64;form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+	<script src="~/vendor/libs/&#64;form-validation/umd/plugin-auto-focus/index.min.js"></script>
+	<script src="~/vendor/libs/cleavejs/cleave.js"></script>
+}
+
+@section PageScripts {
+	<script src="~/js/app-chat-db2.js"></script>
+}
+
+<!-- Users List Table -->
+<div class="card">
+	<div class="card-header border-bottom">
+		<h5 class="card-title mb-3">لیست گزارشات</h5>
+		<div class="d-flex justify-content-between align-items-center row pb-2 gap-3 gap-md-0 mt-3">
+			<div class="col-md-4 user_role"></div>
+		</div>
+	</div>
+	<div class="card-datatable table-responsive">
+		<table class="datatables-users table">
+			<thead class="border-top">
+				<tr>
+					<th></th>
+					<th>نام</th>
+					<th>نقش</th>
+					<th>شرح گزارش</th>
+					<th>عملیات</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<!-- Offcanvas to add new user -->
+	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAddUser" aria-labelledby="offcanvasAddUserLabel">
+		<div class="offcanvas-header">
+			<h5 id="offcanvasAddUserLabel" class="offcanvas-title">افزودن </h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="بستن"></button>
+		</div>
+		<div class="offcanvas-body mx-0 flex-grow-0 pt-0 h-100">
+			<form class="add-new-user pt-0" id="addNewUserForm" onsubmit="return false">
+				<div class="mb-3">
+					<label class="form-label" for="add-user-fullname">نام گزارش</label>
+					<input type="text" class="form-control" id="add-user-fullname" placeholder="تامین مالی جمعی" name="userFullname"
+						   aria-label="نـوید" />
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="user-role">نوع گزارش</label>
+					<select id="user-role" class="form-select">
+						<option value="editor">داشبورد تامین مالی</option>
+						<option value="maintainer">شاخص های کلیدی عملکرد</option>
+						<option value="author">گزارشات فصلی</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary me-sm-3 me-1 data-submit">ارسال</button>
+				<button type="reset" class="btn btn-label-secondary" data-bs-dismiss="offcanvas">لغو</button>
+			</form>
+		</div>
+	</div>
+</div>

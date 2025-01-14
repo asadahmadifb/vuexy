@@ -1,5 +1,5 @@
 @{
-  ViewData["Title"] = "داشبورد - حمل و نقل";
+  ViewData["Title"] = "شاخص های کلیدی ";
 }
 
 @section VendorStyles{
@@ -18,6 +18,10 @@
   <link rel="stylesheet" href="~/vendor/css/pages/app-logistics-dashboard.css" />
 }
 
+@section PageScripts {
+	<script src="~/js/app-logistics-dashboard.js"></script>
+
+}
 
 
 <!-- Card Border Shadow -->
@@ -292,12 +296,4 @@
   </div>
   <!--/ On route vehicles Table -->
 </div>
-<script>
-	// تبدیل مدل به JSON و ارسال به JavaScript
-	var shipmentData = @Html.Raw(Json.Serialize(Model));
 
-</script>
-@section PageScripts {
-	<script src="~/js/app-logistics-dashboard.js"></script>
-
-}

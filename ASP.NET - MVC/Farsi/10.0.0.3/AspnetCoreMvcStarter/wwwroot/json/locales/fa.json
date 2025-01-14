@@ -175,17 +175,18 @@
   "Home": "خانه",
   "Page 2": "صفحه دوم",
   "CF": "تامین مالی جمعی",
-  "CF2": "شاخصهای تامین مالی ",
+  "Kpi": "شاخصهای تامین مالی ",
   "Project": "گزارش پروژه ها",
   "FinanceProvider": "گزارش سرمایه گذارها",
   "ai Pages": "هوش مصنوعی",
   "ai Center": "چت بات پشتیبانی",
   "ai cf": "چت با پایگاه داده",
+  "ai cf2": "چت با پایگاه داده2",
   "dashboard ai": "داشبورد هوشمند",
   "Secondary market": "بازار ثانویه",
   "Monitoring of crowd": "نظارت بر تامین مالی",
   "SecondaryMarketSetting": "تنظیمات",
   "SecondaryMarket": "سفارشات",
   "Monitoring of Hamafarin": "نظارت بر سایت هم افرین",
-  "Monitoring of Board" : "کرول پروژه ها در سایت"
+  "Monitoring of Board": "کرول پروژه ها در سایت"
 }

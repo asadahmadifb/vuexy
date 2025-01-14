@@ -7,6 +7,7 @@ public class AiController : Controller
 {
   public IActionResult Chat() => View();
   public IActionResult Chatdb() => View();
+  public IActionResult Chatdb2() => View();
 
   public IActionResult DashboardAi()
   {

@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', async function () {
 
   $.ajax({
-    url: '/api/CfApi', // آدرس سرویس شما
+    url: '/api/AiApi/GetQuestion', // آدرس سرویس شما
     method: 'GET',
     contentType: 'application/json',
     success: function (response) {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       })
         .then(data => {
           // نمایش پاسخ هوش مصنوعی
-          createChatContactList(data);
+          location.reload(); // ریفرش صفحه
 
         })
         .catch(error => {
@@ -68,6 +68,84 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 
     });
+
+  function createChatContactList(items) {
+    // پیدا کردن عنصر <ul> با شناسه مشخص شده
+    const ul = document.getElementById('chat-list');
+    const messageInput = document.getElementById('message-input');
+
+    // بررسی وجود عنصر <ul>
+    if (!ul) {
+      console.error('Element with id "chat-list" not found.');
+      return;
+    }
+
+    // برای هر آیتم در آرایه items، یک عنصر <li> ایجاد کنید
+    items.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'chat-contact-list-item';
+
+      const a = document.createElement('a');
+      a.className = 'd-flex align-items-center';
+
+      const div = document.createElement('div');
+      div.className = 'chat-contact-info flex-grow-1 ms-2';
+
+      const h6 = document.createElement('h6');
+      h6.className = 'chat-contact-name text-muted  text-truncate m-0';
+      h6.textContent = item.question; // متن آیتم را به h6 اضافه کنید
+
+      // اضافه کردن رویداد کلیک برای نوشتن در input
+      a.addEventListener('click', () => {
+        messageInput.value = item.question; // نوشتن محتوای آیتم در input
+      });
+      // ایجاد دکمه حذف با آیکون
+      const deleteButton = document.createElement('button');
+      deleteButton.id = item.id; // شناسه دکمه
+      deleteButton.className = 'btn btn-danger btn-sm me-2';
+      deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // اضافه کردن آیکون به دکمه
+
+      // اضافه کردن رویداد کلیک برای حذف آیتم
+      deleteButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // جلوگیری از فعال شدن رویداد کلیک بر روی <li>
+        // نمایش پیغام تایید برای حذف
+        if (confirm('آیا مطمئن هستید که می‌خواهید این آیتم را حذف کنید؟')) {
+          fetch(`/api/AiApi/deletechat/${deleteButton.id}`, { // فرض بر این است که ID در URL قرار می‌گیرد
+            method: 'DELETE', // استفاده از متد DELETE
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+            })
+            .then(data => {
+              // نمایش پاسخ هوش مصنوعی
+              li.remove(); // حذف <li> از DOM
+              location.reload(); // ریفرش صفحه
+
+            })
+            .catch(error => {
+              console.error("Error fetching data:", error);
+            });
+
+          // اینجا می‌توانید درخواست حذف به سرور ارسال کنید اگر نیاز باشد
+          // fetch(`/api/delete/${item.id}`, { method: 'DELETE' });
+        }
+      });
+
+      // اضافه کردن عناصر به هم
+      div.appendChild(h6);
+      a.appendChild(div);
+      li.appendChild(a);
+      li.appendChild(deleteButton); // اضافه کردن دکمه حذف به <li>
+
+      ul.appendChild(li); // اضافه کردن <li> به <ul>
+    });
+  }
+
 
     // Initialize PerfectScrollbar
     // ------------------------------
@@ -235,7 +313,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         };
 
           $.ajax({
-            url: '/api/CfApi/SendMessage', // آدرس سرویس شما
+            url: '/api/AiApi/SendQuestion', // آدرس سرویس شما
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(messageToSend),
@@ -250,6 +328,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                     </div>
                 `;
               chatHistory.appendChild(aiMessageElement);
+              location.reload(); // ریفرش صفحه
+
             },
             error: function (xhr, status, error) {
               alert('خطا در ارسال پیام. لطفا دوباره تلاش کنید.');
@@ -275,44 +355,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('#card-block').unblock();
 
       }
-    }
-
-    function createChatContactList(items) {
-      // پیدا کردن عنصر <ul> با شناسه مشخص شده
-      const ul = document.getElementById('chat-list');
-      const messageInput = document.getElementById('message-input');
-
-      // بررسی وجود عنصر <ul>
-      if (!ul) {
-        console.error('Element with id "chat-list" not found.');
-        return;
-      }
-
-      // برای هر آیتم در آرایه items، یک عنصر <li> ایجاد کنید
-      items.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'chat-contact-list-item';
-
-        const a = document.createElement('a');
-        a.className = 'd-flex align-items-center';
-
-        const div = document.createElement('div');
-        div.className = 'chat-contact-info flex-grow-1 ms-2';
-
-        const h6 = document.createElement('h6');
-        h6.className = 'chat-contact-name text-muted  text-truncate m-0';
-        h6.textContent = item.question; // متن آیتم را به h6 اضافه کنید
-
-        // اضافه کردن رویداد کلیک برای نوشتن در input
-        a.addEventListener('click', () => {
-          messageInput.value = item.question; // نوشتن محتوای آیتم در input
-        });
-        // اضافه کردن عناصر به هم
-        div.appendChild(h6);
-        a.appendChild(div);
-        li.appendChild(a);
-        ul.appendChild(li); // اضافه کردن <li> به <ul>
-      });
     }
 
 

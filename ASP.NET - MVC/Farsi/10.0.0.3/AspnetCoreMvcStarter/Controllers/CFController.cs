@@ -331,6 +331,9 @@ namespace AspnetCoreMvcStarter.Controllers
           // داده‌ها را به فرمت JSON برمی‌گرداند
           return Json(examples);
         }
+    // اکشن برای حذف آیتم چت
+
+
 
 
   }

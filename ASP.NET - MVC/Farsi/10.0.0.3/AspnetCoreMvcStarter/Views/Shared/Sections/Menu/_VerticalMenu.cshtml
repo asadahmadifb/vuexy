@@ -49,9 +49,9 @@
 						<div data-i18n="FinanceProvider">گزارشات سرمایه گذار ها</div>
 					</a>
 				</li>
-				<li class='menu-item@(currentPage == "/Dashboards/CF2" ? " active" : "")'>
-					<a asp-controller="Dashboards" asp-action="CF2" class="menu-link">
-						<div data-i18n="CF2">شاخصهای تامین مالی </div>
+				<li class='menu-item@(currentPage == "/Dashboards/Kpi" ? " active" : "")'>
+					<a asp-controller="Dashboards" asp-action="Kpi" class="menu-link">
+						<div data-i18n="Kpi">شاخصهای تامین مالی </div>
 					</a>
 				</li>
 				<li class='menu-item@(currentPage == "/Dashboards/ProfileProjects" ? " active" : "")'>
@@ -86,6 +86,14 @@
 					</a>
 				</li>
 			</ul>
+@* 			<ul class="menu-sub">
+				<li class='menu-item@(currentPage == "/Ai/chatdb2" ? " active" : "")'>
+					<a asp-controller="Ai" asp-action="chatdb2" class="menu-link" target="_blank">
+						<i class="menu-icon tf-icons ti ti-database"></i>
+						<div data-i18n="ai Kpi">چت با پایگاه داده</div>
+					</a>
+				</li>
+			</ul> *@
 			<ul class="menu-sub">
 				<li class='menu-item@(currentPage == "/Ai/MiscComingSoon" ? " active" : "")'>
 					<a asp-controller="Ai" asp-action="DashboardAi" class="menu-link" target="_blank">

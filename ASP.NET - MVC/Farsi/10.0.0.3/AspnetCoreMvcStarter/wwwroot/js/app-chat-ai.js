@@ -6,7 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', async function () {
     $.ajax({
-      url: '/api/CfApi', // آدرس سرویس شما
+      url: '/api/AiApi/GetQuestion', // آدرس سرویس شما
       method: 'GET',
       contentType: 'application/json',
       success:function (response) {
