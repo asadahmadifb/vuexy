@@ -19,12 +19,20 @@ public class HamafarinController : Controller
   }
   private async Task<List<BusinessPlan>> CrawlBoard(string url)
   {
+    string seleniumManagerPath = Path.Combine(AppContext.BaseDirectory, "chromedriver", "chromedriver.exe");
+    if(!System.IO.File.Exists(seleniumManagerPath))
+    {
+      Console.WriteLine("ChromeDriver not found at the specified path.");
+      return new List<BusinessPlan>(); ;
+    }
+    var service = ChromeDriverService.CreateDefaultService(seleniumManagerPath);
     var options = new ChromeOptions();
     options.AddArgument("--headless"); // برای اجرای بدون نمایش مرورگر
     options.AddArgument("--no-sandbox");
     options.AddArgument("--disable-dev-shm-usage");
+    options.AddArgument("start-maximized");
 
-    using (var driver = new ChromeDriver(options))
+    using (var driver = new ChromeDriver(service, options))
     {
       driver.Navigate().GoToUrl(url);
       await Task.Delay(2000); // زمان برای بارگذاری صفحه

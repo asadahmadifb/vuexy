@@ -1,8 +1,10 @@
 using AspnetCoreMvcStarter.Data;
+using AspnetCoreMvcStarter.middleware;
 using AspnetCoreMvcStarter.Models;
 using AspnetCoreMvcStarter.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,14 @@ builder.Services.AddScoped<OpenAiService>(); // ثبت OpenAiService
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR(); // اضافه کردن SignalR
+// پیکربندی Serilog
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug() // سطح لاگ را تنظیم کنید (Debug، Information، Warning، Error، Fatal)
+    .WriteTo.Console() // خروجی لاگ به کنسول
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day) // خروجی لاگ به فایل
+    .CreateLogger();
+
+builder.Host.UseSerilog(); // استفاده از Serilog به عنوان لاگر
 
 // افزودن Swagger
 builder.Services.AddSwaggerGen(c =>
@@ -31,7 +41,8 @@ using (var scope = app.Services.CreateScope())
 
   SeedData.Initialize(services);
 }
-
+// ثبت Middleware سفارشی برای ثبت خطاها
+app.UseMiddleware<ErrorLoggingMiddleware>();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

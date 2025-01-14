@@ -44,6 +44,23 @@
 			</div>
 			<hr class="container-m-nx m-0" />
 			<div class="sidebar-body">
+				<div class="chat-contact-list-item-title d-flex align-items-center mt-2 mb-0 px-4">
+					<label class="form-label" for="form-repeater-1-3">نمونه </label>
+					<select class="form-select" id="form-repeater-1-3" onchange="showAlert()">
+						<option value="">لطفا انتخاب کنید</option>
+						<option value="مجموع کل سرمایه گذاریها">مجموع کل سرمایه گذاریها</option>
+						<option value="بیشترین مبلغ سرمایه گذاری">بیشترین مبلغ سرمایه گذاری</option>
+						<option value="مجموع مبلغ کل مورد نیاز تامین مالی">مجموع مبلغ کل مورد نیاز تامین مالی</option>
+						<option value="میانگین مبلغ کل مورد نیاز تامین مالی">میانگین مبلغ کل مورد نیاز تامین مالی</option>
+						<option value="کل مبلغ جمع آوری شده">کل مبلغ جمع آوری شده</option>
+						<option value="میانگین جمع آوری شده حقیقی">میانگین جمع آوری شده حقیقی</option>
+						<option value="میانگین جمع آوری شده حقوقی">میانگین جمع آوری شده حقوقی</option>
+						<option value="تعداد کل مشارکت‌کنندگان">تعداد کل مشارکت‌کنندگان</option>
+						<option value="میانگین مشارکت کننده‌گان حقیقی">میانگین مشارکت کننده‌گان حقیقی</option>
+						<option value="میانگین مشارکت کننده‌گان حقوقی">میانگین مشارکت کننده‌گان حقوقی</option>
+						<option value="تعداد طرح ها با توجه به انواع وثایق">تعداد طرح ها با توجه به انواع وثایق</option>
+					</select>
+				</div>
 				<div class="chat-contact-list-item-title d-flex align-items-center">
 					<h5 class="text-primary mb-0 px-4 pt-3 pb-2">سوابق</h5>
 					<button id="delete-button" class="btn btn-danger btn-sm me-2">
@@ -109,3 +126,16 @@
 		<div class="app-overlay"></div>
 	</div>
 </div>
+<script>
+	function showAlert() {
+		var selectElement = document.getElementById("form-repeater-1-3");
+		var selectedValue = selectElement.value;
+		 var messageInput = document.getElementById("message-input");
+
+		if (selectedValue) {
+			messageInput.value = selectedValue; // مقدار انتخاب شده را در فیلد ورودی قرار می‌دهد
+		} else {
+			messageInput.value = ""; // اگر هیچ گزینه‌ای انتخاب نشده باشد، فیلد ورودی خالی می‌شود
+		}
+	}
+</script>
