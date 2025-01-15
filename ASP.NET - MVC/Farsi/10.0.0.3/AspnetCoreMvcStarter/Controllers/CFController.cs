@@ -27,7 +27,7 @@ namespace AspnetCoreMvcStarter.Controllers
         public IActionResult GenerateProjects()
         {
             GenerateRandomProjects(); // متد تولید پروژه‌های تصادفی
-            return RedirectToAction("Index"); // به اکشن اصلی برگردید
+            return Ok("success"); // به اکشن اصلی برگردید
         }
         public void GenerateRandomProjects()
         {
@@ -306,12 +306,15 @@ namespace AspnetCoreMvcStarter.Controllers
         }
         public async Task<IActionResult> Index()
             {
-                ProjectAi projectAi=new ProjectAi();
-                var projectsnew =await _CrowdFundingService.GetProjects();
-                projectAi.projects = projectsnew;
-           
-                return View(projectAi);
-            }
+      //ProjectAi projectAi=new ProjectAi();
+      //var projectsnew =await _CrowdFundingService.GetProjects();
+      //projectAi.projects = projectsnew;
+      //return View(projectAi);
+      ProjectAi projectAi = new ProjectAi();
+      var projectsnew = await _CrowdFundingService.GetProjects();
+      projectAi.projects = projectsnew;
+      return View(projectAi);
+    }
         public async Task<JsonResult> deletehistory()
         {
           // داده‌ها را از منبع داده (مثلاً پایگاه داده) دریافت کنید

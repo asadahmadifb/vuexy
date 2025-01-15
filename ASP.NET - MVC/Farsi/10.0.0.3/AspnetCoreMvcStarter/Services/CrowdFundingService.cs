@@ -29,7 +29,17 @@ namespace AspnetCoreMvcStarter.Services
 
         }
 
-        public async Task<List<dynamic>> GetDataFromCF(string query)
+        public async Task<List<ProjectView>> GetListAllOfProjects()
+        {
+
+          //string query = "select * from vw_Projects";
+          string query = "select * from ProjectViews";
+          var list = await con.QueryAsync<ProjectView>(query);
+          return list.ToList();
+
+        }
+
+    public async Task<List<dynamic>> GetDataFromCF(string query)
         {
             var list = await con.QueryAsync<dynamic>(query);
             return list.ToList();

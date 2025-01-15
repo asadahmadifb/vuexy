@@ -1,4 +1,5 @@
 using AspnetCoreMvcStarter.Models;
+using AspnetCoreMvcStarter.Models.CrowdFunding;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -63,5 +64,51 @@ namespace AspnetCoreMvcStarter.Services
             }
 
         }
+
+    public async Task<string> GetQuestionFromOpenAi(string questionInPersian, List<ProjectView> projectViews)
+    {
+
+
+      //// ترکیب ساختار جدول و سوال کاربر
+      var client = new HttpClient();
+      client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _apiKey);
+      string jsonProjects = JsonConvert.SerializeObject(projectViews, Formatting.Indented);
+
+      // ترکیب ساختار جدول و سوال کاربر، همراه با تاکید بر اینکه فقط کوئری SQL تولید شود
+      var prompt = $"داده های زیر را در نظر بگیر بعنوان دستیار ارشد تامین مالی جمعی بطور خلاصه به سوال جواب بده  :\n{jsonProjects}\nسوال: {questionInPersian}\n بصورت کارشناسی شده در مقام ارشد";
+      //var prompt = $"ساختار جدول:\n{tableStructure}\nسوال :لطفاً یک کوئری SQL بنویس که بر اساس جمله زیر ایجاد شود {questionInPersian}\nفقط کوئری را بدون هیچ توضیح اضافی ارائه بده و در صورت نیاز از like N % استفاده کن ";
+
+      //var requestBody = new
+      //{
+      //    model = "gpt-4",
+      //    prompt = prompt,
+      //    max_tokens = 150,
+      //    temperature = 0.3,
+      //    stop = new[] { "\n" } // اینجا می‌توانیم از stop token استفاده کنیم تا بعد از اولین خط کوئری متوقف شود
+      //};
+
+      var requestBody = new
+      {
+        model = "gpt-4o-mini",
+        messages = new[]
+        {
+                        new { role = "user", content = prompt }
+                    }
+      };
+
+
+      var response = await client.PostAsJsonAsync("https://api.avalai.ir/v1/chat/completions", requestBody);
+      if (response.IsSuccessStatusCode)
+      {
+        var result = await response.Content.ReadAsAsync<dynamic>();
+        return result.choices[0].message.content;
+      }
+      else
+      {
+        var errorResponse = await response.Content.ReadAsStringAsync();
+        return "خطا در دریافت پاسخ. لطفاً دوباره تلاش کنید." + errorResponse;
+      }
+
     }
+  }
 }

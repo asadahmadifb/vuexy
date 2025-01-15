@@ -134,8 +134,8 @@ $(async function () {
     const amount2 = parseFloat($('#total-amount-sale').text().replace(/,/g, '')) || 0; // تبدیل به عدد
     const totalSum = amount1 + amount2;
     $('#total-amount').text(totalSum.toLocaleString()); // نمایش با فرمت مناسب
-    const amount3 = parseFloat($('#total-pay-buy').text().replace('(', '').replace(')', '').replace(/,/g, '')   ) || 0; // تبدیل به عدد
-    
+
+    const amount3 = parseFloat($('#total-pay-buy').text().replace('(', '').replace(')', '').replace(/,/g, '')) || 0; // تبدیل به عدد
     const amount4 = parseFloat($('#total-pay-sale').text().replace('(', '').replace(')', '').replace(/,/g, '')) || 0; // تبدیل به عدد
     const totalSumpay = amount3 + amount4;
     $('#total-pay').text("(" + totalSumpay.toLocaleString() + ")"); // نمایش با فرمت مناسب
@@ -195,6 +195,14 @@ $(async function () {
         console.log("Error fetching data:", error);
       }
     });
+  });
+
+  document.getElementById('btnOrderbuy').addEventListener('click', function () {
+    validateForm(0);
+  });
+
+  document.getElementById('btnOrdersale').addEventListener('click', function () {
+    validateForm(1);
   });
 
 
@@ -267,6 +275,63 @@ $(async function () {
         console.error('خطا در اضافه کردن سفارش:', error);
       }
     });
+  }
+
+  function validateForm(action) {
+    const country = document.getElementById('formtabs-country').value;
+    const quantity = document.getElementById('formtabs-quantity').value;
+    const price = document.getElementById('formtabs-price').value;
+
+    if (!country) {
+      alert('لطفاً نوع پروژه را انتخاب کنید.');
+      return;
+    }
+
+    if (!quantity) {
+      alert('لطفاً مقدار را وارد کنید.');
+      return;
+    }
+
+    if (!price) {
+      alert('لطفاً قیمت را وارد کنید.');
+      return;
+    }
+    const selectElement = document.getElementById('formtabs-country');
+    const selectedOptionText = selectElement.options[selectElement.selectedIndex].text;
+    const projectName = selectedOptionText;
+    // تعریف متغیرها
+    const Benefit = (43).toString();
+    const StartTime = new Date().toLocaleTimeString('fa-IR', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false // برای نمایش به صورت 24 ساعته
+    });
+    const Amount = quantity.toString(); // مقدار وارد شده توسط کاربر
+    const Pay = price.toString(); // قیمت وارد شده توسط کاربر
+    const Status = action; // وضعیت تصادفی
+    const newOrder = {
+      ProjectName: projectName,
+      Benefit: Benefit,
+      StartTime: StartTime,
+      Amount: Amount,
+      Pay: Pay,
+      Status: Status
+    };
+
+    console.log(newOrder);
+    $.ajax({
+      url: '/api/CfSecondaryMarketApi/InsertOrder', // آدرس سرویس شما
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(newOrder),
+      success: function (response) {
+        console.log('سفارش با موفقیت اضافه شد:', response);
+      },
+      error: function (xhr, status, error) {
+        console.error('خطا در اضافه کردن سفارش:', error);
+      }
+    });
+
   }
 
   // Filter form control to default size

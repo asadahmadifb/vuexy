@@ -125,6 +125,52 @@ namespace AspnetCoreMvcStarter.Controllers
       return Ok(responseMessage); // برگرداندن پاسخ به صورت JSON
     }
 
+    [HttpPost("SendQuestionfromagent")]
+    public async Task<ActionResult> SendQuestionfromagent([FromBody] Message messageContent)
+    {
+
+      var openAiService = new OpenAiService();
+      List<ProjectView> projectViews = await _CrowdFundingService.GetListAllOfProjects();
+      string answer = await openAiService.GetQuestionFromOpenAi(messageContent.Content ?? "", projectViews);
+
+      //if (!string.IsNullOrWhiteSpace(messageContent.Content))
+      //{
+      //  var questionHistory = new QuestionHistory
+      //  {
+      //    question = messageContent.Content,
+      //    response = answer.Trim(),
+      //    selectedOption = "CrowdFunding",
+      //    Timestamp = DateTime.Now,
+      //    isDelete = false,
+      //    UserId = "CF"// دریافت شناسه کاربر
+
+      //  };
+      //  _context.QuestionHistories.Add(questionHistory);
+      //  _context.SaveChanges();
+
+      //}
+      string jsonResult = "";
+      try
+      {
+        jsonResult = JsonConvert.SerializeObject(answer, Formatting.Indented);
+      }
+      catch (Exception ex)
+      {
+        jsonResult = ex.Message;
+      }
+
+
+
+      //string responseMessage = answer.Trim() + Environment.NewLine + jsonResult; // اینجا به سادگی یک پاسخ نمونه برمی‌گردانیم
+      string responseMessage = jsonResult; // اینجا به سادگی یک پاسخ نمونه برمی‌گردانیم
+
+      // می‌توانید منطق پیچیده‌تری برای تولید پاسخ ایجاد کنید
+
+      return Ok(responseMessage); // برگرداندن پاسخ به صورت JSON
+    }
+
+    
+
     [HttpDelete("deletechat/{id}")]
     public IActionResult deletechat(int id)
     {

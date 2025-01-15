@@ -52,6 +52,133 @@ namespace AspnetCoreMvcStarter.Migrations
                     b.ToTable("DashboardData");
                 });
 
+            modelBuilder.Entity("AspnetCoreMvcStarter.Models.CrowdFunding.ProjectView", b =>
+                {
+                    b.Property<int>("شناسه_طرح")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("تاریخ_اتمام_پروژه")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("تاریخ_تایید_شده_شروع_جمع_آوری_وجوه")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("تاریخ_ثبت_شرکت")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("تاریخ_شروع_پروژه")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("تاریخ_پیشنهادی_شروع_جمع_آوری_وجوه")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("تاریخ_پیشنهادی_پایان_جمع_آوری_وجوه")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("تعداد_گواهی_شراکت_متقاضی")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("حداقل_مبلغ_سرمایه_گذاری_برای_تامین_کننده_حقوقی")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("حداقل_مبلغ_سرمایه_گذاری_برای_تامین_کننده_حقیقی")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("حداقل_مبلغ_مورد_نیاز_جهت_موفقیت_تامین_مالی")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("حداکثر_مبلغ_سرمایه_گذاری_برای_تامین_کننده_حقوقی")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("حداکثر_مبلغ_سرمایه_گذاری_برای_تامین_کننده_حقیقی")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("دوره_جمع_آوری_وجوه")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("زیرگروه_صنعت")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("شماره_ثبت_شرکت")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("شناسه_ملی")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("لینک_عامل")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("مبلغ_مورد_نیاز")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("موضوع_طرح")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("نام_سکو")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("نام_شرکت")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("نام_طرح_یا_پروژه")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("نام_عامل")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("نماد_طرح")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("نوع_تامین_مالی_جمعی")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("نوع_شخصیت_حقوقی_شرکت")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("نوع_وثیقه")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("وضعیت_طرح")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("کارمزد_عامل")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("کارمزد_فرابورس")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("کد_اقتصادی_شرکت")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("کد_پستی_شرکت")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("گروه_صنعت")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("شناسه_طرح");
+
+                    b.ToTable("ProjectViews");
+                });
+
             modelBuilder.Entity("AspnetCoreMvcStarter.Models.Order", b =>
                 {
                     b.Property<int>("Id")

@@ -331,4 +331,5 @@ $(function () {
       autoFocus: new FormValidation.plugins.AutoFocus()
     }
   });
-})();
+})
+  ();

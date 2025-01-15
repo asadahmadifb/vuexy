@@ -45,9 +45,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Remove="C:\Users\a\.nuget\packages\selenium.webdriver\4.27.0\buildTransitive\..\manager\linux\selenium-manager" />
   </ItemGroup>
   <ItemGroup>

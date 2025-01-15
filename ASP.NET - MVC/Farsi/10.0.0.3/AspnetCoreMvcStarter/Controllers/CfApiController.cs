@@ -79,5 +79,17 @@ namespace AspnetCoreMvcStarter.Controllers
       return Ok(newData);
      }
 
+    [HttpGet("GetListAllOfProjects")]
+    public async Task<IActionResult> GetListAllOfProjects()
+    {
+      var projectsnew = await _CrowdFundingService.GetProjects();
+      return Ok(projectsnew);
+      var data = await _context.ProjectViews.ToListAsync();
+
+
+    }
+
+
+
   }
 }
