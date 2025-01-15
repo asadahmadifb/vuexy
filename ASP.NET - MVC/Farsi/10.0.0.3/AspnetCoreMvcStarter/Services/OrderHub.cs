@@ -8,5 +8,9 @@ namespace AspnetCoreMvcStarter.Services
     {
       await Clients.All.SendAsync("ReceiveOrderUpdate", message);
     }
+    public async Task OrdersDelete(string message)
+    {
+      await Clients.All.SendAsync("OrdersDelete", message);
+    }
   }
 }

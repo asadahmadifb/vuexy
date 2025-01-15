@@ -155,15 +155,27 @@ $(async function () {
       dt_sale.row.add(order).draw(); // اضافه کردن به DataTable اول
       calculateTotalAmountsale();
 
-    } else {
+    }
+    if (order.status === 0) {
       dt_buy.row.add(order).draw(); // اضافه کردن به DataTable دوم
       calculateTotalAmountbuy();
-
     }
     showToast(order);
-
-
   });
+
+
+  connection.on("OrdersDelete", function (status) {
+    if (status == "0") {
+      dt_sale.clear().draw(); // این خط تمام داده‌ها را حذف می‌کند و جدول را بروزرسانی می‌کند
+      calculateTotalAmountsale();
+    }
+    if (status == "1") {
+      dt_buy.clear().draw(); // این خط تمام داده‌ها را حذف می‌کند و جدول را بروزرسانی می‌کند
+      calculateTotalAmountbuy();
+    }
+    showToast(order);
+  });
+
 
   function showToast(order) {
     const toastEl = document.getElementById('ordertoast');
@@ -188,9 +200,7 @@ $(async function () {
       method: 'GET',
       contentType: 'application/json',
       success: function (response) {
-        dt_buy.clear().draw(); // این خط تمام داده‌ها را حذف می‌کند و جدول را بروزرسانی می‌کند
-        calculateTotalAmountbuy();
-      },
+     },
       error: function (xhr, status, error) {
         console.log("Error fetching data:", error);
       }
@@ -213,8 +223,6 @@ $(async function () {
       method: 'GET',
       contentType: 'application/json',
       success: function (response) {
-        dt_sale.clear().draw(); // این خط تمام داده‌ها را حذف می‌کند و جدول را بروزرسانی می‌کند
-        calculateTotalAmountsale();
       },
       error: function (xhr, status, error) {
         console.log("Error fetching data:", error);

@@ -77,6 +77,8 @@ namespace AspnetCoreMvcStarter.Controllers
         _context.SaveChanges();
 
       }
+      await _hubContext.Clients.All.SendAsync("OrdersDelete", "1");
+
       return Ok();
     }
     [HttpGet("DeleteSale")]
@@ -90,6 +92,7 @@ namespace AspnetCoreMvcStarter.Controllers
         _context.SaveChanges();
 
       }
+      await _hubContext.Clients.All.SendAsync("OrdersDelete", "0");
       return Ok();
     }
     
