@@ -3,6 +3,7 @@ using System;
 using AspnetCoreMvcStarter.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspnetCoreMvcStarter.Migrations
 {
     [DbContext(typeof(AspnetCoreMvcStarterContext))]
-    partial class AspnetCoreMvcStarterContextModelSnapshot : ModelSnapshot
+    [Migration("20250116064326_projectinfo")]
+    partial class projectinfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
@@ -304,29 +307,6 @@ namespace AspnetCoreMvcStarter.Migrations
                     b.HasKey("شناسه_طرح");
 
                     b.ToTable("ProjectViews");
-                });
-
-            modelBuilder.Entity("AspnetCoreMvcStarter.Models.CrowdFunding.UnderwritingByYear", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Month")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ProjectCount")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<long>("TotalPrice")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("id");
-
-                    b.ToTable("UnderwritingByYears");
                 });
 
             modelBuilder.Entity("AspnetCoreMvcStarter.Models.Order", b =>

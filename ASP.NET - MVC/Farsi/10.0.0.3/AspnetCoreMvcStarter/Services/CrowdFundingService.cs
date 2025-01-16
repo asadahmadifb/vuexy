@@ -45,5 +45,19 @@ namespace AspnetCoreMvcStarter.Services
             return list.ToList();
 
         }
+
+    public async Task<List<ProjectInfo>> GetAllProject()
+    {
+      string query = "select * from ProjectInfos";
+      var list = await con.QueryAsync<ProjectInfo>(query);
+      return list.ToList();
     }
+
+    public async Task<List<UnderwritingByYear>> GetUnderwritingByYear()
+    {
+      string query = "select * from UnderwritingByYears";
+      var list = await con.QueryAsync<UnderwritingByYear>(query);
+      return list.ToList();
+    }
+  }
 }

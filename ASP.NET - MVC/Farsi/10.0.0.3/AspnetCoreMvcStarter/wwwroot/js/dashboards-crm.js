@@ -484,7 +484,7 @@
       dataLabels: {
         enabled: true,
         formatter: function (val) {
-          return val + 'k';
+          return val + '';
         },
         offsetY: -20,
         style: {
@@ -506,7 +506,7 @@
         enabled: false
       },
       xaxis: {
-        categories: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر'],
+        categories: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر','دی','بهمن','اسفند'],
         axisBorder: {
           show: true,
           color: borderColor
@@ -526,7 +526,7 @@
         labels: {
           offsetX: -15,
           formatter: function (val) {
-            return parseInt(val / 1) + 'k';
+            return parseInt(val / 1) + '';
           },
           style: {
             fontSize: '13px',
@@ -581,59 +581,73 @@
     };
     return earningReportBarChartOpt;
   }
-  var chartJson = 'earning-reports-charts.json';
-  // Earning Chart JSON data
-  var earningReportsChart = $.ajax({
-    url: assetsPath + 'json/' + chartJson, //? Use your own search api instead
-    dataType: 'json',
-    async: false
-  }).responseJSON;
 
-  // Earning Reports Tabs Orders
-  // --------------------------------------------------------------------
-  const earningReportsTabsOrdersEl = document.querySelector('#earningReportsTabsOrders'),
-    earningReportsTabsOrdersConfig = EarningReportsBarChart(
-      earningReportsChart['data'][0]['chart_data'],
-      earningReportsChart['data'][0]['active_option']
-    );
-  if (typeof earningReportsTabsOrdersEl !== undefined && earningReportsTabsOrdersEl !== null) {
-    const earningReportsTabsOrders = new ApexCharts(earningReportsTabsOrdersEl, earningReportsTabsOrdersConfig);
-    earningReportsTabsOrders.render();
-  }
-  // Earning Reports Tabs Sales
-  // --------------------------------------------------------------------
-  const earningReportsTabsSalesEl = document.querySelector('#earningReportsTabsSales'),
-    earningReportsTabsSalesConfig = EarningReportsBarChart(
-      earningReportsChart['data'][1]['chart_data'],
-      earningReportsChart['data'][1]['active_option']
-    );
-  if (typeof earningReportsTabsSalesEl !== undefined && earningReportsTabsSalesEl !== null) {
-    const earningReportsTabsSales = new ApexCharts(earningReportsTabsSalesEl, earningReportsTabsSalesConfig);
-    earningReportsTabsSales.render();
-  }
-  // Earning Reports Tabs Profit
-  // --------------------------------------------------------------------
-  const earningReportsTabsProfitEl = document.querySelector('#earningReportsTabsProfit'),
-    earningReportsTabsProfitConfig = EarningReportsBarChart(
-      earningReportsChart['data'][2]['chart_data'],
-      earningReportsChart['data'][2]['active_option']
-    );
-  if (typeof earningReportsTabsProfitEl !== undefined && earningReportsTabsProfitEl !== null) {
-    const earningReportsTabsProfit = new ApexCharts(earningReportsTabsProfitEl, earningReportsTabsProfitConfig);
-    earningReportsTabsProfit.render();
-  }
-  // Earning Reports Tabs Income
-  // --------------------------------------------------------------------
-  const earningReportsTabsIncomeEl = document.querySelector('#earningReportsTabsIncome'),
-    earningReportsTabsIncomeConfig = EarningReportsBarChart(
-      earningReportsChart['data'][3]['chart_data'],
-      earningReportsChart['data'][3]['active_option']
-    );
-  if (typeof earningReportsTabsIncomeEl !== undefined && earningReportsTabsIncomeEl !== null) {
-    const earningReportsTabsIncome = new ApexCharts(earningReportsTabsIncomeEl, earningReportsTabsIncomeConfig);
-    earningReportsTabsIncome.render();
-  }
 
+  $.ajax({
+    url: '/api/CfApi/GetUnderwritingByYear', // آدرس سرویس شما
+    method: 'GET',
+    contentType: 'application/json',
+    success: function (response) {
+      console.log(response);
+      const data = JSON.stringify(response); // تبدیل پاسخ به JSON
+      // نمایش پاسخ هوش مصنوعی
+      createChatContactList(data);
+    },
+    error: function (xhr, status, error) {
+      console.error('خطا در ساخت داشبورد هوشمند:', error);
+    }
+  });
+
+  function createChatContactList(data2) {
+
+    //const earningReportsChart = JSON.parse(data);
+    const earningReportsChart = JSON.parse(data2);
+
+    // Earning Reports Tabs Orders
+    // --------------------------------------------------------------------
+    const earningReportsTabsOrdersEl = document.querySelector('#earningReportsTabsOrders'),
+      earningReportsTabsOrdersConfig = EarningReportsBarChart(
+        earningReportsChart[0].chart_data,
+        earningReportsChart[0].active_option
+      );
+    if (typeof earningReportsTabsOrdersEl !== undefined && earningReportsTabsOrdersEl !== null) {
+      const earningReportsTabsOrders = new ApexCharts(earningReportsTabsOrdersEl, earningReportsTabsOrdersConfig);
+      earningReportsTabsOrders.render();
+    }
+    // Earning Reports Tabs Sales
+    // --------------------------------------------------------------------
+    const earningReportsTabsSalesEl = document.querySelector('#earningReportsTabsSales'),
+      earningReportsTabsSalesConfig = EarningReportsBarChart(
+        earningReportsChart[1].chart_data,
+        earningReportsChart[1].active_option
+      );
+    if (typeof earningReportsTabsSalesEl !== undefined && earningReportsTabsSalesEl !== null) {
+      const earningReportsTabsSales = new ApexCharts(earningReportsTabsSalesEl, earningReportsTabsSalesConfig);
+      earningReportsTabsSales.render();
+    }
+    // Earning Reports Tabs Profit
+    // --------------------------------------------------------------------
+    const earningReportsTabsProfitEl = document.querySelector('#earningReportsTabsProfit'),
+      earningReportsTabsProfitConfig = EarningReportsBarChart(
+        earningReportsChart[2].chart_data,
+        earningReportsChart[2].active_option
+      );
+    if (typeof earningReportsTabsProfitEl !== undefined && earningReportsTabsProfitEl !== null) {
+      const earningReportsTabsProfit = new ApexCharts(earningReportsTabsProfitEl, earningReportsTabsProfitConfig);
+      earningReportsTabsProfit.render();
+    }
+    // Earning Reports Tabs Income
+    // --------------------------------------------------------------------
+    const earningReportsTabsIncomeEl = document.querySelector('#earningReportsTabsIncome'),
+      earningReportsTabsIncomeConfig = EarningReportsBarChart(
+        earningReportsChart[3].chart_data,
+        earningReportsChart[3].active_option
+      );
+    if (typeof earningReportsTabsIncomeEl !== undefined && earningReportsTabsIncomeEl !== null) {
+      const earningReportsTabsIncome = new ApexCharts(earningReportsTabsIncomeEl, earningReportsTabsIncomeConfig);
+      earningReportsTabsIncome.render();
+    }
+  }
   // Sales Last 6 Months - Radar Chart
   // --------------------------------------------------------------------
   const salesLastMonthEl = document.querySelector('#salesLastMonth'),

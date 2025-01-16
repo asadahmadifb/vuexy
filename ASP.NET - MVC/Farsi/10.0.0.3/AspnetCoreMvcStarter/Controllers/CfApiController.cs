@@ -89,7 +89,58 @@ namespace AspnetCoreMvcStarter.Controllers
 
     }
 
+    [HttpGet("GetAllProject")]
+    public async Task<IActionResult> GetAllProject()
+    {
+      var projectsnew = await _CrowdFundingService.GetAllProject();
+      return Ok(projectsnew);
 
+    }
+    [HttpGet("GetUnderwritingByYear")]
+    public async Task<IActionResult> GetUnderwritingByYear()
+    {
+      var projectsnew = await _CrowdFundingService.GetUnderwritingByYear();
+      // ساختار داده جدید
+      List<ChartData> chartDataList = new List<ChartData>();
+
+      // گروه‌بندی داده‌ها بر اساس سال
+      var groupedData = GroupByYear(projectsnew);
+
+      foreach (var yearGroup in groupedData)
+      {
+        ChartData chartData = new ChartData
+        {
+          Id = yearGroup.Key,
+          chart_data = new List<Int64>(new Int64[12]), // ایجاد یک لیست با 12 عنصر صفر
+          active_option=2
+        };
+
+        foreach (var data in yearGroup.Value) // استفاده از yearGroup.Value برای دسترسی به لیست
+        {
+          chartData.chart_data[data.Month - 1] = data.ProjectCount; // مقدار پروژه را در موقعیت مناسب قرار دهید
+        }
+
+        chartDataList.Add(chartData);
+      }
+      return Ok(chartDataList);
+
+    }
+
+    private static Dictionary<int, List<UnderwritingByYear>> GroupByYear(List<UnderwritingByYear> data)
+    {
+        var result = new Dictionary<int, List<UnderwritingByYear>>();
+
+        foreach (var item in data)
+        {
+            if (!result.ContainsKey(item.Year))
+            {
+                result[item.Year] = new List<UnderwritingByYear>();
+            }
+            result[item.Year].Add(item);
+        }
+
+        return result;
+    }
 
   }
 }

@@ -20,6 +20,7 @@
 
 @section PageScripts {
 	<script src="~/js/app-logistics-dashboard.js"></script>
+	<script src="~/js/dashboards-crm.js"></script>
 
 }
 
@@ -118,7 +119,7 @@
 <!--/ Card Border Shadow -->
 <div class="row">
   <!-- Vehicles overview -->
-  <div class="col-xxl-6 mb-4 order-5 order-xxl-0">
+  <div class="col-xxl-6 mb-4 order-5 order-xxl-2">
     <div class="card">
       <div class="card-header">
         <div class="card-title mb-0">
@@ -214,12 +215,12 @@
   </div>
   <!--/ Vehicles overview -->
   <!-- Shipment statistics-->
-  <div class="col-lg-6 col-xxl-6 mb-4 order-3 order-xxl-1">
+  <div class="col-6 col-md-6 mb-4 order-3 order-xxl-1">
     <div class="card">
       <div class="card-header d-flex align-items-center justify-content-between">
         <div class="card-title mb-0">
-          <h5 class="m-0 me-2">آمار طرحهای تامین مالی</h5>
-          <small class="text-muted">تعداد کل تامین مالی شده 23.8 </small>
+          <h5 class="m-0 me-2">آمار سرمایه گذاری طرحها</h5>
+          <small class="text-muted">براساس ماه </small>
         </div>
         <div class="dropdown">
 					<button aria-expanded="false" class="btn btn-label-primary dropdown-toggle disabled" data-bs-toggle="dropdown" type="button" disabled> سال 1403</button>
@@ -258,6 +259,76 @@
         <div class="my-1" id="shipmentStatisticsChart"></div>
       </div>
     </div>
+  </div>
+	<!-- Earning Reports Tabs-->
+  <div class="col-6 col-md-6 mb-4  order-xxl-0">
+	  <div class="card">
+		  <div class="card-header d-flex justify-content-between">
+			  <div class="card-title mb-0">
+				  <h5 class="mb-0">گزارش تعداد سرمایه گذاری براساس سال </h5>
+				  <small class="text-muted">بررسی مختصر سالانه</small>
+			  </div>
+			  <div class="dropdown">
+				  <button aria-expanded="false" aria-haspopup="true" class="btn p-0" data-bs-toggle="dropdown" id="earningReportsTabsId" type="button">
+					  <i class="ti ti-dots-vertical ti-sm text-muted"></i>
+				  </button>
+				  <div aria-labelledby="earningReportsTabsId" class="dropdown-menu dropdown-menu-end">
+					  <a class="dropdown-item" href="javascript:void(0);">موارد بیشتر</a>
+					  <a class="dropdown-item" href="javascript:void(0);">حذف</a>
+				  </div>
+			  </div>
+		  </div>
+		  <div class="card-body">
+			  <ul class="nav nav-tabs widget-nav-tabs pb-3 gap-4 mx-1 d-flex flex-nowrap" role="tablist">
+				  <li class="nav-item">
+					  <a aria-controls="navs-orders-id" aria-selected="true" class="nav-link btn active d-flex flex-column align-items-center justify-content-center" data-bs-target="#navs-orders-id" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+						  <div class="badge bg-label-secondary rounded p-2">
+							  <i class="ti ti-shopping-cart ti-sm"></i>
+						  </div>
+						  <h6 class="tab-widget-title mb-0 mt-2">قبل از سال 1400</h6>
+					  </a>
+				  </li>
+				  <li class="nav-item">
+					  <a aria-controls="navs-sales-id" aria-selected="false" class="nav-link btn d-flex flex-column align-items-center justify-content-center" data-bs-target="#navs-sales-id" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+						  <div class="badge bg-label-secondary rounded p-2">
+							  <i class="ti ti-chart-bar ti-sm"></i>
+						  </div>
+						  <h6 class="tab-widget-title mb-0 mt-2">1401</h6>
+					  </a>
+				  </li>
+				  <li class="nav-item">
+					  <a aria-controls="navs-profit-id" aria-selected="false" class="nav-link btn d-flex flex-column align-items-center justify-content-center" data-bs-target="#navs-profit-id" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+						  <div class="badge bg-label-secondary rounded p-2">
+							  <i class="ti ti-currency-dollar ti-sm"></i>
+						  </div>
+						  <h6 class="tab-widget-title mb-0 mt-2">1402</h6>
+					  </a>
+				  </li>
+				  <li class="nav-item">
+					  <a aria-controls="navs-income-id" aria-selected="false" class="nav-link btn d-flex flex-column align-items-center justify-content-center" data-bs-target="#navs-income-id" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+						  <div class="badge bg-label-secondary rounded p-2">
+							  <i class="ti ti-chart-pie-2 ti-sm"></i>
+						  </div>
+						  <h6 class="tab-widget-title mb-0 mt-2">1403</h6>
+					  </a>
+				  </li>
+			  </ul>
+			  <div class="tab-content p-0 ms-0 ms-sm-2">
+				  <div class="tab-pane fade show active" id="navs-orders-id" role="tabpanel">
+					  <div id="earningReportsTabsOrders"></div>
+				  </div>
+				  <div class="tab-pane fade" id="navs-sales-id" role="tabpanel">
+					  <div id="earningReportsTabsSales"></div>
+				  </div>
+				  <div class="tab-pane fade" id="navs-profit-id" role="tabpanel">
+					  <div id="earningReportsTabsProfit"></div>
+				  </div>
+				  <div class="tab-pane fade" id="navs-income-id" role="tabpanel">
+					  <div id="earningReportsTabsIncome"></div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
   </div>
   <!-- On route vehicles Table -->
   <div class="col-12 order-5">

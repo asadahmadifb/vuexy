@@ -17,13 +17,12 @@ namespace AspnetCoreMvcStarter.Data
         public DbSet<AspnetCoreMvcStarter.Models.Transactions> Transactions { get; set; } = default!;
         public DbSet<Project> Projects { get; set; }
         public DbSet<ProjectView> ProjectViews { get; set; }
+        public DbSet<ProjectInfo> ProjectInfos { get; set; }
         public DbSet<TextSegment> TextSegments { get; set; }
         public DbSet<QuestionHistory> QuestionHistories { get; set; }
         public DbSet<DashboardData> DashboardData { get; set; }
         public DbSet<Order> Orders { get; set; }
-
-    
-
+        public DbSet<UnderwritingByYear> UnderwritingByYears { get; set; }
 
   }
 }
