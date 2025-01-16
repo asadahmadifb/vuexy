@@ -17505,3 +17505,1399 @@ LIMIT 1
 2025-01-16 11:56:20.045 +03:30 [DBG] The connection queue processing loop for 0HN9M0TLFMBS0 completed.
 2025-01-16 11:56:20.046 +03:30 [DBG] Connection id "0HN9M0TLFMBS0" sending FIN because: "The Socket transport's send loop completed gracefully."
 2025-01-16 11:56:20.055 +03:30 [DBG] Connection id "0HN9M0TLFMBS0" stopped.
+2025-01-16 14:57:03.155 +03:30 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-01-16 14:57:03.920 +03:30 [DBG] Entity Framework Core 8.0.0 initialized 'AspnetCoreMvcStarterContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.0' with options: None
+2025-01-16 14:57:03.942 +03:30 [DBG] Compiling query expression: 
+'DbSet<Transactions>()
+    .Any()'
+2025-01-16 14:57:04.014 +03:30 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Transactions AS t)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    AspnetCoreMvcStarter.Data.AspnetCoreMvcStarterContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2025-01-16 14:57:04.026 +03:30 [DBG] Creating DbConnection.
+2025-01-16 14:57:04.033 +03:30 [DBG] Created DbConnection. (5ms).
+2025-01-16 14:57:04.036 +03:30 [DBG] Opening connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.047 +03:30 [DBG] Opened connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.054 +03:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-01-16 14:57:04.059 +03:30 [DBG] Created DbCommand for 'ExecuteReader' (4ms).
+2025-01-16 14:57:04.062 +03:30 [DBG] Initialized DbCommand for 'ExecuteReader' (9ms).
+2025-01-16 14:57:04.067 +03:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Transactions" AS "t")
+2025-01-16 14:57:04.078 +03:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Transactions" AS "t")
+2025-01-16 14:57:04.083 +03:30 [DBG] Closing data reader to 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.089 +03:30 [DBG] A data reader for 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db' is being disposed after spending 5ms reading results.
+2025-01-16 14:57:04.095 +03:30 [DBG] Closing connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.098 +03:30 [DBG] Closed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (2ms).
+2025-01-16 14:57:04.101 +03:30 [DBG] Compiling query expression: 
+'DbSet<Order>()
+    .Any()'
+2025-01-16 14:57:04.105 +03:30 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Orders AS o)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    AspnetCoreMvcStarter.Data.AspnetCoreMvcStarterContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2025-01-16 14:57:04.109 +03:30 [DBG] Opening connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.111 +03:30 [DBG] Opened connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.113 +03:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-01-16 14:57:04.115 +03:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-01-16 14:57:04.116 +03:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-01-16 14:57:04.117 +03:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Orders" AS "o")
+2025-01-16 14:57:04.122 +03:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Orders" AS "o")
+2025-01-16 14:57:04.124 +03:30 [DBG] Closing data reader to 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.127 +03:30 [DBG] A data reader for 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db' is being disposed after spending 2ms reading results.
+2025-01-16 14:57:04.129 +03:30 [DBG] Closing connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.130 +03:30 [DBG] Closed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 14:57:04.134 +03:30 [DBG] Compiling query expression: 
+'DbSet<ProjectView>()
+    .Any()'
+2025-01-16 14:57:04.136 +03:30 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM ProjectViews AS p)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    AspnetCoreMvcStarter.Data.AspnetCoreMvcStarterContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2025-01-16 14:57:04.138 +03:30 [DBG] Opening connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.141 +03:30 [DBG] Opened connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.143 +03:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-01-16 14:57:04.144 +03:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-01-16 14:57:04.145 +03:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-01-16 14:57:04.148 +03:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ProjectViews" AS "p")
+2025-01-16 14:57:04.150 +03:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ProjectViews" AS "p")
+2025-01-16 14:57:04.154 +03:30 [DBG] Closing data reader to 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.156 +03:30 [DBG] A data reader for 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db' is being disposed after spending 1ms reading results.
+2025-01-16 14:57:04.158 +03:30 [DBG] Closing connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.159 +03:30 [DBG] Closed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 14:57:04.162 +03:30 [DBG] Compiling query expression: 
+'DbSet<ProjectInfo>()
+    .Any()'
+2025-01-16 14:57:04.165 +03:30 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM ProjectInfos AS p)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    AspnetCoreMvcStarter.Data.AspnetCoreMvcStarterContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2025-01-16 14:57:04.167 +03:30 [DBG] Opening connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.170 +03:30 [DBG] Opened connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.171 +03:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-01-16 14:57:04.172 +03:30 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-01-16 14:57:04.173 +03:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-01-16 14:57:04.174 +03:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ProjectInfos" AS "p")
+2025-01-16 14:57:04.175 +03:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ProjectInfos" AS "p")
+2025-01-16 14:57:04.177 +03:30 [DBG] Closing data reader to 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.178 +03:30 [DBG] A data reader for 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db' is being disposed after spending 1ms reading results.
+2025-01-16 14:57:04.180 +03:30 [DBG] Closing connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.181 +03:30 [DBG] Closed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 14:57:04.183 +03:30 [DBG] Compiling query expression: 
+'DbSet<UnderwritingByYear>()
+    .Any()'
+2025-01-16 14:57:04.185 +03:30 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM UnderwritingByYears AS u)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    AspnetCoreMvcStarter.Data.AspnetCoreMvcStarterContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2025-01-16 14:57:04.187 +03:30 [DBG] Opening connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.188 +03:30 [DBG] Opened connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.188 +03:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-01-16 14:57:04.189 +03:30 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-01-16 14:57:04.190 +03:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-01-16 14:57:04.192 +03:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "UnderwritingByYears" AS "u")
+2025-01-16 14:57:04.193 +03:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "UnderwritingByYears" AS "u")
+2025-01-16 14:57:04.195 +03:30 [DBG] Closing data reader to 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.196 +03:30 [DBG] A data reader for 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db' is being disposed after spending 1ms reading results.
+2025-01-16 14:57:04.198 +03:30 [DBG] Closing connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.199 +03:30 [DBG] Closed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 14:57:04.201 +03:30 [DBG] SaveChanges starting for 'AspnetCoreMvcStarterContext'.
+2025-01-16 14:57:04.203 +03:30 [DBG] DetectChanges starting for 'AspnetCoreMvcStarterContext'.
+2025-01-16 14:57:04.205 +03:30 [DBG] DetectChanges completed for 'AspnetCoreMvcStarterContext'.
+2025-01-16 14:57:04.207 +03:30 [DBG] SaveChanges completed for 'AspnetCoreMvcStarterContext' with 0 entities written to the database.
+2025-01-16 14:57:04.209 +03:30 [DBG] 'AspnetCoreMvcStarterContext' disposed.
+2025-01-16 14:57:04.211 +03:30 [DBG] Disposing connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:04.213 +03:30 [DBG] Disposed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 14:57:04.255 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/Chat.cshtml'.
+2025-01-16 14:57:04.255 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/Chatagent.cshtml'.
+2025-01-16 14:57:04.257 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/Chatdb.cshtml'.
+2025-01-16 14:57:04.257 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/chatdb2.cshtml'.
+2025-01-16 14:57:04.258 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/DashboardAi.cshtml'.
+2025-01-16 14:57:04.258 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/MonitoringAi.cshtml'.
+2025-01-16 14:57:04.259 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Auth/LoginBasic.cshtml'.
+2025-01-16 14:57:04.260 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Board/Index.cshtml'.
+2025-01-16 14:57:04.261 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/CFSecondaryMarket/Order.cshtml'.
+2025-01-16 14:57:04.262 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/CFSecondaryMarket/Setting.cshtml'.
+2025-01-16 14:57:04.262 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/CF/Index.cshtml'.
+2025-01-16 14:57:04.263 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/CF.cshtml'.
+2025-01-16 14:57:04.265 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/CRM.cshtml'.
+2025-01-16 14:57:04.267 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/FinanceProvider.cshtml'.
+2025-01-16 14:57:04.268 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/Kpi.cshtml'.
+2025-01-16 14:57:04.270 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/ProfileProjects.cshtml'.
+2025-01-16 14:57:04.272 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/Project.cshtml'.
+2025-01-16 14:57:04.273 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Hamafarin/Index.cshtml'.
+2025-01-16 14:57:04.274 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'.
+2025-01-16 14:57:04.275 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'.
+2025-01-16 14:57:04.276 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Page2/Index.cshtml'.
+2025-01-16 14:57:04.276 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettings.cshtml'.
+2025-01-16 14:57:04.277 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettingsBilling.cshtml'.
+2025-01-16 14:57:04.280 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettingsConnections.cshtml'.
+2025-01-16 14:57:04.281 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettingsNotifications.cshtml'.
+2025-01-16 14:57:04.283 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettingsSecurity.cshtml'.
+2025-01-16 14:57:04.284 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/FAQ.cshtml'.
+2025-01-16 14:57:04.285 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/MiscComingSoon.cshtml'.
+2025-01-16 14:57:04.285 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/MiscError.cshtml'.
+2025-01-16 14:57:04.286 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/MiscNotAuthorized.cshtml'.
+2025-01-16 14:57:04.287 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/MiscUnderMaintenance.cshtml'.
+2025-01-16 14:57:04.288 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/Pricing.cshtml'.
+2025-01-16 14:57:04.289 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/ProfileConnections.cshtml'.
+2025-01-16 14:57:04.290 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/ProfileProjects.cshtml'.
+2025-01-16 14:57:04.291 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/ProfileTeams.cshtml'.
+2025-01-16 14:57:04.292 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/ProfileUser.cshtml'.
+2025-01-16 14:57:04.293 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'.
+2025-01-16 14:57:04.294 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Footer/_Footer.cshtml'.
+2025-01-16 14:57:04.295 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Menu/_HorizontalMenu.cshtml'.
+2025-01-16 14:57:04.296 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Menu/_VerticalMenu.cshtml'.
+2025-01-16 14:57:04.297 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Navbar/_Navbar.cshtml'.
+2025-01-16 14:57:04.298 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Navbar/_NavbarPartial.cshtml'.
+2025-01-16 14:57:04.299 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_Scripts.cshtml'.
+2025-01-16 14:57:04.300 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_ScriptsFront.cshtml'.
+2025-01-16 14:57:04.301 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_ScriptsIncludes.cshtml'.
+2025-01-16 14:57:04.302 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_ScriptsIncludesFront.cshtml'.
+2025-01-16 14:57:04.303 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_Styles.cshtml'.
+2025-01-16 14:57:04.303 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_StylesFront.cshtml'.
+2025-01-16 14:57:04.304 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_Variables.cshtml'.
+2025-01-16 14:57:04.305 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_BlankLayout.cshtml'.
+2025-01-16 14:57:04.307 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_CommonMasterLayout.cshtml'.
+2025-01-16 14:57:04.307 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_ContentNavbarLayout.cshtml'.
+2025-01-16 14:57:04.308 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_FrontLayout.cshtml'.
+2025-01-16 14:57:04.309 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_HorizontalLayout.cshtml'.
+2025-01-16 14:57:04.310 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_NavbarFullLayout.cshtml'.
+2025-01-16 14:57:04.311 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'.
+2025-01-16 14:57:04.312 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/_Partials/_Macros.cshtml'.
+2025-01-16 14:57:04.313 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/_Partials/_Modals/ModalEditUser.cshtml'.
+2025-01-16 14:57:04.314 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'.
+2025-01-16 14:57:04.315 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'.
+2025-01-16 14:57:04.322 +03:30 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-01-16 14:57:04.444 +03:30 [DBG] Registered SignalR Protocol: json, implemented by Microsoft.AspNetCore.SignalR.Protocol.JsonHubProtocol.
+2025-01-16 14:57:04.462 +03:30 [DBG] Hosting starting
+2025-01-16 14:57:04.491 +03:30 [INF] User profile is available. Using 'C:\Users\a\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-16 14:57:04.505 +03:30 [DBG] Reading data from file 'C:\Users\a\AppData\Local\ASP.NET\DataProtection-Keys\key-794de8a9-73d0-40de-a3fb-55063dbb40d2.xml'.
+2025-01-16 14:57:04.553 +03:30 [DBG] Found key {794de8a9-73d0-40de-a3fb-55063dbb40d2}.
+2025-01-16 14:57:04.570 +03:30 [DBG] Considering key {794de8a9-73d0-40de-a3fb-55063dbb40d2} with expiration date 2025-04-01 20:12:06Z as default key.
+2025-01-16 14:57:04.579 +03:30 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-01-16 14:57:04.581 +03:30 [DBG] Decrypting secret element using Windows DPAPI.
+2025-01-16 14:57:04.583 +03:30 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-01-16 14:57:04.588 +03:30 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2025-01-16 14:57:04.592 +03:30 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2025-01-16 14:57:04.594 +03:30 [DBG] Using key {794de8a9-73d0-40de-a3fb-55063dbb40d2} as the default key.
+2025-01-16 14:57:04.596 +03:30 [DBG] Key ring with default key {794de8a9-73d0-40de-a3fb-55063dbb40d2} was loaded during application startup.
+2025-01-16 14:57:04.736 +03:30 [INF] Now listening on: https://localhost:7230
+2025-01-16 14:57:04.738 +03:30 [INF] Now listening on: http://localhost:5055
+2025-01-16 14:57:04.739 +03:30 [DBG] Loaded hosting startup assembly AspnetCoreMvcStarter
+2025-01-16 14:57:04.740 +03:30 [DBG] Loaded hosting startup assembly Microsoft.WebTools.ApiEndpointDiscovery
+2025-01-16 14:57:04.741 +03:30 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2025-01-16 14:57:04.741 +03:30 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2025-01-16 14:57:04.787 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-16 14:57:04.790 +03:30 [INF] Hosting environment: Development
+2025-01-16 14:57:04.794 +03:30 [INF] Content root path: D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter
+2025-01-16 14:57:04.798 +03:30 [DBG] Hosting started
+2025-01-16 14:57:04.845 +03:30 [DBG] Connection id "0HN9M42Q4VAMR" received FIN.
+2025-01-16 14:57:04.845 +03:30 [DBG] Connection id "0HN9M42Q4VAMQ" received FIN.
+2025-01-16 14:57:04.858 +03:30 [DBG] Connection id "0HN9M42Q4VAMQ" accepted.
+2025-01-16 14:57:04.858 +03:30 [DBG] Connection id "0HN9M42Q4VAMR" accepted.
+2025-01-16 14:57:04.860 +03:30 [DBG] Connection id "0HN9M42Q4VAMQ" started.
+2025-01-16 14:57:04.862 +03:30 [DBG] Connection id "0HN9M42Q4VAMR" started.
+2025-01-16 14:57:04.879 +03:30 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2025-01-16 14:57:04.879 +03:30 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2025-01-16 14:57:04.906 +03:30 [DBG] Connection id "0HN9M42Q4VAMQ" stopped.
+2025-01-16 14:57:04.906 +03:30 [DBG] Connection id "0HN9M42Q4VAMR" stopped.
+2025-01-16 14:57:04.909 +03:30 [DBG] Connection id "0HN9M42Q4VAMQ" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-01-16 14:57:04.910 +03:30 [DBG] Connection id "0HN9M42Q4VAMR" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-01-16 14:57:05.726 +03:30 [DBG] Connection id "0HN9M42Q4VAMS" accepted.
+2025-01-16 14:57:05.727 +03:30 [DBG] Connection id "0HN9M42Q4VAMS" started.
+2025-01-16 14:57:05.833 +03:30 [DBG] Connection 0HN9M42Q4VAMS established using the following protocol: "Tls13"
+2025-01-16 14:57:05.892 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/ - null null
+2025-01-16 14:57:05.998 +03:30 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2025-01-16 14:57:06.003 +03:30 [DBG] The request path / does not match a supported file type
+2025-01-16 14:57:06.023 +03:30 [DBG] 1 candidate(s) found for the request path '/'
+2025-01-16 14:57:06.026 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.HomeController.Index (AspnetCoreMvcStarter)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/'
+2025-01-16 14:57:06.029 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.HomeController.Index (AspnetCoreMvcStarter)'
+2025-01-16 14:57:06.035 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:57:06.036 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.HomeController.Index (AspnetCoreMvcStarter)'
+2025-01-16 14:57:06.048 +03:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AspnetCoreMvcStarter.Controllers.HomeController (AspnetCoreMvcStarter).
+2025-01-16 14:57:06.051 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:57:06.054 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:06.056 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-01-16 14:57:06.058 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:57:06.061 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:06.064 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.HomeController (AspnetCoreMvcStarter)
+2025-01-16 14:57:06.066 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.HomeController (AspnetCoreMvcStarter)
+2025-01-16 14:57:06.072 +03:30 [DBG] View lookup cache miss for view 'Index' in controller 'Home'.
+2025-01-16 14:57:06.076 +03:30 [INF] Executing ViewResult, running view Index.
+2025-01-16 14:57:06.079 +03:30 [DBG] The view path '/Views/Home/Index.cshtml' was found in 6.9ms.
+2025-01-16 14:57:06.109 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Privacy],controller=[Home])
+2025-01-16 14:57:06.114 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Home/Privacy and 
+2025-01-16 14:57:06.116 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Home/Privacy
+2025-01-16 14:57:06.120 +03:30 [DBG] View lookup cache miss for view '_ContentNavbarLayout' in controller 'Home'.
+2025-01-16 14:57:06.126 +03:30 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2025-01-16 14:57:06.128 +03:30 [DBG] View lookup cache miss for view 'Sections/Menu/_VerticalMenu' in controller 'Home'.
+2025-01-16 14:57:06.134 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Home])
+2025-01-16 14:57:06.136 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and 
+2025-01-16 14:57:06.137 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /
+2025-01-16 14:57:06.139 +03:30 [DBG] View lookup cache miss for view '../_Partials/_Macros' in controller 'Home'.
+2025-01-16 14:57:06.142 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[CF],controller=[Dashboards])
+2025-01-16 14:57:06.144 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/CF and 
+2025-01-16 14:57:06.145 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/CF
+2025-01-16 14:57:06.147 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Project],controller=[Dashboards])
+2025-01-16 14:57:06.148 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Project and 
+2025-01-16 14:57:06.149 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Project
+2025-01-16 14:57:06.151 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[FinanceProvider],controller=[Dashboards])
+2025-01-16 14:57:06.152 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/FinanceProvider and 
+2025-01-16 14:57:06.153 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/FinanceProvider
+2025-01-16 14:57:06.170 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Kpi],controller=[Dashboards])
+2025-01-16 14:57:06.171 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Kpi and 
+2025-01-16 14:57:06.173 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Kpi
+2025-01-16 14:57:06.175 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[ProfileProjects],controller=[Dashboards])
+2025-01-16 14:57:06.176 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/ProfileProjects and 
+2025-01-16 14:57:06.178 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/ProfileProjects
+2025-01-16 14:57:06.182 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatagent],controller=[Ai])
+2025-01-16 14:57:06.184 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatagent and 
+2025-01-16 14:57:06.185 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatagent
+2025-01-16 14:57:06.189 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatdb],controller=[Ai])
+2025-01-16 14:57:06.190 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatdb and 
+2025-01-16 14:57:06.194 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatdb
+2025-01-16 14:57:06.196 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[DashboardAi],controller=[Ai])
+2025-01-16 14:57:06.198 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/DashboardAi and 
+2025-01-16 14:57:06.200 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/DashboardAi
+2025-01-16 14:57:06.203 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Board])
+2025-01-16 14:57:06.204 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Board and 
+2025-01-16 14:57:06.206 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Board
+2025-01-16 14:57:06.228 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscComingSoon],controller=[Pages])
+2025-01-16 14:57:06.233 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscComingSoon and 
+2025-01-16 14:57:06.234 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscComingSoon
+2025-01-16 14:57:06.238 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Order],controller=[CFSecondaryMarket])
+2025-01-16 14:57:06.240 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /CFSecondaryMarket/Order and 
+2025-01-16 14:57:06.242 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /CFSecondaryMarket/Order
+2025-01-16 14:57:06.244 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscUnderMaintenance],controller=[Pages])
+2025-01-16 14:57:06.246 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscUnderMaintenance and 
+2025-01-16 14:57:06.247 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscUnderMaintenance
+2025-01-16 14:57:06.249 +03:30 [DBG] View lookup cache miss for view 'Sections/Navbar/_Navbar' in controller 'Home'.
+2025-01-16 14:57:06.254 +03:30 [DBG] View lookup cache miss for view 'Sections/Navbar/_NavbarPartial' in controller 'Home'.
+2025-01-16 14:57:06.263 +03:30 [DBG] View lookup cache miss for view 'Sections/Footer/_Footer' in controller 'Home'.
+2025-01-16 14:57:06.266 +03:30 [DBG] View lookup cache miss for view '_CommonMasterLayout' in controller 'Home'.
+2025-01-16 14:57:06.269 +03:30 [DBG] View lookup cache miss for view 'Sections/_Variables' in controller 'Home'.
+2025-01-16 14:57:06.276 +03:30 [DBG] View lookup cache miss for view 'Sections/_Styles' in controller 'Home'.
+2025-01-16 14:57:06.283 +03:30 [DBG] View lookup cache miss for view 'Sections/_ScriptsIncludes' in controller 'Home'.
+2025-01-16 14:57:06.290 +03:30 [DBG] View lookup cache miss for view 'Sections/_Scripts' in controller 'Home'.
+2025-01-16 14:57:06.300 +03:30 [DBG] Response markup is scheduled to include Browser Link script injection.
+2025-01-16 14:57:06.303 +03:30 [DBG] Response markup is scheduled to include browser refresh script injection.
+2025-01-16 14:57:06.316 +03:30 [INF] Executed ViewResult - view Index executed in 245.172ms.
+2025-01-16 14:57:06.327 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.HomeController.Index (AspnetCoreMvcStarter) in 264.988ms
+2025-01-16 14:57:06.331 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.HomeController.Index (AspnetCoreMvcStarter)'
+2025-01-16 14:57:06.334 +03:30 [DBG] Response markup was updated to include Browser Link script injection.
+2025-01-16 14:57:06.335 +03:30 [DBG] Response markup was updated to include browser refresh script injection.
+2025-01-16 14:57:06.339 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/ - 200 null text/html; charset=utf-8 454.371ms
+2025-01-16 14:57:06.387 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-16 14:57:06.387 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_vs/browserLink - null null
+2025-01-16 14:57:06.395 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 8.911ms
+2025-01-16 14:57:06.571 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_vs/browserLink - 200 null text/javascript; charset=UTF-8 185.0334ms
+2025-01-16 14:57:13.100 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/Dashboards/Kpi - null null
+2025-01-16 14:57:13.115 +03:30 [DBG] The request path /Dashboards/Kpi does not match a supported file type
+2025-01-16 14:57:13.122 +03:30 [DBG] 1 candidate(s) found for the request path '/Dashboards/Kpi'
+2025-01-16 14:57:13.124 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/Dashboards/Kpi'
+2025-01-16 14:57:13.126 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 14:57:13.130 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:57:13.132 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 14:57:13.137 +03:30 [INF] Route matched with {action = "Kpi", controller = "Dashboards"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Kpi() on controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter).
+2025-01-16 14:57:13.142 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:57:13.146 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:13.150 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-01-16 14:57:13.155 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:57:13.159 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:13.163 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter)
+2025-01-16 14:57:13.166 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter)
+2025-01-16 14:57:13.169 +03:30 [DBG] View lookup cache miss for view 'Kpi' in controller 'Dashboards'.
+2025-01-16 14:57:13.173 +03:30 [INF] Executing ViewResult, running view Kpi.
+2025-01-16 14:57:13.175 +03:30 [DBG] The view path '/Views/Dashboards/Kpi.cshtml' was found in 6.6345ms.
+2025-01-16 14:57:13.183 +03:30 [DBG] View lookup cache miss for view '_ContentNavbarLayout' in controller 'Dashboards'.
+2025-01-16 14:57:13.195 +03:30 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was used to successfully load temp data.
+2025-01-16 14:57:13.197 +03:30 [DBG] View lookup cache miss for view 'Sections/Menu/_VerticalMenu' in controller 'Dashboards'.
+2025-01-16 14:57:13.200 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Home])
+2025-01-16 14:57:13.203 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and 
+2025-01-16 14:57:13.205 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /
+2025-01-16 14:57:13.209 +03:30 [DBG] View lookup cache miss for view '../_Partials/_Macros' in controller 'Dashboards'.
+2025-01-16 14:57:13.212 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[CF],controller=[Dashboards])
+2025-01-16 14:57:13.216 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/CF and 
+2025-01-16 14:57:13.221 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/CF
+2025-01-16 14:57:13.226 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Project],controller=[Dashboards])
+2025-01-16 14:57:13.231 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Project and 
+2025-01-16 14:57:13.235 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Project
+2025-01-16 14:57:13.238 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[FinanceProvider],controller=[Dashboards])
+2025-01-16 14:57:13.241 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/FinanceProvider and 
+2025-01-16 14:57:13.243 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/FinanceProvider
+2025-01-16 14:57:13.247 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Kpi],controller=[Dashboards])
+2025-01-16 14:57:13.249 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Kpi and 
+2025-01-16 14:57:13.252 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Kpi
+2025-01-16 14:57:13.255 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[ProfileProjects],controller=[Dashboards])
+2025-01-16 14:57:13.258 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/ProfileProjects and 
+2025-01-16 14:57:13.261 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/ProfileProjects
+2025-01-16 14:57:13.263 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatagent],controller=[Ai])
+2025-01-16 14:57:13.266 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatagent and 
+2025-01-16 14:57:13.269 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatagent
+2025-01-16 14:57:13.271 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatdb],controller=[Ai])
+2025-01-16 14:57:13.274 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatdb and 
+2025-01-16 14:57:13.277 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatdb
+2025-01-16 14:57:13.280 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[DashboardAi],controller=[Ai])
+2025-01-16 14:57:13.282 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/DashboardAi and 
+2025-01-16 14:57:13.285 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/DashboardAi
+2025-01-16 14:57:13.288 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Board])
+2025-01-16 14:57:13.290 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Board and 
+2025-01-16 14:57:13.293 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Board
+2025-01-16 14:57:13.295 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscComingSoon],controller=[Pages])
+2025-01-16 14:57:13.298 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscComingSoon and 
+2025-01-16 14:57:13.300 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscComingSoon
+2025-01-16 14:57:13.302 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Order],controller=[CFSecondaryMarket])
+2025-01-16 14:57:13.304 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /CFSecondaryMarket/Order and 
+2025-01-16 14:57:13.306 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /CFSecondaryMarket/Order
+2025-01-16 14:57:13.308 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscUnderMaintenance],controller=[Pages])
+2025-01-16 14:57:13.310 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscUnderMaintenance and 
+2025-01-16 14:57:13.312 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscUnderMaintenance
+2025-01-16 14:57:13.314 +03:30 [DBG] View lookup cache miss for view 'Sections/Navbar/_Navbar' in controller 'Dashboards'.
+2025-01-16 14:57:13.317 +03:30 [DBG] View lookup cache miss for view 'Sections/Navbar/_NavbarPartial' in controller 'Dashboards'.
+2025-01-16 14:57:13.320 +03:30 [DBG] View lookup cache miss for view 'Sections/Footer/_Footer' in controller 'Dashboards'.
+2025-01-16 14:57:13.322 +03:30 [DBG] View lookup cache miss for view '_CommonMasterLayout' in controller 'Dashboards'.
+2025-01-16 14:57:13.332 +03:30 [DBG] View lookup cache miss for view 'Sections/_Variables' in controller 'Dashboards'.
+2025-01-16 14:57:13.339 +03:30 [DBG] View lookup cache miss for view 'Sections/_Styles' in controller 'Dashboards'.
+2025-01-16 14:57:13.349 +03:30 [DBG] View lookup cache miss for view 'Sections/_ScriptsIncludes' in controller 'Dashboards'.
+2025-01-16 14:57:13.353 +03:30 [DBG] View lookup cache miss for view 'Sections/_Scripts' in controller 'Dashboards'.
+2025-01-16 14:57:13.363 +03:30 [DBG] Response markup is scheduled to include Browser Link script injection.
+2025-01-16 14:57:13.364 +03:30 [DBG] Response markup is scheduled to include browser refresh script injection.
+2025-01-16 14:57:13.382 +03:30 [INF] Executed ViewResult - view Kpi executed in 213.3551ms.
+2025-01-16 14:57:13.386 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter) in 223.0187ms
+2025-01-16 14:57:13.389 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 14:57:13.391 +03:30 [DBG] Response markup was updated to include Browser Link script injection.
+2025-01-16 14:57:13.395 +03:30 [DBG] Response markup was updated to include browser refresh script injection.
+2025-01-16 14:57:13.398 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/Dashboards/Kpi - 200 null text/html; charset=utf-8 297.9664ms
+2025-01-16 14:57:13.624 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-16 14:57:13.624 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_vs/browserLink - null null
+2025-01-16 14:57:13.633 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 9.0992ms
+2025-01-16 14:57:13.625 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/js/app-logistics-dashboard.js - null null
+2025-01-16 14:57:13.625 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/js/dashboards-crm.js - null null
+2025-01-16 14:57:13.669 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.3025ms
+2025-01-16 14:57:13.676 +03:30 [INF] The file /js/dashboards-crm.js was not modified
+2025-01-16 14:57:13.676 +03:30 [INF] The file /js/app-logistics-dashboard.js was not modified
+2025-01-16 14:57:13.679 +03:30 [DBG] Handled. Status code: 304 File: /js/dashboards-crm.js
+2025-01-16 14:57:13.680 +03:30 [DBG] Handled. Status code: 304 File: /js/app-logistics-dashboard.js
+2025-01-16 14:57:13.683 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/js/dashboards-crm.js - 304 null text/javascript 58.8159ms
+2025-01-16 14:57:13.685 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/js/app-logistics-dashboard.js - 304 null text/javascript 60.1425ms
+2025-01-16 14:57:16.611 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetUnderwritingByYear - application/json null
+2025-01-16 14:57:16.611 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountByMonth - application/json null
+2025-01-16 14:57:16.611 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountBystatus - application/json null
+2025-01-16 14:57:16.616 +03:30 [DBG] The request path /api/CfApi/GetUnderwritingByYear does not match a supported file type
+2025-01-16 14:57:16.620 +03:30 [DBG] The request path /api/CfApi/GetProjectCountByMonth does not match a supported file type
+2025-01-16 14:57:16.625 +03:30 [DBG] The request path /api/CfApi/GetProjectCountBystatus does not match a supported file type
+2025-01-16 14:57:16.629 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetUnderwritingByYear'
+2025-01-16 14:57:16.629 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetProjectCountByMonth'
+2025-01-16 14:57:16.633 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetUnderwritingByYear' is valid for the request path '/api/CfApi/GetUnderwritingByYear'
+2025-01-16 14:57:16.634 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetProjectCountBystatus'
+2025-01-16 14:57:16.634 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetProjectCountByMonth' is valid for the request path '/api/CfApi/GetProjectCountByMonth'
+2025-01-16 14:57:16.637 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 14:57:16.638 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetProjectCountBystatus' is valid for the request path '/api/CfApi/GetProjectCountBystatus'
+2025-01-16 14:57:16.640 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 14:57:16.642 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:57:16.643 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 14:57:16.645 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:57:16.646 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 14:57:16.647 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:57:16.648 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 14:57:16.651 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 14:57:16.660 +03:30 [INF] Route matched with {action = "GetProjectCountByMonth", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProjectCountByMonth() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 14:57:16.660 +03:30 [INF] Route matched with {action = "GetUnderwritingByYear", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUnderwritingByYear() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 14:57:16.660 +03:30 [INF] Route matched with {action = "GetProjectCountBystatus", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProjectCountBystatus() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 14:57:16.662 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/json/logistics-dashboard.json?_=1737026833435 - null null
+2025-01-16 14:57:16.663 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:57:16.665 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:57:16.670 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:57:16.675 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:16.676 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:16.679 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:16.682 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 14:57:16.685 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 14:57:16.687 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 14:57:16.697 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:57:16.704 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:57:16.708 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 14:57:16.690 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:57:16.713 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 14:57:16.713 +03:30 [INF] Sending file. Request path: '/json/logistics-dashboard.json'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\json\logistics-dashboard.json'
+2025-01-16 14:57:16.715 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:16.718 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 14:57:16.721 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:16.723 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/json/logistics-dashboard.json?_=1737026833435 - 200 6258 application/json 61.2182ms
+2025-01-16 14:57:16.728 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:16.830 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:16.830 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:16.830 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:16.841 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 14:57:16.848 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 14:57:16.849 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 14:57:16.850 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 14:57:16.852 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 14:57:16.854 +03:30 [INF] Executing OkObjectResult, writing value of type 'AspnetCoreMvcStarter.Models.CrowdFunding.ShipmentStatistics'.
+2025-01-16 14:57:16.860 +03:30 [DBG] Entity Framework Core 8.0.0 initialized 'AspnetCoreMvcStarterContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.0' with options: None
+2025-01-16 14:57:16.864 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter) in 136.3704ms
+2025-01-16 14:57:16.866 +03:30 [DBG] Compiling query expression: 
+'DbSet<DashboardData>()
+    .FirstOrDefault()'
+2025-01-16 14:57:16.866 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 14:57:16.870 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountByMonth - 200 null application/json; charset=utf-8 259.4369ms
+2025-01-16 14:57:16.874 +03:30 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2025-01-16 14:57:16.931 +03:30 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<DashboardData>(
+    asyncEnumerable: new SingleQueryingEnumerable<DashboardData>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: DashboardData.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: DashboardData.ApprovedByBroker (double) Required, 1], [Property: DashboardData.FundingApprovedByFarabourse (double) Required, 2], [Property: DashboardData.FundingFinished (double) Required, 3], [Property: DashboardData.OtherApprovedByBroker (double) Required, 4], [Property: DashboardData.OtherFundingApprovedByFarabourse (double) Required, 5], [Property: DashboardData.OtherFundingFinished (double) Required, 6], [Property: DashboardData.OtherStarted (double) Required, 7], [Property: DashboardData.Started (double) Required, 8] }
+            SELECT TOP(1) d.Id, d.ApprovedByBroker, d.FundingApprovedByFarabourse, d.FundingFinished, d.OtherApprovedByBroker, d.OtherFundingApprovedByFarabourse, d.OtherFundingFinished, d.OtherStarted, d.Started
+            FROM DashboardData AS d), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, DashboardData>, 
+        AspnetCoreMvcStarter.Data.AspnetCoreMvcStarterContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-01-16 14:57:19.025 +03:30 [DBG] Creating DbConnection.
+2025-01-16 14:57:19.027 +03:30 [DBG] Created DbConnection. (1ms).
+2025-01-16 14:57:19.031 +03:30 [DBG] Opening connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:19.035 +03:30 [DBG] Opened connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:19.037 +03:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-01-16 14:57:19.039 +03:30 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2025-01-16 14:57:19.040 +03:30 [DBG] Initialized DbCommand for 'ExecuteReader' (3ms).
+2025-01-16 14:57:19.042 +03:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."ApprovedByBroker", "d"."FundingApprovedByFarabourse", "d"."FundingFinished", "d"."OtherApprovedByBroker", "d"."OtherFundingApprovedByFarabourse", "d"."OtherFundingFinished", "d"."OtherStarted", "d"."Started"
+FROM "DashboardData" AS "d"
+LIMIT 1
+2025-01-16 14:57:19.047 +03:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."ApprovedByBroker", "d"."FundingApprovedByFarabourse", "d"."FundingFinished", "d"."OtherApprovedByBroker", "d"."OtherFundingApprovedByFarabourse", "d"."OtherFundingFinished", "d"."OtherStarted", "d"."Started"
+FROM "DashboardData" AS "d"
+LIMIT 1
+2025-01-16 14:57:19.113 +03:30 [DBG] Context 'AspnetCoreMvcStarterContext' started tracking 'DashboardData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-01-16 14:57:19.153 +03:30 [DBG] Closing data reader to 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:19.155 +03:30 [DBG] A data reader for 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db' is being disposed after spending 105ms reading results.
+2025-01-16 14:57:19.160 +03:30 [DBG] Closing connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:19.163 +03:30 [DBG] Closed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (2ms).
+2025-01-16 14:57:19.166 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 14:57:19.169 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 14:57:19.170 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 14:57:19.170 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 14:57:19.171 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 14:57:19.173 +03:30 [INF] Executing OkObjectResult, writing value of type 'AspnetCoreMvcStarter.Models.CrowdFunding.DashboardData'.
+2025-01-16 14:57:19.188 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter) in 2467.7305ms
+2025-01-16 14:57:19.191 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 14:57:19.194 +03:30 [DBG] 'AspnetCoreMvcStarterContext' disposed.
+2025-01-16 14:57:19.202 +03:30 [DBG] Disposing connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:19.205 +03:30 [DBG] Disposed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (2ms).
+2025-01-16 14:57:19.207 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountBystatus - 200 null application/json; charset=utf-8 2596.4346ms
+2025-01-16 14:57:34.096 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 14:57:34.102 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 14:57:34.104 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 14:57:34.105 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 14:57:34.107 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 14:57:34.110 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[AspnetCoreMvcStarter.Models.CrowdFunding.ChartData, AspnetCoreMvcStarter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-16 14:57:34.121 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter) in 17405.4174ms
+2025-01-16 14:57:34.123 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 14:57:34.125 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetUnderwritingByYear - 200 null application/json; charset=utf-8 17517.9434ms
+2025-01-16 14:57:36.811 +03:30 [DBG] Connection id "0HN9M42Q4VAMS" received FIN.
+2025-01-16 14:57:36.815 +03:30 [DBG] Connection id "0HN9M42Q4VAMS" is closed. The last processed stream ID was 23.
+2025-01-16 14:57:36.816 +03:30 [DBG] The connection queue processing loop for 0HN9M42Q4VAMS completed.
+2025-01-16 14:57:36.818 +03:30 [DBG] Connection id "0HN9M42Q4VAMS" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-01-16 14:57:36.837 +03:30 [DBG] Connection id "0HN9M42Q4VAMS" stopped.
+2025-01-16 14:57:48.404 +03:30 [DBG] Connection id "0HN9M42Q4VAMT" accepted.
+2025-01-16 14:57:48.423 +03:30 [DBG] Connection id "0HN9M42Q4VAMT" started.
+2025-01-16 14:57:48.433 +03:30 [DBG] Connection 0HN9M42Q4VAMT established using the following protocol: "Tls13"
+2025-01-16 14:57:48.438 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/Dashboards/Kpi - null null
+2025-01-16 14:57:48.448 +03:30 [DBG] The request path /Dashboards/Kpi does not match a supported file type
+2025-01-16 14:57:48.453 +03:30 [DBG] 1 candidate(s) found for the request path '/Dashboards/Kpi'
+2025-01-16 14:57:48.455 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/Dashboards/Kpi'
+2025-01-16 14:57:48.460 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 14:57:48.462 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:57:48.464 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 14:57:48.466 +03:30 [INF] Route matched with {action = "Kpi", controller = "Dashboards"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Kpi() on controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter).
+2025-01-16 14:57:48.469 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:57:48.472 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:48.475 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-01-16 14:57:48.479 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:57:48.482 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:48.486 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter)
+2025-01-16 14:57:48.489 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter)
+2025-01-16 14:57:48.492 +03:30 [DBG] View lookup cache hit for view 'Kpi' in controller 'Dashboards'.
+2025-01-16 14:57:48.494 +03:30 [INF] Executing ViewResult, running view Kpi.
+2025-01-16 14:57:48.496 +03:30 [DBG] The view path '/Views/Dashboards/Kpi.cshtml' was found in 4.7252ms.
+2025-01-16 14:57:48.499 +03:30 [DBG] View lookup cache hit for view '_ContentNavbarLayout' in controller 'Dashboards'.
+2025-01-16 14:57:48.502 +03:30 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was used to successfully load temp data.
+2025-01-16 14:57:48.505 +03:30 [DBG] View lookup cache hit for view 'Sections/Menu/_VerticalMenu' in controller 'Dashboards'.
+2025-01-16 14:57:48.507 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Home])
+2025-01-16 14:57:48.508 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and 
+2025-01-16 14:57:48.510 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /
+2025-01-16 14:57:48.511 +03:30 [DBG] View lookup cache hit for view '../_Partials/_Macros' in controller 'Dashboards'.
+2025-01-16 14:57:48.515 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[CF],controller=[Dashboards])
+2025-01-16 14:57:48.516 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/CF and 
+2025-01-16 14:57:48.517 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/CF
+2025-01-16 14:57:48.518 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Project],controller=[Dashboards])
+2025-01-16 14:57:48.519 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Project and 
+2025-01-16 14:57:48.521 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Project
+2025-01-16 14:57:48.523 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[FinanceProvider],controller=[Dashboards])
+2025-01-16 14:57:48.524 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/FinanceProvider and 
+2025-01-16 14:57:48.525 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/FinanceProvider
+2025-01-16 14:57:48.528 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Kpi],controller=[Dashboards])
+2025-01-16 14:57:48.530 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Kpi and 
+2025-01-16 14:57:48.532 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Kpi
+2025-01-16 14:57:48.534 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[ProfileProjects],controller=[Dashboards])
+2025-01-16 14:57:48.536 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/ProfileProjects and 
+2025-01-16 14:57:48.536 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/ProfileProjects
+2025-01-16 14:57:48.537 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatagent],controller=[Ai])
+2025-01-16 14:57:48.538 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatagent and 
+2025-01-16 14:57:48.540 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatagent
+2025-01-16 14:57:48.542 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatdb],controller=[Ai])
+2025-01-16 14:57:48.543 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatdb and 
+2025-01-16 14:57:48.545 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatdb
+2025-01-16 14:57:48.547 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[DashboardAi],controller=[Ai])
+2025-01-16 14:57:48.549 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/DashboardAi and 
+2025-01-16 14:57:48.550 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/DashboardAi
+2025-01-16 14:57:48.551 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Board])
+2025-01-16 14:57:48.552 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Board and 
+2025-01-16 14:57:48.553 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Board
+2025-01-16 14:57:48.556 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscComingSoon],controller=[Pages])
+2025-01-16 14:57:48.557 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscComingSoon and 
+2025-01-16 14:57:48.558 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscComingSoon
+2025-01-16 14:57:48.559 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Order],controller=[CFSecondaryMarket])
+2025-01-16 14:57:48.560 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /CFSecondaryMarket/Order and 
+2025-01-16 14:57:48.563 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /CFSecondaryMarket/Order
+2025-01-16 14:57:48.564 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscUnderMaintenance],controller=[Pages])
+2025-01-16 14:57:48.565 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscUnderMaintenance and 
+2025-01-16 14:57:48.566 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscUnderMaintenance
+2025-01-16 14:57:48.569 +03:30 [DBG] View lookup cache hit for view 'Sections/Navbar/_Navbar' in controller 'Dashboards'.
+2025-01-16 14:57:48.570 +03:30 [DBG] View lookup cache hit for view 'Sections/Navbar/_NavbarPartial' in controller 'Dashboards'.
+2025-01-16 14:57:48.571 +03:30 [DBG] View lookup cache hit for view 'Sections/Footer/_Footer' in controller 'Dashboards'.
+2025-01-16 14:57:48.572 +03:30 [DBG] View lookup cache hit for view '_CommonMasterLayout' in controller 'Dashboards'.
+2025-01-16 14:57:48.573 +03:30 [DBG] View lookup cache hit for view 'Sections/_Variables' in controller 'Dashboards'.
+2025-01-16 14:57:48.574 +03:30 [DBG] View lookup cache hit for view 'Sections/_Styles' in controller 'Dashboards'.
+2025-01-16 14:57:48.577 +03:30 [DBG] View lookup cache hit for view 'Sections/_ScriptsIncludes' in controller 'Dashboards'.
+2025-01-16 14:57:48.579 +03:30 [DBG] View lookup cache hit for view 'Sections/_Scripts' in controller 'Dashboards'.
+2025-01-16 14:57:48.580 +03:30 [DBG] Response markup is scheduled to include Browser Link script injection.
+2025-01-16 14:57:48.581 +03:30 [DBG] Response markup is scheduled to include browser refresh script injection.
+2025-01-16 14:57:48.587 +03:30 [INF] Executed ViewResult - view Kpi executed in 95.5208ms.
+2025-01-16 14:57:48.589 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter) in 103.5572ms
+2025-01-16 14:57:48.590 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 14:57:48.597 +03:30 [DBG] Response markup was updated to include Browser Link script injection.
+2025-01-16 14:57:48.598 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/fonts/fontawesome.css - null null
+2025-01-16 14:57:48.604 +03:30 [DBG] Response markup was updated to include browser refresh script injection.
+2025-01-16 14:57:48.604 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/css/core.css - null null
+2025-01-16 14:57:48.653 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/Dashboards/Kpi - 200 null text/html; charset=utf-8 212.9346ms
+2025-01-16 14:57:48.722 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css - null null
+2025-01-16 14:57:48.749 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/js/config.js - null null
+2025-01-16 14:57:48.721 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/datatables-bs5/datatables.bootstrap5.css - null null
+2025-01-16 14:57:48.610 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/css/demo.css - null null
+2025-01-16 14:57:48.598 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/fonts/flag-icons.css - null null
+2025-01-16 14:57:48.774 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/jquery/jquery.js - null null
+2025-01-16 14:57:48.784 +03:30 [INF] Sending file. Request path: '/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\datatables-responsive-bs5\responsive.bootstrap5.css'
+2025-01-16 14:57:48.788 +03:30 [INF] Sending file. Request path: '/js/config.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\js\config.js'
+2025-01-16 14:57:48.791 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css - 200 5790 text/css 69.2915ms
+2025-01-16 14:57:48.793 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/js/config.js - 200 4038 text/javascript 44.2888ms
+2025-01-16 14:57:48.789 +03:30 [INF] Sending file. Request path: '/css/demo.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\css\demo.css'
+2025-01-16 14:57:48.798 +03:30 [INF] Sending file. Request path: '/vendor/fonts/flag-icons.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\fonts\flag-icons.css'
+2025-01-16 14:57:48.802 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/css/demo.css - 200 2998 text/css 191.2528ms
+2025-01-16 14:57:48.795 +03:30 [INF] Sending file. Request path: '/vendor/libs/datatables-bs5/datatables.bootstrap5.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\datatables-bs5\datatables.bootstrap5.css'
+2025-01-16 14:57:48.803 +03:30 [INF] Sending file. Request path: '/vendor/fonts/fontawesome.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\fonts\fontawesome.css'
+2025-01-16 14:57:48.803 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/fonts/flag-icons.css - 200 35399 text/css 205.7428ms
+2025-01-16 14:57:48.811 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/fonts/fontawesome.css - 200 129575 text/css 213.8248ms
+2025-01-16 14:57:48.809 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/datatables-bs5/datatables.bootstrap5.css - 200 21878 text/css 88.5354ms
+2025-01-16 14:57:48.820 +03:30 [INF] Sending file. Request path: '/vendor/css/core.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\css\core.css'
+2025-01-16 14:57:48.598 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/fonts/tabler-icons.css - null null
+2025-01-16 14:57:48.828 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/css/core.css - 200 609973 text/css 224.2481ms
+2025-01-16 14:57:48.610 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/css/theme-default.css - null null
+2025-01-16 14:57:48.628 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/perfect-scrollbar/perfect-scrollbar.css - null null
+2025-01-16 14:57:48.638 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/typeahead-js/typeahead.css - null null
+2025-01-16 14:57:48.651 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/node-waves/node-waves.css - null null
+2025-01-16 14:57:48.664 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/css/site.css - null null
+2025-01-16 14:57:48.830 +03:30 [INF] Sending file. Request path: '/vendor/libs/jquery/jquery.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\jquery\jquery.js'
+2025-01-16 14:57:48.858 +03:30 [INF] Sending file. Request path: '/vendor/libs/perfect-scrollbar/perfect-scrollbar.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\perfect-scrollbar\perfect-scrollbar.css'
+2025-01-16 14:57:48.863 +03:30 [INF] Sending file. Request path: '/vendor/libs/node-waves/node-waves.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\node-waves\node-waves.css'
+2025-01-16 14:57:48.864 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/perfect-scrollbar/perfect-scrollbar.css - 200 6651 text/css 238.031ms
+2025-01-16 14:57:48.867 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/node-waves/node-waves.css - 200 4566 text/css 215.999ms
+2025-01-16 14:57:48.860 +03:30 [INF] Sending file. Request path: '/vendor/libs/typeahead-js/typeahead.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\typeahead-js\typeahead.css'
+2025-01-16 14:57:48.866 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/popper/popper.js - null null
+2025-01-16 14:57:48.861 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/jquery/jquery.js - 200 327369 text/javascript 86.6233ms
+2025-01-16 14:57:48.863 +03:30 [INF] Sending file. Request path: '/vendor/css/theme-default.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\css\theme-default.css'
+2025-01-16 14:57:48.866 +03:30 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\css\site.css'
+2025-01-16 14:57:48.678 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/css/rtl.css - null null
+2025-01-16 14:57:48.700 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/apex-charts/apex-charts.css - null null
+2025-01-16 14:57:48.722 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/css/pages/app-logistics-dashboard.css - null null
+2025-01-16 14:57:48.737 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/js/helpers.js - null null
+2025-01-16 14:57:48.879 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/typeahead-js/typeahead.css - 200 2135 text/css 241.0216ms
+2025-01-16 14:57:48.911 +03:30 [INF] Sending file. Request path: '/css/rtl.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\css\rtl.css'
+2025-01-16 14:57:48.918 +03:30 [INF] Sending file. Request path: '/vendor/libs/popper/popper.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\popper\popper.js'
+2025-01-16 14:57:48.918 +03:30 [INF] Sending file. Request path: '/vendor/libs/apex-charts/apex-charts.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\apex-charts\apex-charts.css'
+2025-01-16 14:57:48.922 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/css/rtl.css - 200 17547 text/css 244.3689ms
+2025-01-16 14:57:48.924 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/popper/popper.js - 200 26000 text/javascript 58.4909ms
+2025-01-16 14:57:48.925 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/farsi-fonts/font.css - null null
+2025-01-16 14:57:48.927 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/apex-charts/apex-charts.css - 200 22188 text/css 228.7852ms
+2025-01-16 14:57:48.891 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/css/theme-default.css - 200 51043 text/css 280.4004ms
+2025-01-16 14:57:48.892 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/css/site.css - 200 30 text/css 228.1798ms
+2025-01-16 14:57:48.868 +03:30 [INF] Sending file. Request path: '/vendor/fonts/tabler-icons.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\fonts\tabler-icons.css'
+2025-01-16 14:57:48.926 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/js/bootstrap.js - null null
+2025-01-16 14:57:48.919 +03:30 [INF] Sending file. Request path: '/vendor/css/pages/app-logistics-dashboard.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\css\pages\app-logistics-dashboard.css'
+2025-01-16 14:57:48.941 +03:30 [INF] Sending file. Request path: '/vendor/js/helpers.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\js\helpers.js'
+2025-01-16 14:57:48.953 +03:30 [INF] Sending file. Request path: '/farsi-fonts/font.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\farsi-fonts\font.css'
+2025-01-16 14:57:48.749 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/js/template-customizer.js - null null
+2025-01-16 14:57:48.764 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/avatars/1.png - null null
+2025-01-16 14:57:48.959 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/fonts/tabler-icons.css - 200 217430 text/css 361.2366ms
+2025-01-16 14:57:48.963 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/css/pages/app-logistics-dashboard.css - 200 1299 text/css 240.9732ms
+2025-01-16 14:57:48.964 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/js/helpers.js - 200 46284 text/javascript 227.514ms
+2025-01-16 14:57:48.966 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/farsi-fonts/font.css - 200 1632 text/css 40.7409ms
+2025-01-16 14:57:48.988 +03:30 [INF] Sending file. Request path: '/img/avatars/1.png'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\avatars\1.png'
+2025-01-16 14:57:48.996 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/avatars/1.png - 200 5339 image/png 232.309ms
+2025-01-16 14:57:49.000 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/perfect-scrollbar/perfect-scrollbar.js - null null
+2025-01-16 14:57:49.002 +03:30 [INF] Sending file. Request path: '/vendor/js/template-customizer.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\js\template-customizer.js'
+2025-01-16 14:57:49.010 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/js/template-customizer.js - 200 103535 text/javascript 261.3477ms
+2025-01-16 14:57:49.028 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/css/rtl/core-dark.css - null null
+2025-01-16 14:57:49.034 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/js/app-logistics-dashboard.js - null null
+2025-01-16 14:57:49.034 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/js/dashboards-crm.js - null null
+2025-01-16 14:57:49.033 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/js/main.js - null null
+2025-01-16 14:57:49.035 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_vs/browserLink - null null
+2025-01-16 14:57:49.033 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/datatables-bs5/i18n/fa.js - null null
+2025-01-16 14:57:49.058 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/system-dark.svg - null null
+2025-01-16 14:57:49.070 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/default-dark.svg - null null
+2025-01-16 14:57:49.070 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/border-dark.svg - null null
+2025-01-16 14:57:49.033 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/datatables-bs5/datatables-bootstrap5.js - null null
+2025-01-16 14:57:49.072 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/semi-dark-dark.svg - null null
+2025-01-16 14:57:49.033 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/apex-charts/apexcharts.js - null null
+2025-01-16 14:57:49.033 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/typeahead-js/typeahead.js - null null
+2025-01-16 14:57:49.088 +03:30 [INF] Sending file. Request path: '/img/customizer/default-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\default-dark.svg'
+2025-01-16 14:57:49.088 +03:30 [INF] Sending file. Request path: '/img/customizer/system-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\system-dark.svg'
+2025-01-16 14:57:49.088 +03:30 [INF] Sending file. Request path: '/img/customizer/border-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\border-dark.svg'
+2025-01-16 14:57:49.033 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/js/menu.js - null null
+2025-01-16 14:57:49.033 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/js/site.js - null null
+2025-01-16 14:57:49.096 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/default-dark.svg - 200 1658 image/svg+xml 26.5793ms
+2025-01-16 14:57:49.098 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/system-dark.svg - 200 1860 image/svg+xml 39.9731ms
+2025-01-16 14:57:49.093 +03:30 [INF] Sending file. Request path: '/img/customizer/semi-dark-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\semi-dark-dark.svg'
+2025-01-16 14:57:49.099 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/border-dark.svg - 200 1475 image/svg+xml 29.5798ms
+2025-01-16 14:57:49.110 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/rtl-dark.svg - null null
+2025-01-16 14:57:49.115 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/horizontal-fixed-dark.svg - null null
+2025-01-16 14:57:49.117 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/semi-dark-dark.svg - 200 2174 image/svg+xml 44.4681ms
+2025-01-16 14:57:49.123 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/compact-dark.svg - null null
+2025-01-16 14:57:49.138 +03:30 [INF] Sending file. Request path: '/img/customizer/rtl-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\rtl-dark.svg'
+2025-01-16 14:57:49.140 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/expanded-dark.svg - null null
+2025-01-16 14:57:49.146 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/rtl-dark.svg - 200 1527 image/svg+xml 35.3655ms
+2025-01-16 14:57:49.141 +03:30 [INF] Sending file. Request path: '/img/customizer/horizontal-fixed-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\horizontal-fixed-dark.svg'
+2025-01-16 14:57:49.156 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/sticky-dark.svg - null null
+2025-01-16 14:57:49.151 +03:30 [INF] Sending file. Request path: '/img/customizer/compact-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\compact-dark.svg'
+2025-01-16 14:57:49.106 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/ltr-dark.svg - null null
+2025-01-16 14:57:49.130 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/wide-dark.svg - null null
+2025-01-16 14:57:49.158 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/horizontal-fixed-dark.svg - 200 1078 image/svg+xml 43.3377ms
+2025-01-16 14:57:49.171 +03:30 [INF] Sending file. Request path: '/img/customizer/sticky-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\sticky-dark.svg'
+2025-01-16 14:57:49.158 +03:30 [INF] Sending file. Request path: '/img/customizer/expanded-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\expanded-dark.svg'
+2025-01-16 14:57:49.165 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/compact-dark.svg - 200 1000 image/svg+xml 41.8701ms
+2025-01-16 14:57:49.180 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/sticky-dark.svg - 200 1724 image/svg+xml 24.1656ms
+2025-01-16 14:57:49.178 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/static-dark.svg - null null
+2025-01-16 14:57:49.182 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/expanded-dark.svg - 200 1660 image/svg+xml 41.8867ms
+2025-01-16 14:57:49.188 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/hidden-dark.svg - null null
+2025-01-16 14:57:49.206 +03:30 [INF] Sending file. Request path: '/img/customizer/static-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\static-dark.svg'
+2025-01-16 14:57:49.177 +03:30 [INF] Sending file. Request path: '/img/customizer/ltr-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\ltr-dark.svg'
+2025-01-16 14:57:49.210 +03:30 [INF] Sending file. Request path: '/js/app-logistics-dashboard.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\js\app-logistics-dashboard.js'
+2025-01-16 14:57:49.208 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/static-dark.svg - 200 1663 image/svg+xml 29.9903ms
+2025-01-16 14:57:49.213 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/js/app-logistics-dashboard.js - 200 18991 text/javascript 178.8488ms
+2025-01-16 14:57:49.221 +03:30 [INF] Sending file. Request path: '/js/dashboards-crm.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\js\dashboards-crm.js'
+2025-01-16 14:57:49.211 +03:30 [INF] Sending file. Request path: '/vendor/libs/datatables-bs5/i18n/fa.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\datatables-bs5\i18n\fa.js'
+2025-01-16 14:57:49.217 +03:30 [INF] Sending file. Request path: '/img/customizer/hidden-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\hidden-dark.svg'
+2025-01-16 14:57:49.211 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/ltr-dark.svg - 200 1528 image/svg+xml 105.4665ms
+2025-01-16 14:57:49.186 +03:30 [INF] Sending file. Request path: '/img/customizer/wide-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\wide-dark.svg'
+2025-01-16 14:57:49.222 +03:30 [INF] Sending file. Request path: '/js/main.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\js\main.js'
+2025-01-16 14:57:49.223 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/js/dashboards-crm.js - 200 21009 text/javascript 188.5728ms
+2025-01-16 14:57:49.224 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/datatables-bs5/i18n/fa.js - 200 11144 text/javascript 191.1269ms
+2025-01-16 14:57:49.234 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/js/main.js - 200 24440 text/javascript 200.1431ms
+2025-01-16 14:57:49.239 +03:30 [INF] Sending file. Request path: '/vendor/js/menu.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\js\menu.js'
+2025-01-16 14:57:49.226 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/hidden-dark.svg - 200 1146 image/svg+xml 38.0395ms
+2025-01-16 14:57:49.249 +03:30 [INF] Sending file. Request path: '/vendor/libs/typeahead-js/typeahead.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\typeahead-js\typeahead.js'
+2025-01-16 14:57:49.249 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/js/menu.js - 200 44705 text/javascript 215.7606ms
+2025-01-16 14:57:49.258 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/typeahead-js/typeahead.js - 200 105454 text/javascript 225.3489ms
+2025-01-16 14:57:49.268 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_vs/browserLink - 200 null text/javascript; charset=UTF-8 230.7138ms
+2025-01-16 14:57:49.275 +03:30 [INF] Sending file. Request path: '/vendor/js/bootstrap.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\js\bootstrap.js'
+2025-01-16 14:57:49.232 +03:30 [INF] Sending file. Request path: '/vendor/libs/perfect-scrollbar/perfect-scrollbar.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\perfect-scrollbar\perfect-scrollbar.js'
+2025-01-16 14:57:49.332 +03:30 [INF] Sending file. Request path: '/vendor/libs/apex-charts/apexcharts.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\apex-charts\apexcharts.js'
+2025-01-16 14:57:49.330 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/js/bootstrap.js - 200 351365 text/javascript 403.346ms
+2025-01-16 14:57:49.334 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/apex-charts/apexcharts.js - 200 502251 text/javascript 301.4034ms
+2025-01-16 14:57:49.337 +03:30 [INF] Sending file. Request path: '/vendor/css/rtl/core-dark.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\css\rtl\core-dark.css'
+2025-01-16 14:57:49.332 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/perfect-scrollbar/perfect-scrollbar.js - 200 45553 text/javascript 332.0433ms
+2025-01-16 14:57:49.346 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/css/rtl/core-dark.css - 200 702502 text/css 318.7086ms
+2025-01-16 14:57:49.232 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/wide-dark.svg - 200 1022 image/svg+xml 101.2935ms
+2025-01-16 14:57:49.121 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/horizontal-static-dark.svg - null null
+2025-01-16 14:57:49.154 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/collapsed-dark.svg - null null
+2025-01-16 14:57:49.126 +03:30 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\js\site.js'
+2025-01-16 14:57:49.032 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/hammer/hammer.js - null null
+2025-01-16 14:57:49.375 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/js/site.js - 200 223 text/javascript 342.3916ms
+2025-01-16 14:57:49.032 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/node-waves/node-waves.js - null null
+2025-01-16 14:57:49.028 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/css/rtl/theme-default-dark.css - null null
+2025-01-16 14:57:49.053 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/dark-dark.svg - null null
+2025-01-16 14:57:49.033 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/libs/i18n/i18n.js - null null
+2025-01-16 14:57:49.037 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/customizer/light-dark.svg - null null
+2025-01-16 14:57:49.034 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-16 14:57:49.413 +03:30 [INF] Sending file. Request path: '/img/customizer/dark-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\dark-dark.svg'
+2025-01-16 14:57:49.417 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 382.1015ms
+2025-01-16 14:57:49.418 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/dark-dark.svg - 200 4369 image/svg+xml 364.2577ms
+2025-01-16 14:57:49.426 +03:30 [INF] Sending file. Request path: '/vendor/libs/node-waves/node-waves.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\node-waves\node-waves.js'
+2025-01-16 14:57:49.422 +03:30 [INF] Sending file. Request path: '/img/customizer/light-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\light-dark.svg'
+2025-01-16 14:57:49.435 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/node-waves/node-waves.js - 200 25414 text/javascript 402.6565ms
+2025-01-16 14:57:49.437 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/light-dark.svg - 200 3348 image/svg+xml 399.7741ms
+2025-01-16 14:57:49.426 +03:30 [INF] Sending file. Request path: '/vendor/libs/hammer/hammer.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\hammer\hammer.js'
+2025-01-16 14:57:49.451 +03:30 [INF] Sending file. Request path: '/vendor/libs/i18n/i18n.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\i18n\i18n.js'
+2025-01-16 14:57:49.453 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/hammer/hammer.js - 200 81578 text/javascript 420.3538ms
+2025-01-16 14:57:49.455 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/i18n/i18n.js - 200 152095 text/javascript 422.1582ms
+2025-01-16 14:57:49.414 +03:30 [INF] Sending file. Request path: '/vendor/css/rtl/theme-default-dark.css'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\css\rtl\theme-default-dark.css'
+2025-01-16 14:57:49.379 +03:30 [INF] Sending file. Request path: '/img/customizer/horizontal-static-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\horizontal-static-dark.svg'
+2025-01-16 14:57:49.383 +03:30 [INF] Sending file. Request path: '/img/customizer/collapsed-dark.svg'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\customizer\collapsed-dark.svg'
+2025-01-16 14:57:49.457 +03:30 [INF] Sending file. Request path: '/vendor/libs/datatables-bs5/datatables-bootstrap5.js'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\libs\datatables-bs5\datatables-bootstrap5.js'
+2025-01-16 14:57:49.465 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/css/rtl/theme-default-dark.css - 200 55175 text/css 437.4673ms
+2025-01-16 14:57:49.467 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/horizontal-static-dark.svg - 200 1139 image/svg+xml 346.3993ms
+2025-01-16 14:57:49.468 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/customizer/collapsed-dark.svg - 200 1667 image/svg+xml 314.7237ms
+2025-01-16 14:57:49.479 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-regular.woff - null null
+2025-01-16 14:57:49.479 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/vendor/fonts/tabler/tabler-icons.woff2 - null null
+2025-01-16 14:57:49.479 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-light.woff - null null
+2025-01-16 14:57:49.479 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-demibold.woff - null null
+2025-01-16 14:57:49.479 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-medium.woff - null null
+2025-01-16 14:57:49.479 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-bold.woff - null null
+2025-01-16 14:57:49.500 +03:30 [INF] Sending file. Request path: '/farsi-fonts/woff/iransansx-regular.woff'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\farsi-fonts\woff\iransansx-regular.woff'
+2025-01-16 14:57:49.470 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/libs/datatables-bs5/datatables-bootstrap5.js - 200 4827648 text/javascript 436.4411ms
+2025-01-16 14:57:49.506 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-regular.woff - 200 36012 application/font-woff 27.2079ms
+2025-01-16 14:57:49.517 +03:30 [INF] Sending file. Request path: '/farsi-fonts/woff/iransansx-bold.woff'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\farsi-fonts\woff\iransansx-bold.woff'
+2025-01-16 14:57:49.515 +03:30 [INF] Sending file. Request path: '/farsi-fonts/woff/iransansx-medium.woff'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\farsi-fonts\woff\iransansx-medium.woff'
+2025-01-16 14:57:49.522 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-bold.woff - 200 37128 application/font-woff 42.7692ms
+2025-01-16 14:57:49.525 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-medium.woff - 200 36968 application/font-woff 45.8799ms
+2025-01-16 14:57:49.510 +03:30 [INF] Sending file. Request path: '/farsi-fonts/woff/iransansx-demibold.woff'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\farsi-fonts\woff\iransansx-demibold.woff'
+2025-01-16 14:57:49.509 +03:30 [INF] Sending file. Request path: '/farsi-fonts/woff/iransansx-light.woff'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\farsi-fonts\woff\iransansx-light.woff'
+2025-01-16 14:57:49.536 +03:30 [INF] Sending file. Request path: '/vendor/fonts/tabler/tabler-icons.woff2'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\vendor\fonts\tabler\tabler-icons.woff2'
+2025-01-16 14:57:49.537 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-demibold.woff - 200 37080 application/font-woff 57.896ms
+2025-01-16 14:57:49.538 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/farsi-fonts/woff/iransansx-light.woff - 200 37148 application/font-woff 59.3737ms
+2025-01-16 14:57:49.539 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/vendor/fonts/tabler/tabler-icons.woff2 - 200 702272 font/woff2 60.6749ms
+2025-01-16 14:57:50.277 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/json/locales/fa.json - null null
+2025-01-16 14:57:50.281 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetUnderwritingByYear - application/json null
+2025-01-16 14:57:50.284 +03:30 [DBG] The request path /api/CfApi/GetUnderwritingByYear does not match a supported file type
+2025-01-16 14:57:50.285 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetUnderwritingByYear'
+2025-01-16 14:57:50.287 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetUnderwritingByYear' is valid for the request path '/api/CfApi/GetUnderwritingByYear'
+2025-01-16 14:57:50.290 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 14:57:50.291 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:57:50.293 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 14:57:50.296 +03:30 [INF] Sending file. Request path: '/json/locales/fa.json'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\json\locales\fa.json'
+2025-01-16 14:57:50.296 +03:30 [INF] Route matched with {action = "GetUnderwritingByYear", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUnderwritingByYear() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 14:57:50.299 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountByMonth - application/json null
+2025-01-16 14:57:50.298 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/json/locales/fa.json - 200 7658 application/json 21.0183ms
+2025-01-16 14:57:50.299 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountBystatus - application/json null
+2025-01-16 14:57:50.301 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:57:50.303 +03:30 [DBG] The request path /api/CfApi/GetProjectCountByMonth does not match a supported file type
+2025-01-16 14:57:50.310 +03:30 [DBG] The request path /api/CfApi/GetProjectCountBystatus does not match a supported file type
+2025-01-16 14:57:50.312 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:50.313 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetProjectCountByMonth'
+2025-01-16 14:57:50.314 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetProjectCountBystatus'
+2025-01-16 14:57:50.316 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 14:57:50.317 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetProjectCountByMonth' is valid for the request path '/api/CfApi/GetProjectCountByMonth'
+2025-01-16 14:57:50.319 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetProjectCountBystatus' is valid for the request path '/api/CfApi/GetProjectCountBystatus'
+2025-01-16 14:57:50.322 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:57:50.323 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 14:57:50.325 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 14:57:50.328 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 14:57:50.329 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:57:50.331 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:57:50.333 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:50.334 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 14:57:50.335 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 14:57:50.338 +03:30 [INF] Route matched with {action = "GetProjectCountByMonth", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProjectCountByMonth() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 14:57:50.340 +03:30 [INF] Route matched with {action = "GetProjectCountBystatus", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProjectCountBystatus() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 14:57:50.340 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:50.342 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:57:50.343 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:57:52.346 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/json/logistics-dashboard.json?_=1737026869504 - null null
+2025-01-16 14:57:52.346 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/img/favicon/favicon.ico - null null
+2025-01-16 14:57:52.348 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:52.360 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 14:57:52.372 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 14:57:52.364 +03:30 [INF] Sending file. Request path: '/json/logistics-dashboard.json'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\json\logistics-dashboard.json'
+2025-01-16 14:57:52.370 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 14:57:52.355 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:57:52.376 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/json/logistics-dashboard.json?_=1737026869504 - 200 6258 application/json 30.0993ms
+2025-01-16 14:57:52.379 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:57:52.374 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 14:57:52.381 +03:30 [INF] Sending file. Request path: '/img/favicon/favicon.ico'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\img\favicon\favicon.ico'
+2025-01-16 14:57:52.383 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 14:57:52.391 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 14:57:52.394 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 14:57:52.396 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/img/favicon/favicon.ico - 200 5430 image/x-icon 50.8679ms
+2025-01-16 14:57:52.400 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:57:52.403 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:52.405 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 14:57:52.415 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 14:57:52.417 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:52.418 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[AspnetCoreMvcStarter.Models.CrowdFunding.ChartData, AspnetCoreMvcStarter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-16 14:57:52.421 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:52.424 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 14:57:52.427 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter) in 2094.1654ms
+2025-01-16 14:57:52.430 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:57:52.434 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 14:57:52.437 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 14:57:52.442 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 14:57:52.445 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetUnderwritingByYear - 200 null application/json; charset=utf-8 2164.5029ms
+2025-01-16 14:57:52.447 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 14:57:52.457 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 14:57:52.460 +03:30 [INF] Executing OkObjectResult, writing value of type 'AspnetCoreMvcStarter.Models.CrowdFunding.ShipmentStatistics'.
+2025-01-16 14:57:52.462 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter) in 59.0252ms
+2025-01-16 14:57:52.465 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 14:57:52.466 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountByMonth - 200 null application/json; charset=utf-8 2166.8801ms
+2025-01-16 14:57:52.533 +03:30 [DBG] Entity Framework Core 8.0.0 initialized 'AspnetCoreMvcStarterContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.0' with options: None
+2025-01-16 14:57:52.543 +03:30 [DBG] Creating DbConnection.
+2025-01-16 14:57:52.545 +03:30 [DBG] Created DbConnection. (2ms).
+2025-01-16 14:57:52.547 +03:30 [DBG] Opening connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:52.550 +03:30 [DBG] Opened connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:52.553 +03:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-01-16 14:57:52.563 +03:30 [DBG] Created DbCommand for 'ExecuteReader' (9ms).
+2025-01-16 14:57:52.566 +03:30 [DBG] Initialized DbCommand for 'ExecuteReader' (12ms).
+2025-01-16 14:57:52.571 +03:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."ApprovedByBroker", "d"."FundingApprovedByFarabourse", "d"."FundingFinished", "d"."OtherApprovedByBroker", "d"."OtherFundingApprovedByFarabourse", "d"."OtherFundingFinished", "d"."OtherStarted", "d"."Started"
+FROM "DashboardData" AS "d"
+LIMIT 1
+2025-01-16 14:57:52.574 +03:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."ApprovedByBroker", "d"."FundingApprovedByFarabourse", "d"."FundingFinished", "d"."OtherApprovedByBroker", "d"."OtherFundingApprovedByFarabourse", "d"."OtherFundingFinished", "d"."OtherStarted", "d"."Started"
+FROM "DashboardData" AS "d"
+LIMIT 1
+2025-01-16 14:57:52.576 +03:30 [DBG] Context 'AspnetCoreMvcStarterContext' started tracking 'DashboardData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-01-16 14:57:52.578 +03:30 [DBG] Closing data reader to 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:52.580 +03:30 [DBG] A data reader for 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db' is being disposed after spending 4ms reading results.
+2025-01-16 14:57:52.582 +03:30 [DBG] Closing connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:52.584 +03:30 [DBG] Closed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 14:57:52.588 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 14:57:52.593 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 14:57:52.594 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 14:57:52.595 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 14:57:52.596 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 14:57:52.599 +03:30 [INF] Executing OkObjectResult, writing value of type 'AspnetCoreMvcStarter.Models.CrowdFunding.DashboardData'.
+2025-01-16 14:57:52.602 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter) in 181.398ms
+2025-01-16 14:57:52.605 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 14:57:52.606 +03:30 [DBG] 'AspnetCoreMvcStarterContext' disposed.
+2025-01-16 14:57:52.608 +03:30 [DBG] Disposing connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 14:57:52.609 +03:30 [DBG] Disposed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 14:57:52.611 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountBystatus - 200 null application/json; charset=utf-8 2312.1058ms
+2025-01-16 14:58:15.709 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/Dashboards/Kpi - null null
+2025-01-16 14:58:15.719 +03:30 [DBG] The request path /Dashboards/Kpi does not match a supported file type
+2025-01-16 14:58:15.721 +03:30 [DBG] 1 candidate(s) found for the request path '/Dashboards/Kpi'
+2025-01-16 14:58:15.724 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/Dashboards/Kpi'
+2025-01-16 14:58:15.727 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 14:58:15.730 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:58:15.731 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 14:58:15.733 +03:30 [INF] Route matched with {action = "Kpi", controller = "Dashboards"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Kpi() on controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter).
+2025-01-16 14:58:15.737 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:58:15.740 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:58:15.743 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-01-16 14:58:15.748 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:58:15.750 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:58:15.752 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter)
+2025-01-16 14:58:15.755 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter)
+2025-01-16 14:58:15.757 +03:30 [DBG] View lookup cache hit for view 'Kpi' in controller 'Dashboards'.
+2025-01-16 14:58:15.760 +03:30 [INF] Executing ViewResult, running view Kpi.
+2025-01-16 14:58:15.762 +03:30 [DBG] The view path '/Views/Dashboards/Kpi.cshtml' was found in 5.2475ms.
+2025-01-16 14:58:15.764 +03:30 [DBG] View lookup cache hit for view '_ContentNavbarLayout' in controller 'Dashboards'.
+2025-01-16 14:58:15.766 +03:30 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was used to successfully load temp data.
+2025-01-16 14:58:15.767 +03:30 [DBG] View lookup cache hit for view 'Sections/Menu/_VerticalMenu' in controller 'Dashboards'.
+2025-01-16 14:58:15.769 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Home])
+2025-01-16 14:58:15.770 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and 
+2025-01-16 14:58:15.771 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /
+2025-01-16 14:58:15.773 +03:30 [DBG] View lookup cache hit for view '../_Partials/_Macros' in controller 'Dashboards'.
+2025-01-16 14:58:15.776 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[CF],controller=[Dashboards])
+2025-01-16 14:58:15.777 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/CF and 
+2025-01-16 14:58:15.779 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/CF
+2025-01-16 14:58:15.783 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Project],controller=[Dashboards])
+2025-01-16 14:58:15.784 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Project and 
+2025-01-16 14:58:15.785 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Project
+2025-01-16 14:58:15.787 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[FinanceProvider],controller=[Dashboards])
+2025-01-16 14:58:15.790 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/FinanceProvider and 
+2025-01-16 14:58:15.792 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/FinanceProvider
+2025-01-16 14:58:15.793 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Kpi],controller=[Dashboards])
+2025-01-16 14:58:15.794 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Kpi and 
+2025-01-16 14:58:15.797 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Kpi
+2025-01-16 14:58:15.798 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[ProfileProjects],controller=[Dashboards])
+2025-01-16 14:58:15.799 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/ProfileProjects and 
+2025-01-16 14:58:15.801 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/ProfileProjects
+2025-01-16 14:58:15.802 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatagent],controller=[Ai])
+2025-01-16 14:58:15.804 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatagent and 
+2025-01-16 14:58:15.805 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatagent
+2025-01-16 14:58:15.806 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatdb],controller=[Ai])
+2025-01-16 14:58:15.807 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatdb and 
+2025-01-16 14:58:15.808 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatdb
+2025-01-16 14:58:15.810 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[DashboardAi],controller=[Ai])
+2025-01-16 14:58:15.812 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/DashboardAi and 
+2025-01-16 14:58:15.813 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/DashboardAi
+2025-01-16 14:58:15.814 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Board])
+2025-01-16 14:58:15.815 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Board and 
+2025-01-16 14:58:15.817 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Board
+2025-01-16 14:58:15.818 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscComingSoon],controller=[Pages])
+2025-01-16 14:58:15.819 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscComingSoon and 
+2025-01-16 14:58:15.821 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscComingSoon
+2025-01-16 14:58:15.822 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Order],controller=[CFSecondaryMarket])
+2025-01-16 14:58:15.824 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /CFSecondaryMarket/Order and 
+2025-01-16 14:58:15.825 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /CFSecondaryMarket/Order
+2025-01-16 14:58:15.826 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscUnderMaintenance],controller=[Pages])
+2025-01-16 14:58:15.828 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscUnderMaintenance and 
+2025-01-16 14:58:15.831 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscUnderMaintenance
+2025-01-16 14:58:15.832 +03:30 [DBG] View lookup cache hit for view 'Sections/Navbar/_Navbar' in controller 'Dashboards'.
+2025-01-16 14:58:15.832 +03:30 [DBG] View lookup cache hit for view 'Sections/Navbar/_NavbarPartial' in controller 'Dashboards'.
+2025-01-16 14:58:15.833 +03:30 [DBG] View lookup cache hit for view 'Sections/Footer/_Footer' in controller 'Dashboards'.
+2025-01-16 14:58:15.834 +03:30 [DBG] View lookup cache hit for view '_CommonMasterLayout' in controller 'Dashboards'.
+2025-01-16 14:58:15.835 +03:30 [DBG] View lookup cache hit for view 'Sections/_Variables' in controller 'Dashboards'.
+2025-01-16 14:58:15.838 +03:30 [DBG] View lookup cache hit for view 'Sections/_Styles' in controller 'Dashboards'.
+2025-01-16 14:58:15.840 +03:30 [DBG] View lookup cache hit for view 'Sections/_ScriptsIncludes' in controller 'Dashboards'.
+2025-01-16 14:58:15.842 +03:30 [DBG] View lookup cache hit for view 'Sections/_Scripts' in controller 'Dashboards'.
+2025-01-16 14:58:15.845 +03:30 [DBG] Response markup is scheduled to include Browser Link script injection.
+2025-01-16 14:58:15.846 +03:30 [DBG] Response markup is scheduled to include browser refresh script injection.
+2025-01-16 14:58:15.853 +03:30 [INF] Executed ViewResult - view Kpi executed in 95.5068ms.
+2025-01-16 14:58:15.856 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter) in 104.5081ms
+2025-01-16 14:58:15.859 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 14:58:15.860 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-16 14:58:15.862 +03:30 [DBG] Response markup was updated to include Browser Link script injection.
+2025-01-16 14:58:15.862 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_vs/browserLink - null null
+2025-01-16 14:58:15.873 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 12.9067ms
+2025-01-16 14:58:15.875 +03:30 [DBG] Response markup was updated to include browser refresh script injection.
+2025-01-16 14:58:15.896 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/Dashboards/Kpi - 200 null text/html; charset=utf-8 186.5483ms
+2025-01-16 14:58:15.900 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.5848ms
+2025-01-16 14:58:16.299 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetUnderwritingByYear - application/json null
+2025-01-16 14:58:16.302 +03:30 [DBG] The request path /api/CfApi/GetUnderwritingByYear does not match a supported file type
+2025-01-16 14:58:16.304 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetUnderwritingByYear'
+2025-01-16 14:58:16.306 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetUnderwritingByYear' is valid for the request path '/api/CfApi/GetUnderwritingByYear'
+2025-01-16 14:58:16.308 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountBystatus - application/json null
+2025-01-16 14:58:16.308 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountByMonth - application/json null
+2025-01-16 14:58:16.308 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 14:58:16.311 +03:30 [DBG] The request path /api/CfApi/GetProjectCountBystatus does not match a supported file type
+2025-01-16 14:58:16.313 +03:30 [DBG] The request path /api/CfApi/GetProjectCountByMonth does not match a supported file type
+2025-01-16 14:58:16.315 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:58:16.316 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetProjectCountBystatus'
+2025-01-16 14:58:16.317 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetProjectCountByMonth'
+2025-01-16 14:58:16.318 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 14:58:16.319 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetProjectCountBystatus' is valid for the request path '/api/CfApi/GetProjectCountBystatus'
+2025-01-16 14:58:16.320 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetProjectCountByMonth' is valid for the request path '/api/CfApi/GetProjectCountByMonth'
+2025-01-16 14:58:16.322 +03:30 [INF] Route matched with {action = "GetUnderwritingByYear", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUnderwritingByYear() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 14:58:16.324 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 14:58:16.325 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 14:58:16.327 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:58:16.329 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:58:16.330 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 14:58:16.332 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:58:16.332 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 14:58:16.334 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 14:58:16.336 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 14:58:16.337 +03:30 [INF] Route matched with {action = "GetProjectCountBystatus", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProjectCountBystatus() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 14:58:16.339 +03:30 [INF] Route matched with {action = "GetProjectCountByMonth", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProjectCountByMonth() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 14:58:16.342 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:58:16.344 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:58:16.347 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 14:58:16.348 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 14:58:16.350 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:58:16.353 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 14:58:16.355 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:58:16.356 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 14:58:16.358 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 14:58:16.359 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/json/logistics-dashboard.json?_=1737026895914 - null null
+2025-01-16 14:58:16.365 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:58:16.366 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 14:58:19.152 +03:30 [INF] Sending file. Request path: '/json/logistics-dashboard.json'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\json\logistics-dashboard.json'
+2025-01-16 14:58:19.201 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 14:58:19.207 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/json/logistics-dashboard.json?_=1737026895914 - 200 6258 application/json 2849.1825ms
+2025-01-16 15:00:01.000 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 14:58:16.368 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 15:00:01.008 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 15:00:01.007 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 15:00:01.009 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 15:00:01.011 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 15:00:01.013 +03:30 [DBG] Entity Framework Core 8.0.0 initialized 'AspnetCoreMvcStarterContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.0' with options: None
+2025-01-16 15:00:01.015 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 15:00:01.018 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 15:00:01.020 +03:30 [DBG] Creating DbConnection.
+2025-01-16 15:00:01.021 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 15:00:01.022 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 15:00:01.023 +03:30 [DBG] Created DbConnection. (3ms).
+2025-01-16 15:00:01.023 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 15:00:01.026 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 15:00:01.027 +03:30 [DBG] Opening connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:01.028 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 15:00:01.028 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 15:00:01.029 +03:30 [DBG] Opened connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:01.030 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[AspnetCoreMvcStarter.Models.CrowdFunding.ChartData, AspnetCoreMvcStarter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-16 15:00:01.031 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 15:00:01.034 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 15:00:01.035 +03:30 [INF] Executing OkObjectResult, writing value of type 'AspnetCoreMvcStarter.Models.CrowdFunding.ShipmentStatistics'.
+2025-01-16 15:00:01.032 +03:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-01-16 15:00:01.034 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter) in 104678.7851ms
+2025-01-16 15:00:01.038 +03:30 [DBG] Created DbCommand for 'ExecuteReader' (6ms).
+2025-01-16 15:00:01.037 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter) in 26.2759ms
+2025-01-16 15:00:01.041 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 15:00:01.040 +03:30 [DBG] Initialized DbCommand for 'ExecuteReader' (8ms).
+2025-01-16 15:00:01.040 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 15:00:01.042 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountByMonth - 200 null application/json; charset=utf-8 104734.1312ms
+2025-01-16 15:00:01.044 +03:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."ApprovedByBroker", "d"."FundingApprovedByFarabourse", "d"."FundingFinished", "d"."OtherApprovedByBroker", "d"."OtherFundingApprovedByFarabourse", "d"."OtherFundingFinished", "d"."OtherStarted", "d"."Started"
+FROM "DashboardData" AS "d"
+LIMIT 1
+2025-01-16 15:00:01.045 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetUnderwritingByYear - 200 null application/json; charset=utf-8 104746.6804ms
+2025-01-16 15:00:01.050 +03:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."ApprovedByBroker", "d"."FundingApprovedByFarabourse", "d"."FundingFinished", "d"."OtherApprovedByBroker", "d"."OtherFundingApprovedByFarabourse", "d"."OtherFundingFinished", "d"."OtherStarted", "d"."Started"
+FROM "DashboardData" AS "d"
+LIMIT 1
+2025-01-16 15:00:01.055 +03:30 [DBG] Context 'AspnetCoreMvcStarterContext' started tracking 'DashboardData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-01-16 15:00:01.057 +03:30 [DBG] Closing data reader to 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:01.058 +03:30 [DBG] A data reader for 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db' is being disposed after spending 2ms reading results.
+2025-01-16 15:00:01.059 +03:30 [DBG] Closing connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:01.061 +03:30 [DBG] Closed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 15:00:01.062 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 15:00:01.064 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 15:00:01.065 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 15:00:01.065 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 15:00:01.066 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 15:00:01.068 +03:30 [INF] Executing OkObjectResult, writing value of type 'AspnetCoreMvcStarter.Models.CrowdFunding.DashboardData'.
+2025-01-16 15:00:01.070 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter) in 70.5393ms
+2025-01-16 15:00:01.072 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 15:00:01.073 +03:30 [DBG] 'AspnetCoreMvcStarterContext' disposed.
+2025-01-16 15:00:01.073 +03:30 [DBG] Disposing connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:01.075 +03:30 [DBG] Disposed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 15:00:01.076 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountBystatus - 200 null application/json; charset=utf-8 104768.4757ms
+2025-01-16 15:00:01.976 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/Dashboards/Kpi - null null
+2025-01-16 15:00:01.989 +03:30 [DBG] The request path /Dashboards/Kpi does not match a supported file type
+2025-01-16 15:00:01.991 +03:30 [DBG] 1 candidate(s) found for the request path '/Dashboards/Kpi'
+2025-01-16 15:00:01.992 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/Dashboards/Kpi'
+2025-01-16 15:00:01.994 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 15:00:01.995 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 15:00:01.996 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 15:00:01.997 +03:30 [INF] Route matched with {action = "Kpi", controller = "Dashboards"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Kpi() on controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter).
+2025-01-16 15:00:02.005 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 15:00:02.007 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 15:00:02.008 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-01-16 15:00:02.010 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 15:00:02.011 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 15:00:02.013 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter)
+2025-01-16 15:00:02.015 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.DashboardsController (AspnetCoreMvcStarter)
+2025-01-16 15:00:02.017 +03:30 [DBG] View lookup cache miss for view 'Kpi' in controller 'Dashboards'.
+2025-01-16 15:00:02.019 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/Chat.cshtml'.
+2025-01-16 15:00:02.021 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/Chatagent.cshtml'.
+2025-01-16 15:00:02.022 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/Chatdb.cshtml'.
+2025-01-16 15:00:02.024 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/chatdb2.cshtml'.
+2025-01-16 15:00:02.025 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/DashboardAi.cshtml'.
+2025-01-16 15:00:02.026 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Ai/MonitoringAi.cshtml'.
+2025-01-16 15:00:02.027 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Auth/LoginBasic.cshtml'.
+2025-01-16 15:00:02.028 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Board/Index.cshtml'.
+2025-01-16 15:00:02.029 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/CFSecondaryMarket/Order.cshtml'.
+2025-01-16 15:00:02.030 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/CFSecondaryMarket/Setting.cshtml'.
+2025-01-16 15:00:02.031 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/CF/Index.cshtml'.
+2025-01-16 15:00:02.032 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/CF.cshtml'.
+2025-01-16 15:00:02.033 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/CRM.cshtml'.
+2025-01-16 15:00:02.034 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/FinanceProvider.cshtml'.
+2025-01-16 15:00:02.035 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/Kpi.cshtml'.
+2025-01-16 15:00:02.036 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/ProfileProjects.cshtml'.
+2025-01-16 15:00:02.037 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Dashboards/Project.cshtml'.
+2025-01-16 15:00:02.038 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Hamafarin/Index.cshtml'.
+2025-01-16 15:00:02.040 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'.
+2025-01-16 15:00:02.041 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'.
+2025-01-16 15:00:02.042 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Page2/Index.cshtml'.
+2025-01-16 15:00:02.043 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettings.cshtml'.
+2025-01-16 15:00:02.044 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettingsBilling.cshtml'.
+2025-01-16 15:00:02.045 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettingsConnections.cshtml'.
+2025-01-16 15:00:02.046 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettingsNotifications.cshtml'.
+2025-01-16 15:00:02.048 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/AccountSettingsSecurity.cshtml'.
+2025-01-16 15:00:02.049 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/FAQ.cshtml'.
+2025-01-16 15:00:02.050 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/MiscComingSoon.cshtml'.
+2025-01-16 15:00:02.051 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/MiscError.cshtml'.
+2025-01-16 15:00:02.053 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/MiscNotAuthorized.cshtml'.
+2025-01-16 15:00:02.054 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/MiscUnderMaintenance.cshtml'.
+2025-01-16 15:00:02.056 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/Pricing.cshtml'.
+2025-01-16 15:00:02.057 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/ProfileConnections.cshtml'.
+2025-01-16 15:00:02.059 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/ProfileProjects.cshtml'.
+2025-01-16 15:00:02.060 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/ProfileTeams.cshtml'.
+2025-01-16 15:00:02.062 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Pages/ProfileUser.cshtml'.
+2025-01-16 15:00:02.064 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'.
+2025-01-16 15:00:02.066 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Footer/_Footer.cshtml'.
+2025-01-16 15:00:02.068 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Menu/_HorizontalMenu.cshtml'.
+2025-01-16 15:00:02.070 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Menu/_VerticalMenu.cshtml'.
+2025-01-16 15:00:02.073 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Navbar/_Navbar.cshtml'.
+2025-01-16 15:00:02.075 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/Navbar/_NavbarPartial.cshtml'.
+2025-01-16 15:00:02.078 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_Scripts.cshtml'.
+2025-01-16 15:00:02.080 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_ScriptsFront.cshtml'.
+2025-01-16 15:00:02.082 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_ScriptsIncludes.cshtml'.
+2025-01-16 15:00:02.084 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_ScriptsIncludesFront.cshtml'.
+2025-01-16 15:00:02.086 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_Styles.cshtml'.
+2025-01-16 15:00:02.088 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_StylesFront.cshtml'.
+2025-01-16 15:00:02.090 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Sections/_Variables.cshtml'.
+2025-01-16 15:00:02.091 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_BlankLayout.cshtml'.
+2025-01-16 15:00:02.093 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_CommonMasterLayout.cshtml'.
+2025-01-16 15:00:02.095 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_ContentNavbarLayout.cshtml'.
+2025-01-16 15:00:02.097 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_FrontLayout.cshtml'.
+2025-01-16 15:00:02.098 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_HorizontalLayout.cshtml'.
+2025-01-16 15:00:02.100 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_NavbarFullLayout.cshtml'.
+2025-01-16 15:00:02.102 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'.
+2025-01-16 15:00:02.104 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/_Partials/_Macros.cshtml'.
+2025-01-16 15:00:02.106 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/_Partials/_Modals/ModalEditUser.cshtml'.
+2025-01-16 15:00:02.107 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'.
+2025-01-16 15:00:02.109 +03:30 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'.
+2025-01-16 15:00:02.112 +03:30 [INF] Executing ViewResult, running view Kpi.
+2025-01-16 15:00:02.114 +03:30 [DBG] The view path '/Views/Dashboards/Kpi.cshtml' was found in 97.6772ms.
+2025-01-16 15:00:02.119 +03:30 [DBG] View lookup cache miss for view '_ContentNavbarLayout' in controller 'Dashboards'.
+2025-01-16 15:00:02.125 +03:30 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was used to successfully load temp data.
+2025-01-16 15:00:02.127 +03:30 [DBG] View lookup cache miss for view 'Sections/Menu/_VerticalMenu' in controller 'Dashboards'.
+2025-01-16 15:00:02.131 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Home])
+2025-01-16 15:00:02.134 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and 
+2025-01-16 15:00:02.136 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /
+2025-01-16 15:00:02.139 +03:30 [DBG] View lookup cache miss for view '../_Partials/_Macros' in controller 'Dashboards'.
+2025-01-16 15:00:02.143 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[CF],controller=[Dashboards])
+2025-01-16 15:00:02.147 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/CF and 
+2025-01-16 15:00:02.150 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/CF
+2025-01-16 15:00:02.153 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Project],controller=[Dashboards])
+2025-01-16 15:00:02.156 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Project and 
+2025-01-16 15:00:02.159 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Project
+2025-01-16 15:00:02.162 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[FinanceProvider],controller=[Dashboards])
+2025-01-16 15:00:02.164 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/FinanceProvider and 
+2025-01-16 15:00:02.167 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/FinanceProvider
+2025-01-16 15:00:02.169 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Kpi],controller=[Dashboards])
+2025-01-16 15:00:02.172 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/Kpi and 
+2025-01-16 15:00:02.175 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/Kpi
+2025-01-16 15:00:02.177 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[ProfileProjects],controller=[Dashboards])
+2025-01-16 15:00:02.179 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Dashboards/ProfileProjects and 
+2025-01-16 15:00:02.183 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Dashboards/ProfileProjects
+2025-01-16 15:00:02.186 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatagent],controller=[Ai])
+2025-01-16 15:00:02.189 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatagent and 
+2025-01-16 15:00:02.191 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatagent
+2025-01-16 15:00:02.193 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[chatdb],controller=[Ai])
+2025-01-16 15:00:02.195 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/chatdb and 
+2025-01-16 15:00:02.198 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/chatdb
+2025-01-16 15:00:02.200 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[DashboardAi],controller=[Ai])
+2025-01-16 15:00:02.203 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Ai/DashboardAi and 
+2025-01-16 15:00:02.206 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Ai/DashboardAi
+2025-01-16 15:00:02.208 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Index],controller=[Board])
+2025-01-16 15:00:02.212 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Board and 
+2025-01-16 15:00:02.215 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Board
+2025-01-16 15:00:02.217 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscComingSoon],controller=[Pages])
+2025-01-16 15:00:02.219 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscComingSoon and 
+2025-01-16 15:00:02.222 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscComingSoon
+2025-01-16 15:00:02.225 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[Order],controller=[CFSecondaryMarket])
+2025-01-16 15:00:02.227 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /CFSecondaryMarket/Order and 
+2025-01-16 15:00:02.230 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /CFSecondaryMarket/Order
+2025-01-16 15:00:02.232 +03:30 [DBG] Found the endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] for address (action=[MiscUnderMaintenance],controller=[Pages])
+2025-01-16 15:00:02.235 +03:30 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Pages/MiscUnderMaintenance and 
+2025-01-16 15:00:02.239 +03:30 [DBG] Link generation succeeded for endpoints ["Route: {controller=Home}/{action=Index}/{id?}"] with result /Pages/MiscUnderMaintenance
+2025-01-16 15:00:02.241 +03:30 [DBG] View lookup cache miss for view 'Sections/Navbar/_Navbar' in controller 'Dashboards'.
+2025-01-16 15:00:02.246 +03:30 [DBG] View lookup cache miss for view 'Sections/Navbar/_NavbarPartial' in controller 'Dashboards'.
+2025-01-16 15:00:02.251 +03:30 [DBG] View lookup cache miss for view 'Sections/Footer/_Footer' in controller 'Dashboards'.
+2025-01-16 15:00:02.254 +03:30 [DBG] View lookup cache miss for view '_CommonMasterLayout' in controller 'Dashboards'.
+2025-01-16 15:00:02.258 +03:30 [DBG] View lookup cache miss for view 'Sections/_Variables' in controller 'Dashboards'.
+2025-01-16 15:00:02.261 +03:30 [DBG] View lookup cache miss for view 'Sections/_Styles' in controller 'Dashboards'.
+2025-01-16 15:00:02.265 +03:30 [DBG] View lookup cache miss for view 'Sections/_ScriptsIncludes' in controller 'Dashboards'.
+2025-01-16 15:00:02.268 +03:30 [DBG] View lookup cache miss for view 'Sections/_Scripts' in controller 'Dashboards'.
+2025-01-16 15:00:02.273 +03:30 [DBG] Response markup is scheduled to include Browser Link script injection.
+2025-01-16 15:00:02.275 +03:30 [DBG] Response markup is scheduled to include browser refresh script injection.
+2025-01-16 15:00:02.282 +03:30 [INF] Executed ViewResult - view Kpi executed in 265.2643ms.
+2025-01-16 15:00:02.284 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter) in 271.4773ms
+2025-01-16 15:00:02.286 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.DashboardsController.Kpi (AspnetCoreMvcStarter)'
+2025-01-16 15:00:02.289 +03:30 [DBG] Response markup was updated to include Browser Link script injection.
+2025-01-16 15:00:02.291 +03:30 [DBG] Response markup was updated to include browser refresh script injection.
+2025-01-16 15:00:02.294 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/Dashboards/Kpi - 200 null text/html; charset=utf-8 318.5647ms
+2025-01-16 15:00:02.295 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-16 15:00:02.296 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/_vs/browserLink - null null
+2025-01-16 15:00:02.306 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 10.6242ms
+2025-01-16 15:00:02.321 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/_vs/browserLink - 200 null text/javascript; charset=UTF-8 24.7427ms
+2025-01-16 15:00:02.640 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetUnderwritingByYear - application/json null
+2025-01-16 15:00:02.643 +03:30 [DBG] The request path /api/CfApi/GetUnderwritingByYear does not match a supported file type
+2025-01-16 15:00:02.646 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetUnderwritingByYear'
+2025-01-16 15:00:02.649 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetUnderwritingByYear' is valid for the request path '/api/CfApi/GetUnderwritingByYear'
+2025-01-16 15:00:02.651 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 15:00:02.652 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 15:00:02.653 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 15:00:02.658 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountBystatus - application/json null
+2025-01-16 15:00:02.658 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountByMonth - application/json null
+2025-01-16 15:00:02.662 +03:30 [DBG] The request path /api/CfApi/GetProjectCountBystatus does not match a supported file type
+2025-01-16 15:00:02.662 +03:30 [INF] Route matched with {action = "GetUnderwritingByYear", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUnderwritingByYear() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 15:00:02.667 +03:30 [DBG] The request path /api/CfApi/GetProjectCountByMonth does not match a supported file type
+2025-01-16 15:00:02.670 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 15:00:02.671 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetProjectCountBystatus'
+2025-01-16 15:00:02.671 +03:30 [DBG] 1 candidate(s) found for the request path '/api/CfApi/GetProjectCountByMonth'
+2025-01-16 15:00:02.674 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 15:00:02.676 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetProjectCountBystatus' is valid for the request path '/api/CfApi/GetProjectCountBystatus'
+2025-01-16 15:00:02.679 +03:30 [DBG] Endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)' with route pattern 'api/CfApi/GetProjectCountByMonth' is valid for the request path '/api/CfApi/GetProjectCountByMonth'
+2025-01-16 15:00:02.681 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 15:00:02.684 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 15:00:02.685 +03:30 [DBG] Request matched endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 15:00:02.687 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 15:00:02.688 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 15:00:02.689 +03:30 [DBG] Static files was skipped as the request already matched an endpoint.
+2025-01-16 15:00:02.691 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 15:00:02.692 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 15:00:02.696 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 15:00:02.693 +03:30 [INF] Executing endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 15:00:02.697 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7230/json/logistics-dashboard.json?_=1737027002343 - null null
+2025-01-16 15:00:02.699 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 15:00:02.701 +03:30 [INF] Route matched with {action = "GetProjectCountBystatus", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProjectCountBystatus() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 15:00:02.705 +03:30 [INF] Sending file. Request path: '/json/logistics-dashboard.json'. Physical path: 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\wwwroot\json\logistics-dashboard.json'
+2025-01-16 15:00:02.707 +03:30 [INF] Route matched with {action = "GetProjectCountByMonth", controller = "CfApi"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProjectCountByMonth() on controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter).
+2025-01-16 15:00:03.746 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 15:00:03.747 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 15:00:03.749 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/json/logistics-dashboard.json?_=1737027002343 - 200 6258 application/json 1052.6679ms
+2025-01-16 15:00:03.753 +03:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-01-16 15:00:03.754 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 15:00:03.757 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 15:00:03.764 +03:30 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-01-16 15:00:03.767 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 15:00:03.768 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 15:00:03.771 +03:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-01-16 15:00:03.773 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 15:00:03.774 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 15:00:03.777 +03:30 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-01-16 15:00:03.779 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 15:00:03.780 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 15:00:03.782 +03:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-01-16 15:00:03.785 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 15:00:03.786 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[AspnetCoreMvcStarter.Models.CrowdFunding.ChartData, AspnetCoreMvcStarter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-16 15:00:03.789 +03:30 [DBG] Executing controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 15:00:03.792 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 15:00:03.795 +03:30 [DBG] Executed controller factory for controller AspnetCoreMvcStarter.Controllers.CfApiController (AspnetCoreMvcStarter)
+2025-01-16 15:00:03.796 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter) in 1100.2862ms
+2025-01-16 15:00:03.797 +03:30 [DBG] Entity Framework Core 8.0.0 initialized 'AspnetCoreMvcStarterContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.0' with options: None
+2025-01-16 15:00:03.799 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 15:00:03.801 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetUnderwritingByYear (AspnetCoreMvcStarter)'
+2025-01-16 15:00:03.805 +03:30 [DBG] Creating DbConnection.
+2025-01-16 15:00:03.808 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 15:00:03.811 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetUnderwritingByYear - 200 null application/json; charset=utf-8 1170.5829ms
+2025-01-16 15:00:03.812 +03:30 [DBG] Created DbConnection. (6ms).
+2025-01-16 15:00:03.813 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 15:00:03.822 +03:30 [DBG] Opening connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:03.823 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 15:00:03.827 +03:30 [DBG] Opened connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:03.828 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 15:00:03.831 +03:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-01-16 15:00:03.834 +03:30 [INF] Executing OkObjectResult, writing value of type 'AspnetCoreMvcStarter.Models.CrowdFunding.ShipmentStatistics'.
+2025-01-16 15:00:03.836 +03:30 [DBG] Created DbCommand for 'ExecuteReader' (4ms).
+2025-01-16 15:00:03.840 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter) in 50.781ms
+2025-01-16 15:00:03.841 +03:30 [DBG] Initialized DbCommand for 'ExecuteReader' (10ms).
+2025-01-16 15:00:03.847 +03:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."ApprovedByBroker", "d"."FundingApprovedByFarabourse", "d"."FundingFinished", "d"."OtherApprovedByBroker", "d"."OtherFundingApprovedByFarabourse", "d"."OtherFundingFinished", "d"."OtherStarted", "d"."Started"
+FROM "DashboardData" AS "d"
+LIMIT 1
+2025-01-16 15:00:03.844 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountByMonth (AspnetCoreMvcStarter)'
+2025-01-16 15:00:03.849 +03:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."ApprovedByBroker", "d"."FundingApprovedByFarabourse", "d"."FundingFinished", "d"."OtherApprovedByBroker", "d"."OtherFundingApprovedByFarabourse", "d"."OtherFundingFinished", "d"."OtherStarted", "d"."Started"
+FROM "DashboardData" AS "d"
+LIMIT 1
+2025-01-16 15:00:03.850 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountByMonth - 200 null application/json; charset=utf-8 1192.4907ms
+2025-01-16 15:00:03.852 +03:30 [DBG] Context 'AspnetCoreMvcStarterContext' started tracking 'DashboardData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-01-16 15:00:03.856 +03:30 [DBG] Closing data reader to 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:03.859 +03:30 [DBG] A data reader for 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db' is being disposed after spending 6ms reading results.
+2025-01-16 15:00:03.861 +03:30 [DBG] Closing connection to database 'main' on server 'D:\Github\vuexy\ASP.NET - MVC\Farsi\10.0.0.3\AspnetCoreMvcStarter\AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:03.863 +03:30 [DBG] Closed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 15:00:03.866 +03:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-01-16 15:00:03.868 +03:30 [DBG] No information found on request to perform content negotiation.
+2025-01-16 15:00:03.869 +03:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-01-16 15:00:03.871 +03:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-01-16 15:00:03.872 +03:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-01-16 15:00:03.873 +03:30 [INF] Executing OkObjectResult, writing value of type 'AspnetCoreMvcStarter.Models.CrowdFunding.DashboardData'.
+2025-01-16 15:00:03.876 +03:30 [INF] Executed action AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter) in 91.2123ms
+2025-01-16 15:00:03.877 +03:30 [INF] Executed endpoint 'AspnetCoreMvcStarter.Controllers.CfApiController.GetProjectCountBystatus (AspnetCoreMvcStarter)'
+2025-01-16 15:00:03.878 +03:30 [DBG] 'AspnetCoreMvcStarterContext' disposed.
+2025-01-16 15:00:03.879 +03:30 [DBG] Disposing connection to database 'main' on server 'AspnetCoreMvcStarterContext.db'.
+2025-01-16 15:00:03.880 +03:30 [DBG] Disposed connection to database 'main' on server 'AspnetCoreMvcStarterContext.db' (1ms).
+2025-01-16 15:00:03.882 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7230/api/CfApi/GetProjectCountBystatus - 200 null application/json; charset=utf-8 1224.6792ms
