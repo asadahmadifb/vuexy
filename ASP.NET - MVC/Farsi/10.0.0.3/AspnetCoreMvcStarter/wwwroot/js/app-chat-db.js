@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         // بلاک کردن صفحه
         $('#card-block').block({
           message: '<div class="d-flex justify-content-center"><p class="mb-0">منتظر بمانید...</p> <div class="sk-wave m-0"><div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div></div> </div>',
-          timeout: 1000,
+          //timeout: 1000,
           css: {
             backgroundColor: 'transparent',
             color: '#fff',
@@ -328,7 +328,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                     </div>
                 `;
               chatHistory.appendChild(aiMessageElement);
-              location.reload(); // ریفرش صفحه
+              // اسکرول به پایین
+              scrollToBottom();
+              $('#card-block').unblock();
+              //location.reload(); // ریفرش صفحه
 
             },
             error: function (xhr, status, error) {
@@ -345,14 +348,15 @@ document.addEventListener('DOMContentLoaded', async function () {
                         </div>
                     </div>
                 `;
-              chatHistory.appendChild(errorElement);            }
+              chatHistory.appendChild(errorElement);        // اسکرول به پایین
+              scrollToBottom();
+              $('#card-block').unblock();
+}
           });
 
        // پاک کردن تکس باکس
         messageInput.value = '';
-        // اسکرول به پایین
-        scrollToBottom();
-        $('#card-block').unblock();
+
 
       }
     }

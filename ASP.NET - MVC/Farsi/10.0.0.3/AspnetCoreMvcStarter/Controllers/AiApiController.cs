@@ -73,6 +73,7 @@ namespace AspnetCoreMvcStarter.Controllers
 
       var openAiService = new OpenAiService();
       string tableStructure = Contents.GettableStructure("vw_Projects");
+      //string tableStructure = Contents.GettableStructure("Projectinfo");
       string answer = await openAiService.GetSqlQueryFromOpenAi(messageContent.Content ?? "", tableStructure);
       answer = answer.Substring(6);
       answer = answer.Substring(0, answer.Length - 4);

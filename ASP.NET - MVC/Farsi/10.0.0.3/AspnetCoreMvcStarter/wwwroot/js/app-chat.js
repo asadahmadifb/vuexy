@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // بلاک کردن صفحه
         $('#card-block').block({
           message: '<div class="d-flex justify-content-center"><p class="mb-0">منتظر بمانید...</p> <div class="sk-wave m-0"><div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div></div> </div>',
-          timeout: 1000,
+          //timeout: 1000,
           css: {
             backgroundColor: 'transparent',
             color: '#fff',

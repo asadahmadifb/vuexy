@@ -11,6 +11,44 @@ namespace AspnetCoreMvcStarter.Content
 
             switch (tablename)
 			{
+        case "Projectinfo":
+          tableStructure = @"CREATE TABLE [dbo].[ProjectInfo](
+	          [ID] [int] NOT NULL,
+	          [PersianName] [nvarchar](256) NOT NULL,
+	          [TotalPrice] [bigint] NOT NULL,
+	          [CrowdFundingType] [nvarchar](10) NULL,
+	          [ProjectStatus] [nvarchar](56) NULL,
+	          [UnderwritingApprovedStartDate] [datetime] NOT NULL,
+	          [UnderwritingDuration] [int] NOT NULL,
+	          [Name] [nvarchar](200) NOT NULL,
+	          [PlatformUrl] [nvarchar](256) NOT NULL,
+	          [BrokerName] [nvarchar](512) NULL,
+	          [PersianSubject] [nvarchar](max) NULL,
+	          [CompanyName] [nvarchar](200) NOT NULL,
+	          [PersianApprovedSymbol] [nvarchar](8) NULL,
+	          [IndustryGroupDescription] [nvarchar](256) NOT NULL,
+	          [SubIndustryGroupDescription] [nvarchar](256) NULL,
+	          [MinimumRequiredPrice] [bigint] NOT NULL,
+	          [RealPersonMinimumAvailablePrice] [bigint] NOT NULL,
+	          [RealPersonMaximumAvailablePrice] [bigint] NOT NULL,
+	          [LegalPersonMinimumAvailablePrice] [bigint] NOT NULL,
+	          [LegalPersonMaximumAvailablePrice] [bigint] NOT NULL,
+	          [UnderwritingStartDate] [datetime] NOT NULL,
+	          [UnderwritingEndDate] [datetime] NOT NULL,
+	          [ProjectStartDate] [datetime] NOT NULL,
+	          [ProjectEndDate] [datetime] NOT NULL,
+	          [CompanyUnitCounts] [int] NOT NULL,
+	          [CommissionIfb] [bigint] NOT NULL,
+	          [CommissionAgent] [bigint] NOT NULL,
+	          [GuaranteeType] [int] NULL,
+	          [CompanyNationalID] [bigint] NOT NULL,
+	          [RegistrationNumber] [nvarchar](20) NOT NULL,
+	          [RegistrationDate] [datetime] NOT NULL,
+	          [EconomicID] [nvarchar](16) NULL,
+	          [CompanyType] [int] NOT NULL,
+	          [PostalCode] [nchar](10) NOT NULL
+          ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]";
+          break;
 				case "vw_Projects":
 					tableStructure = @"CREATE TABLE [Projects](
 						[ProjectID] [int] NOT NULL,

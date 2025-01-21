@@ -28,7 +28,7 @@ function createChatContactList(items) {
       function getColumnClass(numColumns) {
         if (numColumns >= 4) return 'col-12';
         if (numColumns === 3) return 'col-lg-6 col-md-12 col-x-12';
-        if (numColumns === 2) return 'col-lg-4 col-md-6 col-x-12';
+        if (numColumns === 2) return 'col-lg-6 col-md-6 col-x-12';
         if (numColumns === 1) return 'col-sm-6 col-lg-3 ';
       }
       // برای هر آیتم در آرایه items، یک کارت جدید ایجاد کنید
@@ -77,9 +77,11 @@ function createChatContactList(items) {
                             <i class="ti ti-truck ti-md"></i>
                           </span>
                         </div>
-		                    <h4 class="ms-1 mb-0" id="OtherStartedValue">${tableRows}</h4>
+                          <p class="mb-1">${item.question}</p>
+
                       </div>
-		                  <p class="mb-1">${item.question}</p>
+                      		<h4 class="ms-1 mb-0" id="OtherStartedValue">${tableRows}</h4>
+
                       </div>
                   </div>
               </div>

@@ -104,8 +104,6 @@ $(async function () {
 
     calculateTotal();
   }
-
-
   function calculateTotalAmountsale() {
     const total = dt_sale.column(3).data().reduce((a, b) => {
       // تبدیل مقادیر به عدد
@@ -142,9 +140,6 @@ $(async function () {
 
     $('#total-all').text((totalSum * totalSumpay).toLocaleString() ); // نمایش با فرمت مناسب
   }
-
- 
-
 
   const connection = new signalR.HubConnectionBuilder()
     .withUrl("/orderHub")
@@ -240,6 +235,7 @@ $(async function () {
 
       // شروع فراخوانی سرویس هر 100 میلی‌ثانیه (10 بار در ثانیه)
       intervalId = setInterval(insertOrder, 100);
+    //  location.reload();
     } else { // اگر تایمر فعال است
       // توقف فراخوانی
       clearInterval(intervalId);
@@ -247,7 +243,7 @@ $(async function () {
       // تغییر متن دکمه به حالت اولیه
       $(this).find('span').text('سفارشات اتوماتیک');
       $(this).addClass('btn-primary').removeClass('btn-danger');
-
+      location.reload();
     }
   });
 
