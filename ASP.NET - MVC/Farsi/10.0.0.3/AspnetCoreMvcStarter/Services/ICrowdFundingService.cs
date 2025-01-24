@@ -12,5 +12,8 @@ namespace AspnetCoreMvcStarter.Services
       public Task<List<UnderwritingByYear>> GetUnderwritingByYear();
       public Task<List<ProjectView>> GetListAllOfProjects();
       public Task<List<dynamic>> GetDataFromCF(string query);
+      public Task<List<ProjectStatusCount>> GetProjectCountBystatus();
+      public Task<List<ProjectFinancingSummary>> GetProjectFinancingSummary();
+    
   }
 }

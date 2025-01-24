@@ -5,65 +5,380 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', async function () {
+
+  let labelColor, legendColor, borderColor, headingColor;
+  if (isDarkStyle) {
+    labelColor = config.colors_dark.textMuted;
+    legendColor = config.colors_dark.bodyColor;
+    borderColor = config.colors_dark.borderColor;
+    headingColor = config.colors_dark.headingColor;
+
+  } else {
+    labelColor = config.colors.textMuted;
+    legendColor = config.colors.bodyColor;
+    borderColor = config.colors.borderColor;
+    headingColor = config.colors.headingColor;
+
+  }
+
   $.ajax({
-    url: '/api/CfApi/GetProjectCountBystatus', // آدرس سرویس شما
+    url: '/api/CfApi/GetProjectFinancingSummary', // آدرس سرویس شما
     method: 'GET',
     contentType: 'application/json',
-    success:async function (response) {
+    success: async function (response) {
       console.log(response);
-      const data =response; // تبدیل پاسخ به JSON
-      // نمایش مقادیر در عناصر مربوطه
-      document.getElementById('StartedValue').textContent = data.started; // نمایش عدد در عنصر bdi
-      document.getElementById('OtherStartedValue').textContent = data.otherStarted; // نمایش عدد در عنصر bdi
-      document.getElementById('FundingFinishedValue').textContent = '+' + data.fundingFinished; // نمایش عدد در عنصر bdi
-      document.getElementById('OtherFundingFinishedValue').textContent = data.otherFundingFinished; // نمایش عدد در عنصر bdi
-      document.getElementById('ApprovedByBrokerValue').textContent = '+' + data.approvedByBroker; // نمایش عدد در عنصر bdi
-      document.getElementById('OtherApprovedByBrokerValue').textContent = data.otherApprovedByBroker; // نمایش عدد در عنصر bdi
-      document.getElementById('FundingApprovedByFarabourseValue').textContent = '+' + data.fundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
-      document.getElementById('OtherFundingApprovedByFarabourseValue').textContent = data.otherFundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
+      const data = response; // تبدیل پاسخ به JSON
+      var htmlContent = '';
+      // رنگ‌ها و آیکون‌ها برای هر رکورد
+      const cardStyles = [
+        { color: 'bg-label-primary', icon: 'ti ti-truck' },
+        { color: 'bg-label-success', icon: 'ti ti-wallet' },
+        { color: 'bg-label-warning', icon: 'ti ti-pulse' },
+        { color: 'bg-label-danger', icon: 'ti ti-alert-triangle' }
+      ];
+      // ایجاد HTML برای هر رکورد
+      data.forEach(function (item, index) {
+        const style = cardStyles[index % cardStyles.length]; // انتخاب رنگ و آیکون بر اساس اندیس
+          
+        htmlContent += `
+                <div class="col-sm-6 col-lg-3 mb-4">
+                    <div class="card card-border-shadow-${style.color}">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2 pb-1">
+                                <div class="avatar me-2">
+                                    <span class="avatar-initial rounded ${style.color}">
+                                        <i class="ti ti-truck ti-md"></i>
+                                    </span>
+                                </div>
+                                <h4 class="ms-1 mb-0">سال ${item.year}</h4>
+                            </div>
+                            <p class="mb-1">
+                                تعداد طرح‌ها
+                                <span id="totalProjects">${item.totalProjects}</span>
+                            </p>
+                            <p class="mb-0">
+                                <small class="text-muted">
+                                    مبلغ سرمایه گذاری
+                                </small>
+                                <span class="fw-medium me-1">
+                                    <bdi id="totalInvestmentAmount">${item.totalInvestmentAmount.toLocaleString()}</bdi>
+                                </span>
+                            </p>
+                            <p class="mb-0">
+                                <small class="text-muted">
+                                    تعداد سرمایه گذاری
+                                </small>
+                                <span class="fw-medium me-1">
+                                    <bdi id="totalInvestments">${item.totalInvestments}</bdi>
+                                </span>
+                            </p>
+                            <p class="mb-0">
+                                <small class="text-muted">
+                                    تعداد سرمایه گذاران یونیک
+                                </small>
+                                <span class="fw-medium me-1">
+                                    <bdi id="uniqueInvestors">${item.uniqueInvestors}</bdi>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>`;
+      });
 
+      // قرار دادن HTML در div مربوطه
+      $('#your-container-id').html(htmlContent);
 
-      document.getElementById('StartedValue1').textContent = data.Started; // نمایش عدد در عنصر bdi
-      document.getElementById('FundingFinishedValue1').textContent = data.FundingFinished; // نمایش عدد در عنصر bdi
-      document.getElementById('ApprovedByBrokerValue1').textContent = data.ApprovedByBroker; // نمایش عدد در عنصر bdi
-      document.getElementById('FundingApprovedByFarabourseValue1').textContent = data.FundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
-
-
-      document.getElementById('OtherStartedValue1').textContent = data.otherStarted; // نمایش عدد در عنصر bdi
-      document.getElementById('OtherFundingFinishedValue1').textContent = data.otherFundingFinished; // نمایش عدد در عنصر bdi
-      document.getElementById('OtherApprovedByBrokerValue1').textContent = data.otherApprovedByBroker; // نمایش عدد در عنصر bdi
-      document.getElementById('OtherFundingApprovedByFarabourseValue1').textContent = data.otherFundingApprovedByFarabourse; // نمایش عدد در عنصر bdi
-
-      var maxvalue = data.otherStarted + data.otherFundingFinished + data.otherApprovedByBroker + data.otherFundingApprovedByFarabourse;
-      updateProgressBar('StartedProgress', data.otherStarted, maxvalue);
-      updateProgressBar('OtherStartedProgress', data.otherFundingFinished, maxvalue);
-      updateProgressBar('FundingFinishedProgress', data.otherApprovedByBroker, maxvalue);
-      updateProgressBar('OtherFundingFinishedProgress', data.otherFundingApprovedByFarabourse, maxvalue);
     },
     error: function (xhr, status, error) {
       console.log("Error fetching data:", error);
     }
   });
-  // تابع به‌روزرسانی نوار پیشرفت
-  function updateProgressBar(elementId, value, maxvalue) {
-    const percentValue = 100 *value/maxvalue; // چون مجموع برابر با 100 است، مقدار را به عنوان درصد استفاده می‌کنیم
 
-    const progressBar = document.getElementById(elementId);
-    if (progressBar) {
-      progressBar.style.width = percentValue + '%'; // تنظیم عرض نوار پیشرفت
-      progressBar.setAttribute('aria-valuenow', percentValue); // تنظیم مقدار aria
-      progressBar.textContent = percentValue.toFixed(1) + '%'; // نمایش مقدار به صورت درصد با یک رقم اعشار
+  $.ajax({
 
+    url: '/api/CfApi/GetProjectStatusCounts', // آدرس سرویس شما
+    method: 'GET',
+    contentType: 'application/json',
+    success: async function (response) {
+      console.log(response);
+      const data = response; // تبدیل پاسخ به JSON
+      // فرض بر این است که داده‌ها به صورت آرایه‌ای از اشیاء برگشت داده می‌شوند
+      var totalProjects = 0; // تعداد کل پروژه‌ها
+      var projectStatusHtml = '';
+      // رنگ‌ها و آیکون‌ها
+      const badges = [
+        { color: 'bg-label-success', icon: 'ti ti-mail' },
+        { color: 'bg-label-danger', icon: 'ti ti-mail' },
+        { color: 'bg-label-warning', icon: 'ti ti-exclamation-circle' },
+        { color: 'bg-label-info', icon: 'ti ti-mail' },
+        { color: 'bg-label-primary', icon: 'ti ti-check' },
+        { color: 'bg-label-secondary', icon: 'ti ti-star' }
+      ];
+      // محاسبه تعداد کل پروژه‌ها
+      data.forEach(function (item) {
+        totalProjects += item.projectCount;
+      });
+      projectStatusHtml += `
+                <div class="col-xl-6 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="card-title mb-0">
+                                <h5 class="mb-0">وضعیت طرح‌های تامین مالی</h5>
+                                <small class="text-muted">${totalProjects.toLocaleString()} تعداد کل طرح‌ها</small>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <ul class="p-0 m-0">
+                            `;
+      // ایجاد HTML برای هر وضعیت
+      data.forEach(function (item) {
+        // انتخاب رنگ و آیکون به صورت دورانی
+        const randomIndex = Math.floor(Math.random() * badges.length);
+        const badge = badges[randomIndex];
+
+        // نوار پیشرفت جدید
+        // نوار پیشرفت جدید
+        const progressBar =
+          '<div class="progress" style="height: 8px; width: 100%; margin-right: 10px;">' +
+          '<div class="progress-bar" role="progressbar" style="width:' +
+          item.percentage +
+          '%;" aria-valuenow="' +
+          item.percentage +
+          '" aria-valuemin="0" aria-valuemax="100"></div>' +
+          '</div>';
+
+        projectStatusHtml += `
+                                  <li class="mb-1 pb-1 d-flex align-items-center" style="flex-wrap: nowrap;">
+                                    <div class="badge ${badge.color} rounded p-2"><i class="${badge.icon} ti-sm"></i></div>
+                                    <h6 class="mb-0 ms-3 text-truncate" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.projectStatus}</h6>
+                                    <div class="ms-auto d-flex align-items-center" style="flex-shrink: 0;">
+                                        <p class="mb-0 fw-medium ms-3">${item.projectCount.toLocaleString()}</p>
+                                        <p class="ms-3 text-success mb-0">${item.percentage}%</p>
+                                    </div>
+                                </li>
+
+                           `;
+      });
+      projectStatusHtml += `
+                            </ul >
+                        </div >
+                    </div >
+                </div >`;
+      // قرار دادن HTML در div مربوطه
+      $('#project-status-container').html(projectStatusHtml);
+    },
+    error: function (xhr, status, error) {
+      console.log("Error fetching data:", error);
+    }
+  });
+
+  $.ajax({
+    url: '/api/CfApi/GetUnderwritingByYear', // آدرس سرویس شما
+    method: 'GET',
+    contentType: 'application/json',
+    success: function (response) {
+      console.log(response);
+      const data = JSON.stringify(response); // تبدیل پاسخ به JSON
+      // نمایش پاسخ هوش مصنوعی
+      createChatContactList(data);
+    },
+    error: function (xhr, status, error) {
+      console.error('خطا در ساخت داشبورد هوشمند:', error);
+    }
+  });
+  function createChatContactList(data2) {
+
+    //const earningReportsChart = JSON.parse(data);
+    const earningReportsChart = JSON.parse(data2);
+
+    // Earning Reports Tabs Orders
+    // --------------------------------------------------------------------
+    const earningReportsTabsOrdersEl = document.querySelector('#earningReportsTabsOrders'),
+      earningReportsTabsOrdersConfig = EarningReportsBarChart(
+        earningReportsChart[0].chart_data,
+        earningReportsChart[0].active_option
+      );
+    if (typeof earningReportsTabsOrdersEl !== undefined && earningReportsTabsOrdersEl !== null) {
+      const earningReportsTabsOrders = new ApexCharts(earningReportsTabsOrdersEl, earningReportsTabsOrdersConfig);
+      earningReportsTabsOrders.render();
+    }
+    // Earning Reports Tabs Sales
+    // --------------------------------------------------------------------
+    const earningReportsTabsSalesEl = document.querySelector('#earningReportsTabsSales'),
+      earningReportsTabsSalesConfig = EarningReportsBarChart(
+        earningReportsChart[1].chart_data,
+        earningReportsChart[1].active_option
+      );
+    if (typeof earningReportsTabsSalesEl !== undefined && earningReportsTabsSalesEl !== null) {
+      const earningReportsTabsSales = new ApexCharts(earningReportsTabsSalesEl, earningReportsTabsSalesConfig);
+      earningReportsTabsSales.render();
+    }
+    // Earning Reports Tabs Profit
+    // --------------------------------------------------------------------
+    const earningReportsTabsProfitEl = document.querySelector('#earningReportsTabsProfit'),
+      earningReportsTabsProfitConfig = EarningReportsBarChart(
+        earningReportsChart[2].chart_data,
+        earningReportsChart[2].active_option
+      );
+    if (typeof earningReportsTabsProfitEl !== undefined && earningReportsTabsProfitEl !== null) {
+      const earningReportsTabsProfit = new ApexCharts(earningReportsTabsProfitEl, earningReportsTabsProfitConfig);
+      earningReportsTabsProfit.render();
+    }
+    // Earning Reports Tabs Income
+    // --------------------------------------------------------------------
+    const earningReportsTabsIncomeEl = document.querySelector('#earningReportsTabsIncome'),
+      earningReportsTabsIncomeConfig = EarningReportsBarChart(
+        earningReportsChart[3].chart_data,
+        earningReportsChart[3].active_option
+      );
+    if (typeof earningReportsTabsIncomeEl !== undefined && earningReportsTabsIncomeEl !== null) {
+      const earningReportsTabsIncome = new ApexCharts(earningReportsTabsIncomeEl, earningReportsTabsIncomeConfig);
+      earningReportsTabsIncome.render();
     }
   }
-  let labelColor, headingColor;
 
-  if (isDarkStyle) {
-    labelColor = config.colors_dark.textMuted;
-    headingColor = config.colors_dark.headingColor;
-  } else {
-    labelColor = config.colors.textMuted;
-    headingColor = config.colors.headingColor;
+  function EarningReportsBarChart(arrayData, highlightData) {
+    const basicColor = config.colors_label.primary,
+      highlightColor = config.colors.primary;
+    var colorArr = [];
+
+    for (let i = 0; i < arrayData.length; i++) {
+      if (i === highlightData) {
+        colorArr.push(highlightColor);
+      } else {
+        colorArr.push(basicColor);
+      }
+    }
+
+    const earningReportBarChartOpt = {
+      chart: {
+        height: 258,
+        parentHeightOffset: 0,
+        type: 'bar',
+        toolbar: {
+          show: false
+        }
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: '32%',
+          startingShape: 'rounded',
+          borderRadius: 7,
+          distributed: true,
+          dataLabels: {
+            position: 'top'
+          }
+        }
+      },
+      grid: {
+        show: false,
+        padding: {
+          top: 0,
+          bottom: 0,
+          left: -10,
+          right: -10
+        }
+      },
+      colors: colorArr,
+      dataLabels: {
+        enabled: true,
+        formatter: function (val) {
+          return val + '';
+        },
+        offsetY: -20,
+        style: {
+          fontSize: '15px',
+          colors: [legendColor],
+          fontWeight: '500',
+          fontFamily: 'font-primary'
+        }
+      },
+      series: [
+        {
+          data: arrayData
+        }
+      ],
+      legend: {
+        show: false
+      },
+      tooltip: {
+        enabled: false
+      },
+      xaxis: {
+        categories: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'],
+        axisBorder: {
+          show: true,
+          color: borderColor
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+          style: {
+            colors: labelColor,
+            fontSize: '13px',
+            fontFamily: 'font-primary'
+          }
+        }
+      },
+      yaxis: {
+        labels: {
+          offsetX: -15,
+          formatter: function (val) {
+            return parseInt(val / 1) + '';
+          },
+          style: {
+            fontSize: '13px',
+            colors: labelColor,
+            fontFamily: 'font-primary'
+          },
+          min: 0,
+          max: 60000,
+          tickAmount: 6
+        }
+      },
+      responsive: [
+        {
+          breakpoint: 1441,
+          options: {
+            plotOptions: {
+              bar: {
+                columnWidth: '41%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 590,
+          options: {
+            plotOptions: {
+              bar: {
+                columnWidth: '61%',
+                borderRadius: 5
+              }
+            },
+            yaxis: {
+              labels: {
+                show: false
+              }
+            },
+            grid: {
+              padding: {
+                right: 0,
+                left: -20
+              }
+            },
+            dataLabels: {
+              style: {
+                fontSize: '12px',
+                fontWeight: '400'
+              }
+            }
+          }
+        }
+      ]
+    };
+    return earningReportBarChartOpt;
   }
 
   // Chart Colors
@@ -94,12 +409,12 @@ document.addEventListener('DOMContentLoaded', async function () {
         shipmentConfig = {
           series: [
             {
-              name: 'سرمایه مورد نیاز',
+              name: 'میزان سرمایه گذاری شده',
               type: 'column',
               data: shipmentData.requiredCapital
             },
             {
-              name: 'میزان سرمایه گذاری شده',
+              name: 'تعداد پروژه ها',
               type: 'line',
               data: shipmentData.investedCapital
             }
@@ -173,7 +488,7 @@ document.addEventListener('DOMContentLoaded', async function () {
           },
           xaxis: {
             tickAmount: 10,
-            categories: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی'],
+            categories: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی','بهمن','اسفند'],
             labels: {
               style: {
                 colors: labelColor,
@@ -181,18 +496,18 @@ document.addEventListener('DOMContentLoaded', async function () {
                 fontFamily: 'font-primary',
                 fontWeight: 400
               }
-            },
-            axisBorder: {
+            },   
+            axisBorder: { 
               show: false
             },
             axisTicks: {
               show: false
             }
-          },
+          }, 
           yaxis: {
             tickAmount: 4,
-            min: 10,
-            max: 50,
+            //min: 1000000000000,
+            //max: 2262390059000 ,
             labels: {
               style: {
                 colors: labelColor,
@@ -201,7 +516,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 fontWeight: 400
               },
               formatter: function (val) {
-                return val + '%';
+                return val ;
               }
             }
           },
@@ -251,7 +566,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                   }
                 }
               }
-            },
+            }, 
             {
               breakpoint: 480,
               options: {
@@ -389,184 +704,4 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 // DataTable (jquery)
 // --------------------------------------------------------------------
-$(function () {
 
-  // Variable declaration for table
-  var dt_dashboard_table = $('.dt-route-vehicles');
-
-  // On route vehicles DataTable
-  if (dt_dashboard_table.length) {
-    var dt_dashboard = dt_dashboard_table.DataTable({
-      ajax: assetsPath + 'json/logistics-dashboard.json',
-      columns: [
-        { data: 'id' },
-        { data: 'id' },
-        { data: 'location' },
-        { data: 'start_city' },
-        { data: 'end_city' },
-        { data: 'warnings' },
-        { data: 'progress' }
-      ],
-      columnDefs: [
-        {
-          // For Responsive
-          className: 'control',
-          orderable: false,
-          searchable: false,
-          responsivePriority: 2,
-          targets: 0,
-          render: function (data, type, full, meta) {
-            return '';
-          }
-        },
-        {
-          // For Checkboxes
-          targets: 1,
-          orderable: false,
-          searchable: false,
-          checkboxes: true,
-          responsivePriority: 3,
-          render: function () {
-            return '<input type="checkbox" class="dt-checkboxes form-check-input">';
-          },
-          checkboxes: {
-            selectAllRender: '<input type="checkbox" class="form-check-input">'
-          }
-        },
-        //{
-        //  // Icon and location
-        //  targets: 2,
-        //  responsivePriority: 1,
-        //  render: function (data, type, full, meta) {
-        //    var $location = full['location'];
-        //    // Creates full output for row
-        //    var $row_output =
-        //      '<div class="d-flex justify-content-start align-items-center user-name">' +
-        //      '<div class="avatar-wrapper">' +
-        //      '<div class="avatar me-2">' +
-        //      '<span class="avatar-initial rounded-circle bg-label-secondary text-body mt-auto mb-auto"><i class="ti ti-truck" style="display: contents"></i></span>' +
-        //      '</div>' +
-        //      '</div>' +
-        //      '<div class="d-flex flex-column">' +
-        //      '<a class="text-body fw-medium" href="/Logistics/Fleet">VOL-' +
-        //      $location +
-        //      '</a>' +
-        //      '</div>' +
-        //      '</div>';
-        //    return $row_output;
-        //  }
-        //},
-        {
-          // starting route
-          targets: 3,
-          render: function (data, type, full, meta) {
-            var $start_city = full['start_city'],
-              $start_country = full['start_country'];
-            //var $row_output = '<div class="text-body">' + $start_country + ', ' + $start_city + '</div >';
-            var $row_output = '<div class="text-body">' + $start_city + '</div >';
-
-            return $row_output;
-          }
-        },
-        {
-          // ending route
-          targets: 4,
-          render: function (data, type, full, meta) {
-            var $end_city = full['end_city'],
-              $end_country = full['end_country'];
-            //var $row_output = '<div class="text-body">' + $end_country + ', ' + $end_city + '</div >';
-            var $row_output = '<div class="text-body">' + $end_city + '</div >';
-
-            return $row_output;
-          }
-        },
-        {
-          // warnings
-          targets: -2,
-          render: function (data, type, full, meta) {
-            var $status_number = full['warnings'];
-            var $status = {
-              0: { title: 'اولین طرح', class: 'bg-label-info' },
-              1: { title: 'بدون ایراد', class: 'bg-label-success' },
-              2: {
-                title: 'پایان دوره',
-                class: 'bg-label-warning'
-              },
-              3: { title: 'مشکل فنی', class: 'bg-label-danger' },
-              4: { title: 'مشکل نکول', class: 'bg-label-info' },
-              5: { title: 'انقضای مجوز', class: 'bg-label-primary' }
-            };
-            if (typeof $status[$status_number] === 'undefined') {
-              return data;
-            }
-            return (
-              '<span class="badge rounded ' +
-              $status[$status_number].class +
-              '">' +
-              $status[$status_number].title +
-              '</span>'
-            );
-          }
-        },
-        {
-          // progress
-          targets: -1,
-          render: function (data, type, full, meta) {
-            var $progress = full['progress'];
-            var $progress_output =
-              '<div class="d-flex align-items-center">' +
-              '<div div class="progress w-100" style="height: 8px;">' +
-              '<div class="progress-bar" role="progressbar" style="width:' +
-              $progress +
-              '%;" aria-valuenow="' +
-              $progress +
-              '" aria-valuemin="0" aria-valuemax="100"></div>' +
-              '</div>' +
-              '<div class="text-body ms-3">' +
-              $progress +
-              '%</div>' +
-              '</div>';
-            return $progress_output;
-          }
-        }
-      ],
-      order: [2, 'asc'],
-      dom: '<"table-responsive"t><"row d-flex align-items-center"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
-      displayLength: 5,
-      responsive: {
-        details: {
-          display: $.fn.dataTable.Responsive.display.modal({
-            header: function (row) {
-              var data = row.data();
-              return 'جزئیات ' + data['location'];
-            }
-          }),
-          type: 'column',
-          renderer: function (api, rowIdx, columns) {
-            var data = $.map(columns, function (col, i) {
-              return col.title !== '' // ? Do not show row in modal popup if title is blank (for check box)
-                ? '<tr data-dt-row="' +
-                col.rowIndex +
-                '" data-dt-column="' +
-                col.columnIndex +
-                '">' +
-                '<td>' +
-                col.title +
-                ':' +
-                '</td> ' +
-                '<td>' +
-                col.data +
-                '</td>' +
-                '</tr>'
-                : '';
-            }).join('');
-
-            return data ? $('<table class="table"/><tbody />').append(data) : false;
-          }
-        }
-      }
-    });
-    $('.dataTables_info').addClass('pt-0');
-  }
-  
-});

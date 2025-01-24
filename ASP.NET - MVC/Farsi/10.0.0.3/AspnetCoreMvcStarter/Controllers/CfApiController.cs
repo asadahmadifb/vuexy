@@ -22,11 +22,26 @@ namespace AspnetCoreMvcStarter.Controllers
       _context = context;
     }
 
+
+    [HttpGet("GetProjectStatusCounts")]
+    public async Task<IActionResult> GetProjectStatusCountsAsync()
+    {
+      var data = await _CrowdFundingService.GetProjectCountBystatus();
+      return Ok(data);
+    }
+
+
+    [HttpGet("GetProjectFinancingSummary")]
+    public async Task<IActionResult> GetProjectFinancingSummaryAsync()
+    {
+      var data = await _CrowdFundingService.GetProjectFinancingSummary();
+      return Ok(data);
+    }
+
     [HttpGet("GetProjectCountBystatus")]
     public async Task<IActionResult> GetProjectCountBystatus()
     {
       var data = await _context.DashboardData.FirstOrDefaultAsync();
-
       return Ok(data);
     }
 
@@ -34,11 +49,25 @@ namespace AspnetCoreMvcStarter.Controllers
     [HttpGet("GetProjectCountByMonth")]
     public async Task<IActionResult> GetProjectCountByMonth()
     {
+      var projectsnew = await _CrowdFundingService.GetUnderwritingByYear();
+      var year1403=projectsnew.Where(it => it.Year == 1403).ToList();
+      // ایجاد آرایه‌ای برای ذخیره مقادیر TotalPrice برای هر ماه
+      var monthlyTotalPrices = new long[12]; // 12 ماه
+      var monthlyTotalProject = new int[12]; // 12 ماه
+
+      // جمع‌آوری TotalPrice برای هر ماه
+      foreach (var project in year1403)
+      {
+        double x = (double)project.TotalPrice / 1000000000;
+        double res = Math.Round(x, 1);
+        monthlyTotalPrices[project.Month - 1] += (long)res;  // ماه‌ها از 1 تا 12 هستند، بنابراین باید 1 را از آن کم کنیم
+        monthlyTotalProject[project.Month - 1] += project.ProjectCount;
+      }
       // ساخت داده‌ها
       var model = new ShipmentStatistics
       {
-        RequiredCapital = new[] { 95, 45, 33, 38, 32, 50, 48, 95, 42, 37 },
-        InvestedCapital = new[] { 23, 28, 23, 32, 28, 44, 32, 38, 26, 34 }
+        RequiredCapital = monthlyTotalPrices,
+        InvestedCapital = monthlyTotalProject
       };
       return Ok(model);
     }
