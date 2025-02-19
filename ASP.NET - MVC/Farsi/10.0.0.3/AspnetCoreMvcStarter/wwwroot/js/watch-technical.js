@@ -3,6 +3,8 @@
  */
 
 'use strict';
+let scatterChart; // متغیر برای نگه‌داشتن مرجع به نمودار
+
 
 document.addEventListener('DOMContentLoaded', async function () {
 
@@ -68,8 +70,22 @@ function updateChart(insCode) {
           const data = response; // تبدیل پاسخ به JSON
           // استخراج مقادیر dEven و diff برای سری تقسیم سود
           const ShareChangeData = data.map(item => [item.dEven, item.diff]);
-          // حالا می‌توانیم نمودار را با داده‌های جدید رسم کنیم
-          createScatterChart(dividendData, ShareChangeData);
+          // اگر نمودار قبلاً ایجاد شده است، داده‌ها را به‌روزرسانی کنید
+          if (scatterChart) {
+            scatterChart.updateSeries([
+              {
+                name: 'افزایش سرمایه',
+                data: ShareChangeData
+              },
+              {
+                name: 'تقسیم سود',
+                data: dividendData
+              }
+            ]);
+          } else {
+            // اگر نمودار هنوز ایجاد نشده است، آن را ایجاد کنید
+            createScatterChart(dividendData, ShareChangeData);
+          }
         },
         error: function (xhr, status, error) {
           console.error('خطا در ساخت داشبورد هوشمند:', error);
@@ -152,7 +168,7 @@ function createScatterChart(dividendData, ShareChangeData) {
           useSeriesColors: false
         }
       },
-      colors: [config.colors.warning, config.colors.primary],
+      colors: [config.colors.primary, config.colors.warning],
       series: [
         {
           name: 'افزایش سرمایه',
@@ -172,20 +188,21 @@ function createScatterChart(dividendData, ShareChangeData) {
         axisTicks: {
           show: false
         },
-        //tooltip: {
-        //  enabled: true,
-        //  style: {
-        //    fontSize: '12px', // اندازه متن
-        //    background: '#fff', // رنگ پس‌زمینه
-        //  },
-        //  onDatasetHover: {
-        //    highlightDataSeries: true // هایلایت کردن سری داده
-        //  },
-        //  formatter: function (val, { series, seriesIndex, dataPointIndex, w }) {
-        //    const symbolName = "data.symbolName"; // نام نماد
-        //    return `${symbolName}: ${val}`; // ترکیب نام نماد و مقدار
-        //  }
-        //},
+        tooltip: {
+          enabled: true,
+          style: {
+            fontSize: '12px', // اندازه متن
+            background: '#fff', // رنگ پس‌زمینه
+          },
+          onDatasetHover: {
+            highlightDataSeries: true // هایلایت کردن سری داده
+          },
+          formatter: function (val, { series, seriesIndex, dataPointIndex, w }) {
+            const symbolName = w.globals.seriesNames[seriesIndex]; // نام نماد از سری‌ها
+            const shamsiDate = convertToShamsi(val); // تبدیل تاریخ میلادی به شمسی
+            return `<p>${symbolName}: ${shamsiDate}</p>`; // ترکیب نام نماد و تاریخ شمسی
+          }
+        },
         labels: {
           formatter: function (val) {
             return parseFloat(val).toFixed(0);
@@ -205,28 +222,28 @@ function createScatterChart(dividendData, ShareChangeData) {
         }
       }
     };
-  if (typeof scatterChartEl !== undefined && scatterChartEl !== null) {
-    const scatterChart = new ApexCharts(scatterChartEl, scatterChartConfig);
+  if (scatterChartEl) {
+    scatterChart = new ApexCharts(scatterChartEl, scatterChartConfig);
     scatterChart.render();
   }
   // تابع برای تبدیل تاریخ میلادی به شمسی
-function convertToShamsi(miladiDate) {
-  const year = parseInt(miladiDate.toString().substring(0, 4), 10);
-  const month = parseInt(miladiDate.toString().substring(4, 6), 10);
-  const day = parseInt(miladiDate.toString().substring(6, 8), 10);
+  function convertToShamsi(miladiDate) {
+    const year = parseInt(miladiDate.toString().substring(0, 4), 10);
+    const month = parseInt(miladiDate.toString().substring(4, 6), 10);
+    const day = parseInt(miladiDate.toString().substring(6, 8), 10);
 
-  // استفاده از PersianCalendar برای تبدیل به شمسی
-  const persianCalendar = new Intl.DateTimeFormat('fa-IR', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  });
+    // استفاده از PersianCalendar برای تبدیل به شمسی
+    const persianCalendar = new Intl.DateTimeFormat('fa-IR', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    });
 
-  const miladiDateObj = new Date(year, month - 1, day); // ماه‌ها در جاوا اسکریپت از 0 شروع می‌شوند
-  const [shamsiYear, shamsiMonth, shamsiDay] = persianCalendar.format(miladiDateObj).split('/');
+    const miladiDateObj = new Date(year, month - 1, day); // ماه‌ها در جاوا اسکریپت از 0 شروع می‌شوند
+    const [shamsiYear, shamsiMonth, shamsiDay] = persianCalendar.format(miladiDateObj).split('/');
 
-  return `${shamsiYear}/${shamsiMonth}/${shamsiDay}`;
-}
+    return `${shamsiYear}/${shamsiMonth}/${shamsiDay}`;
+  }
   // Candlestick Chart
   // --------------------------------------------------------------------
   const candlestickEl = document.querySelector('#candleStickChart'),
