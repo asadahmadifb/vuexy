@@ -172,20 +172,20 @@ function createScatterChart(dividendData, ShareChangeData) {
         axisTicks: {
           show: false
         },
-        tooltip: {
-          enabled: true,
-          style: {
-            fontSize: '12px', // اندازه متن
-            background: '#fff', // رنگ پس‌زمینه
-          },
-          onDatasetHover: {
-            highlightDataSeries: true // هایلایت کردن سری داده
-          },
-          formatter: function (val, { series, seriesIndex, dataPointIndex, w }) {
-            const symbolName = "data.symbolName"; // نام نماد
-            return `${symbolName}: ${val}`; // ترکیب نام نماد و مقدار
-          }
-        },
+        //tooltip: {
+        //  enabled: true,
+        //  style: {
+        //    fontSize: '12px', // اندازه متن
+        //    background: '#fff', // رنگ پس‌زمینه
+        //  },
+        //  onDatasetHover: {
+        //    highlightDataSeries: true // هایلایت کردن سری داده
+        //  },
+        //  formatter: function (val, { series, seriesIndex, dataPointIndex, w }) {
+        //    const symbolName = "data.symbolName"; // نام نماد
+        //    return `${symbolName}: ${val}`; // ترکیب نام نماد و مقدار
+        //  }
+        //},
         labels: {
           formatter: function (val) {
             return parseFloat(val).toFixed(0);
