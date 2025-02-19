@@ -15,6 +15,7 @@ builder.Services.AddDbContext<AspnetCoreMvcStarterContext>(options =>
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<ICrowdFundingService, CrowdFundingService>();
+builder.Services.AddScoped<ITsetmcService, TsetmcService>();
 builder.Services.AddScoped<OpenAiService>(); // ثبت OpenAiService
 // Add services to the container.
 builder.Services.AddControllersWithViews();
