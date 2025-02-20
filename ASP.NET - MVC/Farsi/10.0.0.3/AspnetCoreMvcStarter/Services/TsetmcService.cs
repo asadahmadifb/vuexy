@@ -31,7 +31,7 @@ namespace AspnetCoreMvcStarter.Services
           PriceYesterday=it.PriceYesterday,
           DEven=it.DEven,
           PersianDate = $"{new PersianCalendar().GetYear(new DateTime(int.Parse(it.DEven.ToString().Substring(0, 4)), int.Parse(it.DEven.ToString().Substring(4, 2)), int.Parse(it.DEven.ToString().Substring(6, 2))))}/{new PersianCalendar().GetMonth(new DateTime(int.Parse(it.DEven.ToString().Substring(0, 4)), int.Parse(it.DEven.ToString().Substring(4, 2)), int.Parse(it.DEven.ToString().Substring(6, 2)))):D2}/{new PersianCalendar().GetDayOfMonth(new DateTime(int.Parse(it.DEven.ToString().Substring(0, 4)), int.Parse(it.DEven.ToString().Substring(4, 2)), int.Parse(it.DEven.ToString().Substring(6, 2)))):D2}"
-        }).ToList();
+        }).OrderBy(it=>it.DEven).ToList();
       }
       catch (Exception ex)
       {

@@ -4,11 +4,9 @@
 
 'use strict';
 let scatterChart; // متغیر برای نگه‌داشتن مرجع به نمودار
-
+let candlestickChart; // متغیر برای نگه‌داشتن مرجع به نمودار کندل استیک
 
 document.addEventListener('DOMContentLoaded', async function () {
-
-
   // بارگذاری اولیه داده‌ها
   loadSelectOptions();
 
@@ -17,11 +15,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     const selectedInsCode = $(this).val(); // گرفتن insCode انتخاب شده
     if (selectedInsCode) {
       updateChart(selectedInsCode); // به‌روزرسانی نمودار
+      loadCandlestickData(selectedInsCode); // بارگذاری داده‌های کندل استیک
     }
   });
-
 });
-
 
 // تابع برای بارگذاری گزینه‌ها در select
 function loadSelectOptions() {
@@ -34,7 +31,7 @@ function loadSelectOptions() {
 
       response.forEach(item => {
         $('#select2Basic').append(
-          $('<option></option>').val(item.insCode).text(item.symbolName + '( ' + item.lVal30 +' )')
+          $('<option></option>').val(item.insCode).text(item.symbolName + '( ' + item.lVal30 + ' )')
         );
       });
 
@@ -49,7 +46,6 @@ function loadSelectOptions() {
     }
   });
 }
-
 
 function updateChart(insCode) {
   $.ajax({
@@ -98,6 +94,127 @@ function updateChart(insCode) {
   });
 }
 
+// تابع برای بارگذاری داده‌های کندل استیک
+function loadCandlestickData(insCode) {
+  $.ajax({
+    url: '/api/TsetmcApi/GetClosingPriceDailyList?insCode=' + insCode, // آدرس سرویس شما
+    method: 'GET',
+    contentType: 'application/json',
+    success: function (response) {
+      console.log(response);
+      // فرض می‌کنیم DEven به صورت YYYYMMDD است
+      const candlestickData = response
+        .map(item => {
+          const year = parseInt(item.dEven.toString().substring(0, 4), 10);
+          const month = parseInt(item.dEven.toString().substring(4, 6), 10) - 1; // ماه‌ها در جاوا اسکریپت از 0 شروع می‌شوند
+          const day = parseInt(item.dEven.toString().substring(6, 8), 10);
+          return {
+            x: new Date(year, month, day), // تبدیل به تاریخ
+            y: [item.open, item.high, item.low, item.close]
+          };
+        })
+        .filter(item => {
+          const [open, high, low, close] = item.y;
+          return open !== 0 && high !== 0 && low !== 0 && close !== 0; // حذف کندل‌هایی که هر کدام صفر هستند
+        });
+
+      // رسم نمودار کندل استیک
+      renderCandlestickChart(candlestickData);
+
+    },
+    error: function (xhr, status, error) {
+      console.error('خطا در بارگذاری داده‌های کندل استیک:', error);
+    }
+  });
+}
+
+// تابع برای رسم نمودار کندل استیک
+function renderCandlestickChart(candlestickData) {
+  const candlestickEl = document.querySelector('#candleStickChart'),
+    candlestickChartConfig = {
+      chart: {
+        height: 410,
+        type: 'candlestick',
+        parentHeightOffset: 0,
+        toolbar: {
+          show: true 
+        },
+        zoom: {
+          enabled: true // فعال کردن زوم
+        }
+      },
+      series: [
+        {
+          data: candlestickData // استفاده از داده‌های بارگذاری‌شده
+        }
+      ],
+      xaxis: {
+        tickAmount: 10,
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+            formatter: function (val) {
+              const date = new Date(val);
+              const year = date.getFullYear();
+              const month = String(date.getMonth() + 1).padStart(2, '0'); // به دست آوردن ماه با صفر جلو
+              const day = String(date.getDate()).padStart(2, '0'); // به دست آوردن روز با صفر جلو
+              return `${year}${month}${day}`; // فرمت YYYYMMDD
+            },
+          style: {
+            colors: 'black', // رنگ برچسب‌ها
+            fontSize: '13px'
+          }
+        }
+      },
+      yaxis: {
+        tooltip: {
+          enabled: true
+        },
+        labels: {
+          style: {
+            colors: 'black', // رنگ برچسب‌های محور y
+            fontSize: '13px'
+          }
+        }
+      },
+      grid: {
+        borderColor: '#e0e0e0', // رنگ مرز شبکه
+        xaxis: {
+          lines: {
+            show: true
+          }
+        },
+        padding: {
+          top: -20
+        }
+      },
+      plotOptions: {
+        candlestick: {
+          colors: {
+            upward: '#00b746', // رنگ شمع‌های صعودی
+            downward: '#ff0000' // رنگ شمع‌های نزولی
+          }
+        },
+        bar: {
+          columnWidth: '40%'
+        }
+      }
+    };
+
+  if (candlestickEl) {
+    // اگر چارت قبلاً وجود دارد، آن را حذف کنید
+    if (candlestickChart) {
+      candlestickChart.destroy();
+    }
+    candlestickChart = new ApexCharts(candlestickEl, candlestickChartConfig);
+    candlestickChart.render();
+  }
+}
+
 function createScatterChart(dividendData, ShareChangeData) {
   let cardColor, headingColor, labelColor, borderColor, legendColor;
 
@@ -114,26 +231,6 @@ function createScatterChart(dividendData, ShareChangeData) {
     legendColor = config.colors.bodyColor;
     borderColor = config.colors.borderColor;
   }
-
-  // Color constant
-  const chartColors = {
-    column: {
-      series1: '#826af9',
-      series2: '#d2b0ff',
-      bg: '#f8d3ff'
-    },
-    donut: {
-      series1: '#fee802',
-      series2: '#3fd0bd',
-      series3: '#826bf8',
-      series4: '#2b9bf4'
-    },
-    area: {
-      series1: '#29dac7',
-      series2: '#60f2ca',
-      series3: '#a5f8cd'
-    }
-  };
 
   // Scatter Chart
   // --------------------------------------------------------------------
@@ -175,10 +272,9 @@ function createScatterChart(dividendData, ShareChangeData) {
           data: ShareChangeData
         },
         {
-          name: '‌تقسیم سود',
-          data: dividendData 
+          name: 'تقسیم سود',
+          data: dividendData
         },
-      
       ],
       xaxis: {
         tickAmount: 10,
@@ -222,154 +318,28 @@ function createScatterChart(dividendData, ShareChangeData) {
         }
       }
     };
+
   if (scatterChartEl) {
     scatterChart = new ApexCharts(scatterChartEl, scatterChartConfig);
     scatterChart.render();
   }
-  // تابع برای تبدیل تاریخ میلادی به شمسی
-  function convertToShamsi(miladiDate) {
-    const year = parseInt(miladiDate.toString().substring(0, 4), 10);
-    const month = parseInt(miladiDate.toString().substring(4, 6), 10);
-    const day = parseInt(miladiDate.toString().substring(6, 8), 10);
+}
 
-    // استفاده از PersianCalendar برای تبدیل به شمسی
-    const persianCalendar = new Intl.DateTimeFormat('fa-IR', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    });
+// تابع برای تبدیل تاریخ میلادی به شمسی
+function convertToShamsi(miladiDate) {
+  const year = parseInt(miladiDate.toString().substring(0, 4), 10);
+  const month = parseInt(miladiDate.toString().substring(4, 6), 10);
+  const day = parseInt(miladiDate.toString().substring(6, 8), 10);
 
-    const miladiDateObj = new Date(year, month - 1, day); // ماه‌ها در جاوا اسکریپت از 0 شروع می‌شوند
-    const [shamsiYear, shamsiMonth, shamsiDay] = persianCalendar.format(miladiDateObj).split('/');
+  // استفاده از PersianCalendar برای تبدیل به شمسی
+  const persianCalendar = new Intl.DateTimeFormat('fa-IR', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
 
-    return `${shamsiYear}/${shamsiMonth}/${shamsiDay}`;
-  }
-  // Candlestick Chart
-  // --------------------------------------------------------------------
-  const candlestickEl = document.querySelector('#candleStickChart'),
-    candlestickChartConfig = {
-      chart: {
-        height: 410,
-        type: 'candlestick',
-        parentHeightOffset: 0,
-        toolbar: {
-          show: false
-        }
-      },
-      series: [
-        {
-          data: [
-            {
-              x: new Date(1538778600000),
-              y: [150, 170, 50, 100]
-            },
-            {
-              x: new Date(1538780400000),
-              y: [200, 400, 170, 330]
-            },
-            {
-              x: new Date(1538782200000),
-              y: [330, 340, 250, 280]
-            },
-            {
-              x: new Date(1538784000000),
-              y: [300, 330, 200, 320]
-            },
-            {
-              x: new Date(1538785800000),
-              y: [320, 450, 280, 350]
-            },
-            {
-              x: new Date(1538787600000),
-              y: [300, 350, 80, 250]
-            },
-            {
-              x: new Date(1538789400000),
-              y: [200, 330, 170, 300]
-            },
-            {
-              x: new Date(1538791200000),
-              y: [200, 220, 70, 130]
-            },
-            {
-              x: new Date(1538793000000),
-              y: [220, 270, 180, 250]
-            },
-            {
-              x: new Date(1538794800000),
-              y: [200, 250, 80, 100]
-            },
-            {
-              x: new Date(1538796600000),
-              y: [150, 170, 50, 120]
-            },
-            {
-              x: new Date(1538798400000),
-              y: [110, 450, 10, 420]
-            },
-            {
-              x: new Date(1538800200000),
-              y: [400, 480, 300, 320]
-            },
-            {
-              x: new Date(1538802000000),
-              y: [380, 480, 350, 450]
-            }
-          ]
-        }
-      ],
-      xaxis: {
-        type: 'datetime',
-        axisBorder: {
-          show: false
-        },
-        axisTicks: {
-          show: false
-        },
-        labels: {
-          style: {
-            colors: labelColor,
-            fontSize: '13px'
-          }
-        }
-      },
-      yaxis: {
-        tooltip: {
-          enabled: true
-        },
-        labels: {
-          style: {
-            colors: labelColor,
-            fontSize: '13px'
-          }
-        }
-      },
-      grid: {
-        borderColor: borderColor,
-        xaxis: {
-          lines: {
-            show: true
-          }
-        },
-        padding: {
-          top: -20
-        }
-      },
-      plotOptions: {
-        candlestick: {
-          colors: {
-            upward: config.colors.success,
-            downward: config.colors.danger
-          }
-        },
-        bar: {
-          columnWidth: '40%'
-        }
-      }
-    };
-  if (typeof candlestickEl !== undefined && candlestickEl !== null) {
-    const candlestickChart = new ApexCharts(candlestickEl, candlestickChartConfig);
-    candlestickChart.render();
-  }
+  const miladiDateObj = new Date(year, month - 1, day); // ماه‌ها در جاوا اسکریپت از 0 شروع می‌شوند
+  const [shamsiYear, shamsiMonth, shamsiDay] = persianCalendar.format(miladiDateObj).split('/');
 
+  return `${shamsiYear}/${shamsiMonth}/${shamsiDay}`;
 }
