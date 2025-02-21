@@ -108,23 +108,23 @@ function loadCandlestickData(insCode, dividendDates, shareChangeDates) {
     success: function (response) {
       console.log(response);
       // فرض می‌کنیم DEven به صورت YYYYMMDD است
-      const candlestickData = response
-        .map(item => {
-          const year = parseInt(item.dEven.toString().substring(0, 4), 10);
-          const month = parseInt(item.dEven.toString().substring(4, 6), 10) - 1; // ماه‌ها در جاوا اسکریپت از 0 شروع می‌شوند
-          const day = parseInt(item.dEven.toString().substring(6, 8), 10);
-          return {
-            x: new Date(year, month, day), // تبدیل به تاریخ
-            y: [item.open, item.high, item.low, item.close]
-          };
-        })
-        .filter(item => {
-          const [open, high, low, close] = item.y;
-          return open !== 0 && high !== 0 && low !== 0 && close !== 0; // حذف کندل‌هایی که هر کدام صفر هستند
-        });
+      //const candlestickData = response
+      //  .map(item => {
+      //    const year = parseInt(item.dEven.toString().substring(0, 4), 10);
+      //    const month = parseInt(item.dEven.toString().substring(4, 6), 10) - 1; // ماه‌ها در جاوا اسکریپت از 0 شروع می‌شوند
+      //    const day = parseInt(item.dEven.toString().substring(6, 8), 10);
+      //    return {
+      //      x: new Date(year, month, day), // تبدیل به تاریخ
+      //      y: [item.open, item.high, item.low, item.close]
+      //    };
+      //  })
+      //  .filter(item => {
+      //    const [open, high, low, close] = item.y;
+      //    return open !== 0 && high !== 0 && low !== 0 && close !== 0; // حذف کندل‌هایی که هر کدام صفر هستند
+      //  });
 
-      // رسم نمودار کندل استیک
-      renderCandlestickChart(candlestickData);
+      //// رسم نمودار کندل استیک
+      //renderCandlestickChart(candlestickData);
 
       // فرض کنید که response داده‌هایی است که از سرویس دریافت کرده‌اید
       // تبدیل تاریخ‌ها به فرمت Date و محاسبه تاریخ‌های یک هفته قبل و بعد
@@ -201,12 +201,15 @@ function loadCandlestickData(insCode, dividendDates, shareChangeDates) {
             const day = String(date.getDate()).padStart(2, '0'); // روز با صفر جلو
 
             const formattedDate = `${year}${month}${day}`; // فرمت YYYYMMDD
+            const shamsiDate = convertToShamsinew(date); // استفاده از تابع تبدیل تاریخ
 
-            return `<b>${this.series.name}</b><br/>تاریخ: ${formattedDate}<br/>` +
-              `قیمت باز: ${this.point.open}<br/>` +
-              `قیمت بالا: ${this.point.high}<br/>` +
-              `قیمت پایین: ${this.point.low}<br/>` +
-              `قیمت بسته: ${this.point.close}`;
+
+            return `<b>تاریخ شمسی: ${shamsiDate}</b><br/>تاریخ: ${formattedDate}<br/>` +
+              `O: ${this.point.open}<br/>` +
+              `C: ${this.point.close}<br/>` +
+              `L: ${this.point.low}<br/>` +
+              `H: ${this.point.high}`;
+
           }
         },
         series: [{
@@ -420,6 +423,16 @@ function createScatterChart(dividendData, ShareChangeData) {
     scatterChart = new ApexCharts(scatterChartEl, scatterChartConfig);
     scatterChart.render();
   }
+}
+
+function convertToShamsinew(date) {
+  const shamsiDate = new Intl.DateTimeFormat('fa-IR', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(date);
+
+  return shamsiDate; // خروجی به فرمت YYYY/MM/DD است
 }
 
 // تابع برای تبدیل تاریخ میلادی به شمسی
