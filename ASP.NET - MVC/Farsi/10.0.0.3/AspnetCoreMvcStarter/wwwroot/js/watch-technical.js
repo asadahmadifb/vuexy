@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     const selectedInsCode = $(this).val(); // گرفتن insCode انتخاب شده
     if (selectedInsCode) {
       updateChart(selectedInsCode); // به‌روزرسانی نمودار
-      loadCandlestickData(selectedInsCode); // بارگذاری داده‌های کندل استیک
     }
   });
 });
@@ -57,6 +56,8 @@ function updateChart(insCode) {
       const data = response; // تبدیل پاسخ به JSON
       // استخراج مقادیر dEven و diff برای سری تقسیم سود
       const dividendData = data.map(item => [item.dEven, item.diff]);
+      const dividendDates = data.map(item => item.dEven.toString()); // تاریخ‌های تقسیم سود
+
       $.ajax({
         url: '/api/TsetmcApi/GetInstrumentShareChange?insCode=' + insCode, // آدرس سرویس شما
         method: 'GET',
@@ -66,6 +67,8 @@ function updateChart(insCode) {
           const data = response; // تبدیل پاسخ به JSON
           // استخراج مقادیر dEven و diff برای سری تقسیم سود
           const ShareChangeData = data.map(item => [item.dEven, item.diff]);
+          const shareChangeDates = data.map(item => item.dEven.toString()); // تاریخ‌های افزایش سرمایه
+
           // اگر نمودار قبلاً ایجاد شده است، داده‌ها را به‌روزرسانی کنید
           if (scatterChart) {
             scatterChart.updateSeries([
@@ -82,6 +85,8 @@ function updateChart(insCode) {
             // اگر نمودار هنوز ایجاد نشده است، آن را ایجاد کنید
             createScatterChart(dividendData, ShareChangeData);
           }
+          loadCandlestickData(insCode, dividendDates, shareChangeDates);
+
         },
         error: function (xhr, status, error) {
           console.error('خطا در ساخت داشبورد هوشمند:', error);
@@ -95,7 +100,7 @@ function updateChart(insCode) {
 }
 
 // تابع برای بارگذاری داده‌های کندل استیک
-function loadCandlestickData(insCode) {
+function loadCandlestickData(insCode, dividendDates, shareChangeDates) {
   $.ajax({
     url: '/api/TsetmcApi/GetClosingPriceDailyList?insCode=' + insCode, // آدرس سرویس شما
     method: 'GET',
@@ -120,6 +125,98 @@ function loadCandlestickData(insCode) {
 
       // رسم نمودار کندل استیک
       renderCandlestickChart(candlestickData);
+
+      // فرض کنید که response داده‌هایی است که از سرویس دریافت کرده‌اید
+      // تبدیل تاریخ‌ها به فرمت Date و محاسبه تاریخ‌های یک هفته قبل و بعد
+      const relevantDates = new Set();
+      const oneWeekInMillis = 7 * 24 * 60 * 60 * 1000; // یک هفته به میلی‌ثانیه
+
+      const allEventDates = [...dividendDates, ...shareChangeDates];
+      allEventDates.forEach(dateStr => {
+        const year = parseInt(dateStr.substring(0, 4));
+        const month = parseInt(dateStr.substring(4, 6)) - 1; // ماه‌ها در جاوا اسکریپت از 0 شروع می‌شوند
+        const day = parseInt(dateStr.substring(6, 8));
+        const date = new Date(year, month, day);
+
+        // تاریخ یک هفته قبل و بعد
+        const oneWeekBefore = new Date(date.getTime() - oneWeekInMillis);
+        const oneWeekAfter = new Date(date.getTime() + oneWeekInMillis);
+
+        // اضافه کردن تاریخ‌های مربوط به یک هفته قبل و بعد به مجموعه
+        for (let d = oneWeekBefore; d <= oneWeekAfter; d.setDate(d.getDate() + 1)) {
+          const formattedDate = d.toISOString().split('T')[0].replace(/-/g, ''); // تبدیل به فرمت YYYYMMDD
+          relevantDates.add(formattedDate);
+        }
+      });
+
+      const candlestickData1 = response
+        .map(item => {
+          const year = parseInt(item.dEven.toString().substring(0, 4), 10);
+          const month = parseInt(item.dEven.toString().substring(4, 6), 10) - 1; // ماه‌ها در جاوا اسکریپت از 0 شروع می‌شوند
+          const day = parseInt(item.dEven.toString().substring(6, 8), 10);
+          return [
+            new Date(year, month, day).getTime(), // تبدیل به timestamp
+            item.open,
+            item.high,
+            item.low,
+            item.close,
+            item.dEven // اضافه کردن dEven به آرایه برای استفاده در فیلتر
+
+          ];
+        })
+        .filter(item => {
+          const [timestamp, open, high, low, close, dateStr] = item;
+          return open !== 0 && high !== 0 && low !== 0 && close !== 0 &&
+            relevantDates.has(dateStr.toString());
+        });
+
+      Highcharts.stockChart('candleStickChart1', {
+
+        plotOptions: {
+          candlestick: {
+            color: 'pink',
+            lineColor: 'red',
+            upColor: 'lightgreen',
+            upLineColor: 'green'
+          }
+        },
+
+        rangeSelector: {
+          selected: 1
+        },
+        xAxis: {
+          dateTimeLabelFormats: {
+            day: '%Y%m%d', // فرمت تاریخ برای روز
+            week: '%Y%m%d', // فرمت تاریخ برای هفته
+            month: '%Y%m%d', // فرمت تاریخ برای ماه
+            year: '%Y%m%d' // فرمت تاریخ برای سال
+          }
+        },
+        tooltip: {
+          formatter: function () {
+            // استفاده از this.x برای گرفتن timestamp
+            const date = new Date(this.x); // تبدیل timestamp به تاریخ
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // ماه‌ها از 0 شروع می‌شوند
+            const day = String(date.getDate()).padStart(2, '0'); // روز با صفر جلو
+
+            const formattedDate = `${year}${month}${day}`; // فرمت YYYYMMDD
+
+            return `<b>${this.series.name}</b><br/>تاریخ: ${formattedDate}<br/>` +
+              `قیمت باز: ${this.point.open}<br/>` +
+              `قیمت بالا: ${this.point.high}<br/>` +
+              `قیمت پایین: ${this.point.low}<br/>` +
+              `قیمت بسته: ${this.point.close}`;
+          }
+        },
+        series: [{
+          type: 'candlestick',
+          name: 'نماد',
+          data: candlestickData1
+        }]
+      });
+
+
 
     },
     error: function (xhr, status, error) {

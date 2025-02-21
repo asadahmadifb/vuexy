@@ -37,7 +37,7 @@ namespace AspnetCoreMvcStarter.Controllers
     [HttpGet("GetClosingPriceDailyList")]
     public async Task<IActionResult> GetClosingPriceDailyList(string insCode)
     {
-      var data = await _tsetmcService.GetClosingPricesAsync(insCode, 25);
+      var data = await _tsetmcService.GetClosingPricesAsync(insCode, 2500);
       return Ok(data);
     }
 
